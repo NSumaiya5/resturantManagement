@@ -2,7 +2,9 @@
 
 @section('content')
 
-<main style="height:600px;" class="row d-flex align-items-center w-100 ">
+{{-- main --}}
+
+<main style="height:480px;" class="row d-flex align-items-center w-100 mb-3 ">
     <div class="col-md-5 offset-md-1 ">
         <h1 style="color: #3A4256;"><span style="color: #dd7140;" >Treat Your</span> <br/> Self</h1>
         <p class="text-secondary">Lorem ipsum, dolor sit amet consectetur adipisicing elit. Dolore eveniet necessitatibus et iusto corrupti minima.</p>
@@ -14,16 +16,61 @@
     </div>
 </main>
 
-    <div class="album py-5 bg-light">
-        <div class="container">
 
-            <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-3">
+{{-- gallery view --}}
+
+<div class="album py-5 bg-light">
+    <div class="container">
+
+        <div class="text-center">
+
+            <h2 style="color: #3A4256;" >Visit Food Our Gallery</h2>
+            <h5 style="color: #dd7140;" class="mb-5">Nothing brings people together like good food</h5>
+
+            <div>
+                <a href="{{route('viewMoreGallery')}}">see more</a>
+            </div>
+
+        <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-3 mt-5">
+
+
+@foreach($gallerys as $data)
+
+            <div class="col mt-5">
+                <div class="card shadow-sm h-100" style="height:250px;width:270px;">
+                    <img style="height:250px;width:269px;" src="{{url('/files/photo/'.$data->file)}}"alt="gallery image">
+                    <div class="card-body" >
+                        <p class="card-text">{{$data->name}}</p>
+
+                    </div>
+                </div>
+            </div>
+            @endforeach
+
+
+        </div>
+    </div>
+</div>
+
+
+{{-- Order section --}}
+
+<div class="album py-5 bg-light mt-5">
+    <div class="container">
+
+        <div class="text-center">
+
+            <h2  style="color: #dd7140;">Order Now </h2>
+            <h5 style="color: #3A4256;" class="mb-5">Fell the test</h5>
+
+
+        <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-3 mt-5">
 
 @foreach($foodItems as $data)
 
-                <div class="col">
-                    <div class="card shadow-sm h-100">
-                        <img style="height:300px;"src="{{url('/files/photo/'.$data->file)}}"alt="foodItem image">
+                <div class="col mt-5">
+                    <div class="card shadow-sm h-100" style="height:250px;width:270px;">
+                        <img style="height:250px;width:269px;"src="{{url('/files/photo/'.$data->file)}}"alt="foodItem image">
                         <div class="card-body" >
                             <p class="card-text">{{$data->name}}</p>
                             <p class="card-text">{{$data->description}}</p>
@@ -42,23 +89,30 @@
         </div>
     </div>
 
-    <div class="album py-5 bg-light">
+{{-- staff section --}}
+
+
+    <div class="album py-5 bg-light mt-5">
         <div class="container">
 
             <div class="text-center">
 
                 <h2 style="color: #3A4256;" >Meet Our </h2>
                 <h3 style="color: #dd7140;" class="mb-5">Community</h3>
+                <div>
+                    <a href="{{route('allStaffView')}}"> <i class="fas fa-arrow-right"></i> see more</a>
+                </div>
 
 
             <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-3">
 
 
+
 @foreach($staffs as $data)
 
-                <div class="col">
-                    <div class="card shadow-sm h-100">
-                        <img style="height:300px;"src="{{url('/files/photo/'.$data->file)}}"alt="Staff image">
+                <div class="col mt-5">
+                    <div class="card shadow-sm h-100" style="height:250px;width:270px;">
+                        <img style="height:250px;width:269px;"src="{{url('/files/photo/'.$data->file)}}"alt="Staff image">
                         <div class="card-body" >
                             <p class="card-text">{{$data->name}}</p>
                             <p class="card-text">{{$data->description}}</p>
@@ -71,6 +125,7 @@
             </div>
         </div>
     </div>
+
 
 
 {{--

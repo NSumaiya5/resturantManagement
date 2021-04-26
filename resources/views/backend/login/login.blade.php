@@ -11,7 +11,21 @@
 <body>
 
 
-<form action={{route('authenticate')}} method="POST" class="container mt-5 w-50 p-5 border shadow p-3 mb-5 bg-white rounded-3">
+
+<div class="row" style="padding: 115px;">
+    @if(session()->has('success'))
+        <div class="alert alert-success">
+            {{ session()->get('success') }}
+        </div>
+    @endif
+
+    @if ($errors->any())
+        @foreach ($errors->all() as $error)
+            <div class="alert alert-danger">{{$error}}</div>
+        @endforeach
+    @endif
+
+<form action={{route('admin.doLogin')}} method="POST" class="container mt-5 w-50 p-5 border shadow p-3 mb-5 bg-white rounded-3">
 
 
     @csrf

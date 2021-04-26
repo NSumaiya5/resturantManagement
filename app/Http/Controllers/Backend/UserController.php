@@ -8,14 +8,14 @@ use Illuminate\Support\Facades\Auth;
 
 class UserController extends Controller
 {
-    public function logIn()
+    public function login()
     {
 
         return view('backend.login.login');
     }
 
     //login
-    public function authenticate(Request $request)
+    public function doLogin(Request $request)
     {
 
         $request->validate([
@@ -34,9 +34,15 @@ class UserController extends Controller
                 return redirect()->route('staff');
             }
 
-            // elseif (auth()->user()->role == 'employee') {
-            //     return redirect()->route('employee');
-            // }
+            elseif (auth()->user()->role == 'user') {
+                auth()->logout();
+
+                return back()->withErrors([
+                    'email' => 'Invalid Credentials.'
+                    ]);
+
+
+            }
         }
         return back()->withErrors([
             'email' => 'Invalid Credentials.'
@@ -48,6 +54,6 @@ class UserController extends Controller
     {
         Auth::logout();
 
-        return redirect()->route('login')->with('success', 'Logout Successful.');
+        return redirect()->route('admin.login')->with('success', 'Logout Successful.');
     }
 }

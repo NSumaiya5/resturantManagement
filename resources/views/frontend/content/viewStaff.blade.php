@@ -19,11 +19,11 @@
 @foreach($staffs as $data)
 
                 <div class="col">
-                    <div class="card shadow-sm h-100">
-                        <img style="height:300px;"src="{{url('/files/photo/'.$data->file)}}"alt="Staff image">
+                    <div class="card shadow-sm h-100"style="height:250px;width:270px;">
+                        <img style="height:250px;width:269px;"src="{{url('/files/photo/'.$data->file)}}"alt="Staff image">
                         <div class="card-body" >
                             <p class="card-text">{{$data->name}}</p>
-                            <p class="card-text">{{$data->description}}</p>
+                            <p class="card-text">{{$data->address}}</p>
                             <p class="card-text">{{$data->email}}</p>
 
                         </div>

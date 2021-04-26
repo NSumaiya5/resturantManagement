@@ -7,10 +7,10 @@
             <span style="color:white;" data-feather="user"></span>
             <span style="color:white; margin-right: 30px;">  {{ auth()->user()->name }}</span>
 
-            <a class="btn btn-primary" href="{{ route('logout') }}"> Logout</a>
+            <a class="btn btn-primary" href="{{ route('admin.logout') }}"> Logout</a>
 
         @else
-            <a class="btn btn-success"  href="{{ route('logIn') }}">Login</a>
+            <a class="btn btn-success"  href="{{ route('admin.login') }}">Login</a>
 
         @endauth
 
@@ -55,17 +55,18 @@
           </a>
         </li>
         <li class="nav-item">
+            <a class="nav-link" href={{route('table')}}>
+              <span ></span>
+              Manage Table
+            </a>
+          </li>
+        <li class="nav-item">
           <a class="nav-link" href="#">
             <span ></span>
             Order list
           </a>
         </li>
-        <li class="nav-item">
-            <a class="nav-link" href="#">
-              <span ></span>
-              Manage Table
-            </a>
-          </li>
+
           <li class="nav-item">
             <a class="nav-link" href="#">
               <span ></span>

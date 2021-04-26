@@ -27,7 +27,7 @@
     </div>
      @foreach($staffs as $request)
 
-        <>
+
             <th scope="row">1</th>
             <td><img src="{{url('/files/photo/'.$request->file)}}" style="width:70px; height:60px;" ></td>
             <td>{{$request->name}}</td>
@@ -35,12 +35,12 @@
             <td>{{$request->email}}</td>
             <td>{{$request->contact}}</td>
             <td>{{$request->address}}</td>
-            <td>a</td>
+
             <td>
                 <button type="button" class="btn btn-info text-white">Edit</button>
                 <a class="btn btn-danger" href="{{route('staffDelete', $request->id)}}"> Delete</a>
 
-            </td>
+            </>
         </tr>
         @endforeach
         </tbody>

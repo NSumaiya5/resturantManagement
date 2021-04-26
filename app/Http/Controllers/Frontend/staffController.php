@@ -14,4 +14,5 @@ class staffController extends Controller
 
         return view('frontend.content.viewStaff',compact('staffs'));
     }
+
 }

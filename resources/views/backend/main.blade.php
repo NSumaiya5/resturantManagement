@@ -25,6 +25,8 @@
 <link rel="mask-icon" href="/docs/5.0/assets/img/favicons/safari-pinned-tab.svg" color="#7952b3">
 <link rel="icon" href="/docs/5.0/assets/img/favicons/favicon.ico">
 <meta name="theme-color" content="#7952b3">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+
 
 
     <style>
