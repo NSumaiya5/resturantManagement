@@ -36,11 +36,31 @@
             <td>{{$request->contact}}</td>
             <td>{{$request->address}}</td>
 
-            <td>
+            {{-- <td>
                 <button type="button" class="btn btn-info text-white">Edit</button>
                 <a class="btn btn-danger" href="{{route('staffDelete', $request->id)}}"> Delete</a>
 
-            </>
+            </td> --}}
+
+            <td>
+                <div class="dropdown">
+                    <button class="btn btn-sm btn-light dropdown-toggle" type="button" id="dropdownMenuButton1"
+                        data-bs-toggle="dropdown" aria-expanded="false">
+                        Action
+                    </button>
+                    <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
+
+
+                        <li class="bg-info"><a class="btn" href="">Edit</span></a></li>
+                        <li class="bg-danger"><a class="btn btn-danger" href={{ route('staffDelete', $request['id']) }}>Delete</a></li>
+
+
+
+                    </ul>
+                </div>
+
+
+            </td>
         </tr>
         @endforeach
         </tbody>
@@ -87,12 +107,12 @@
         <div class="modal-body">
             <div class="form-group">
                 <label for="exampleInputName">Name</label>
-                <input name="name" type="text" class="form-control" id="exampleInputName" placeholder="Enter Staff Name">
+                <input name="name" required type="text" class="form-control" id="exampleInputName" placeholder="Enter Staff Name">
 
             </div>
             <div class="form-group">
                 <label for="exampleInputName">Working Area</label>
-                <input name="workingArea" type="text" class="form-control" id="exampleInputName" placeholder="Enter Working Area">
+                <input name="workingArea" required type="text" class="form-control" id="exampleInputName" placeholder="Enter Working Area">
 
                 {{-- <select class="form-select" name="workingArea_id">
                     <option selected>Open this select Area</option>
@@ -106,33 +126,33 @@
                 </select>
             <div class="form-group">
                 <label for="exampleInputEmail1">Email</label>
-                <input name="email" type="email" class="form-control" id="exampleInputEmail1" placeholder="Enter Employee Email Address">
+                <input name="email" required type="email" class="form-control" id="exampleInputEmail1" placeholder="Enter Staff Email Address">
 
             </div>
             <div class="form-group">
                 <label for="exampleInputPhone">Contact No.</label>
-                <input name="contact" type="text" class="form-control" id="exampleInputPhone" placeholder="Enter Employee Phone Number">
+                <input name="contact" required type="text" class="form-control" id="exampleInputPhone" placeholder="Enter Staff Phone Number">
 
             </div>
 
         <div class="form-group">
             <label for="exampleInputAddress">Address</label>
-            <input name="address" type="text" class="form-control" id="exampleInputAddress" placeholder="Enter Employee Address">
+            <input name="address" required type="text" class="form-control" id="exampleInputAddress" placeholder="Enter staff Address">
 
         </div>
             <div class="form-group">
                 <label for="exampleInputPassword">Password</label>
-                <input name="password" type="password" class="form-control" id="exampleInputPassword" placeholder="Enter Employee Password">
+                <input name="password" required type="password" class="form-control" id="exampleInputPassword" placeholder="Enter Staff Password">
 
             </div>
-            <div class="form-group">
+            {{-- <div class="form-group">
                 <label for="exampleInputRePassword">Retype Password</label>
                 <input name="repassword" type="password" class="form-control" id="exampleInputRePassword" placeholder="Enter Employee Password Again">
 
-            </div>
+            </div> --}}
             <div class="form-group">
                 <label for="exampleInputRePicture">Upload Picture</label>
-                <input name="picture" type="file" class="form-control" id="exampleInputRePicture" placeholder="Enter Employee Password Again">
+                <input name="picture" required type="file" class="form-control" id="exampleInputRePicture" placeholder="Enter Employee Password Again">
 
             </div>
 

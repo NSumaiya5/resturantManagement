@@ -19,6 +19,7 @@ class CreateFoodItemsTable extends Migration
             $table->string('name',250);
             $table->text('description');
             $table->float('price');
+            $table->string('status')->default('Published');
             $table->timestamps();
         });
     }

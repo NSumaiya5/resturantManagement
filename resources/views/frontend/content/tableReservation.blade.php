@@ -27,8 +27,18 @@
 
                             <div class="d-flex justify-content-between align-items-center">
                                 <div class="btn-group">
-                                    <button  type="button" class="btn btn-success">Reservation</button>
-                                    {{-- <a href="{{route('product.show',$data->id)}}" class="btn btn-sm btn-warning">View</a> --}}
+
+                                    @if (auth()->user())
+                                    <a class="btn btn-success" href="{{route('tableReservation',$data->id)}}">Reserve</a>
+                                    @else
+                                    <a class="btn btn-success" href="{{route('login.registration.from')}}">Reserve</a>
+
+                                    @endif
+
+                                    {{-- <button  type="button" class="btn btn-success">Reservation</button>
+                                    <a class="btn btn-success" href="{{route('login.registration.from')}}">Reserve</a> --}}
+                                  {{--
+                                    {{-- < href="{{route('product.show',$data->id)}}" class="btn btn-sm btn-warning">View</> --}}
                                 </div>
                                 <small class="text-muted">{{$data->price}} BDT</small>
                             </div>

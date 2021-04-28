@@ -57,6 +57,14 @@ class TableManageController extends Controller
 
        return redirect()->back();
    }
+   public function tableShowHide( $id, $status)
+   {
+       $tables=Table :: find($id);
+       $tables->update(['status'=>$status]);
+
+       return redirect()->back();
+   }
+
 }
 
 

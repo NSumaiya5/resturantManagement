@@ -14,7 +14,8 @@ class HomeController extends Controller
     {
         $gallerys=Gallery::take(3)->get();
 
-        $foodItems=FoodItem::all();
+        $foodItems=FoodItem::where('status','=','Published')->get();
+
 
          $staffs=Staff::take(2)->get();
 

@@ -8,10 +8,11 @@ use Illuminate\Http\Request;
 
 class TableReservationController extends Controller
 {
-    public function tableReservation()
+    public function showTableReservation()
     {
-        $tables=Table::all();
+        $tables=Table::where('status','=','show')->get();
 
+        //   dd($tables);
         return view('frontend.content.tableReservation',compact('tables'));
     }
 

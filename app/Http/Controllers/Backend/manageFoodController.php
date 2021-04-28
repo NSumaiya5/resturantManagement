@@ -59,6 +59,14 @@ class manageFoodController extends Controller
 
        return redirect()->back();
    }
+   public function foodItemUpdate( $id, $status)
+    {
+        $foodItems=FoodItem :: find($id);
+        $foodItems->update(['status'=>$status]);
+
+        return redirect()->back();
+    }
+
 }
 
 

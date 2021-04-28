@@ -26,9 +26,29 @@
             <td><img src="{{url('/files/photo/'.$request->file)}}" style="width:70px; height:60px;" ></td>
             <td>{{$request->name}}</td>
 
-            <td>
+            {{-- <td>
                 <button type="button" class="btn btn-info text-white">Edit</button>
                 <a class="btn btn-danger" href="{{route('galleryDelete', $request->id)}}"> Delete</a>
+
+            </td> --}}
+
+            <td>
+                <div class="dropdown">
+                    <button class="btn btn-sm btn-light dropdown-toggle" type="button" id="dropdownMenuButton1"
+                        data-bs-toggle="dropdown" aria-expanded="false">
+                        Action
+                    </button>
+                    <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
+
+
+                        <li class="bg-info"><a class="btn" href="">Edit</span></a></li>
+                        <li class="bg-danger"><a class="btn btn-danger" href={{ route('galleryDelete', $request['id']) }}>Delete</a></li>
+
+
+
+                    </ul>
+                </div>
+
 
             </td>
         </tr>

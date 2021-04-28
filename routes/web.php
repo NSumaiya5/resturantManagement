@@ -4,12 +4,14 @@ use App\Http\Controllers\Backend\GalleryController;
 use Illuminate\Support\Facades\Route;
 use  App\Http\Controllers\Backend\StaffManageController;
 use App\Http\Controllers\Backend\manageFoodController;
+use App\Http\Controllers\Backend\ReservationController as BackendReservationController;
 use App\Http\Controllers\Backend\TableManageController;
 use App\Http\Controllers\Backend\UserController;
 use App\Http\Controllers\Frontend\HomeController;
 use App\Http\Controllers\Frontend\staffController;
 use App\Http\Controllers\Frontend\TableReservationController;
 use App\Http\Controllers\Frontend\ViewGalleryController;
+use App\Http\Controllers\Frontend\ViewReservationController;
 use App\Http\Controllers\Frontend\ViewUserController;
 
 /*
@@ -41,9 +43,9 @@ Route::get('/viewGallery',[ViewGalleryController::class,'viewGallery'])->name('v
 // see more gallery
 Route::get('/viewMoreGallery',[HomeController::class,'viewMoreGallery'])->name('viewMoreGallery');
 
-// Table Reservation see
-
-Route::get('/tableReservation',[TableReservationController::class,'tableReservation'])->name('tableReservation');
+// Table Reservation see nav
+// problem
+Route::get('/showTableReservation',[TableReservationController::class,'showTableReservation'])->name('showTableReservation');
 
 
 //frontend user login
@@ -52,6 +54,11 @@ Route::get('/login-registration',[ViewUserController::class,'viewLoginRegistrati
 Route::get('/userRegistration',[ViewUserController::class,'userRegistration'])->name('userRegistration');
 Route::get('/goUserLogin',[ViewUserController::class,'goUserLogin'])->name('goUserLogin');
 
+
+// Customer Reservation
+// problem
+Route::get('/view/tableReservation/{id}',[ViewReservationController::class,'tableReservation'])->name('tableReservation');
+Route::post('/reservation/{id}',[ViewReservationController::class,'reservation'])->name('reservation');
 
 
 
@@ -107,11 +114,15 @@ Route::get('/staffDelete/{id}',[StaffManageController::class,'staffDelete'])->na
 
 
 
+
 //FoodItem Route
 
 Route::get('/foodItemManage',[manageFoodController::class,'foodItemManage'])->name('foodItem');
 Route::post('/CreateFoodItemManage',[manageFoodController::class,'foodItemCreate'])->name('foodItemCreate');
 Route::get('/foodItemDelete/{id}',[manageFoodController::class,'foodItemDelete'])->name('foodItemDelete');
+Route::get('/foodItemStatus/{id}/{status}', [manageFoodController::class, 'foodItemUpdate'])->name('foodItemUpdate');
+
+
 
 //Gallery
 Route::get('/galleryManage',[GalleryController::class,'galleryManage'])->name('gallery');
@@ -126,7 +137,12 @@ Route::get('/galleryDelete/{id}',[GalleryController::class,'galleryDelete'])->na
 Route::get('/tableManage',[TableManageController::class,'tableManage'])->name('table');
 Route::post('/tableCreate',[TableManageController::class,'tableCreate'])->name('tableCreate');
 Route::get('/tableDelete/{id}',[TableManageController::class,'tableDelete'])->name('tableDelete');
+Route::get('/tableShowHide/{id}/{status}', [TableManageController::class, 'tableShowHide'])->name('tableShowHide');
 
+
+// reservation table
+
+Route::get('/showReservation',[BackendReservationController::class,'showReservation'])->name('showReservation');
 
 
 });

@@ -68,7 +68,7 @@
         </li>
 
           <li class="nav-item">
-            <a class="nav-link" href="#">
+            <a class="nav-link" href="{{route('showReservation')}}">
               <span ></span>
               Manage Reservation
             </a>

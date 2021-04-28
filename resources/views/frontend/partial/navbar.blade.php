@@ -17,7 +17,7 @@
                     <a class="nav-link text-dark ms-3" href="#">Menu</a>
                   </li>
                   <li class="nav-item">
-                    <a class="nav-link text-dark ms-3" href="{{('tableReservation')}}">Reservation</a>
+                    <a class="nav-link text-dark ms-3" href="{{route('showTableReservation')}}">Reservation</a>
                   </li>
                   <li class="nav-item dropdown">
                       <a class="nav-link dropdown-toggle text-dark ms-3" data-bs-toggle="dropdown" href="#" role="button" aria-expanded="false">About Us</a>

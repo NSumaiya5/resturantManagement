@@ -30,9 +30,36 @@
             <td>{{$request->price}}</td>
 
 
-            <td>
+            {{-- <td>
                 <button type="button" class="btn btn-info text-white">Edit</button>
                 <a class="btn btn-danger" href="{{route('tableDelete', $request->id)}}"> Delete</a>
+
+            </td> --}}
+            <td>
+                <div class="dropdown">
+                    <button class="btn btn-sm btn-light dropdown-toggle" type="button" id="dropdownMenuButton1"
+                        data-bs-toggle="dropdown" aria-expanded="false">
+                        Visibility
+                    </button>
+                    <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
+                        <li>
+                            @if ($request->status == 'show')
+                                <a class="btn" href="{{ route('tableShowHide', ['id' => $request->id, 'status' => 'hide']) }}">Show</a>
+                            @elseif ( $request->status == 'hide')
+                                <a class="btn" href="{{ route('tableShowHide', ['id' => $request->id, 'status' => 'show']) }}">Hide</a>
+                            @else
+                                <a class="btn" href="">None</a>
+                            @endif
+                        </li>
+
+                        <li class="bg-info"><a class="btn" href="">Edit</span></a></li>
+                        <li class="bg-danger"><a class="btn btn-danger" href={{ route('tableDelete', $request['id']) }}>Delete</a></li>
+
+
+
+                    </ul>
+                </div>
+
 
             </td>
         </tr>

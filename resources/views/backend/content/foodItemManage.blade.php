@@ -18,7 +18,7 @@
         <th scope="col">Food Name</th>
         <th scope="col">Description</th>
         <th scope="col">Price</th>
-        <th scope="col">Edit/Delete</th>
+        <th scope="col">Action</th>
       </tr>
     </thead>
     <tbody>
@@ -30,10 +30,37 @@
             <td>{{$request->name}}</td>
             <td>{{$request->description}}</td>
             <td>{{$request->price}}</td>
-
+{{--
             <td>
                 <button type="button" class="btn btn-info text-white">Edit</button>
                 <a class="btn btn-danger" href="{{route('foodItemDelete', $request->id)}}"> Delete</a>
+
+            </td> --}}
+            <td>
+                <div class="dropdown">
+                    <button class="btn btn-sm btn-light dropdown-toggle" type="button" id="dropdownMenuButton1"
+                        data-bs-toggle="dropdown" aria-expanded="false">
+                        Action
+                    </button>
+                    <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
+                        <li>
+                            @if ($request->status == 'Published')
+                                <a class="btn" href="{{ route('foodItemUpdate', ['id' => $request->id, 'status' => 'Unpublished']) }}">Make Unpublished</a>
+                            @elseif ( $request->status == 'Unpublished')
+                                <a class="btn" href="{{ route('foodItemUpdate', ['id' => $request->id, 'status' => 'Published']) }}">Make Published</a>
+                            @else
+                                <a class="btn" href="">None</a>
+                            @endif
+                        </li>
+
+                        <li class="bg-info"><a class="btn" href="">Edit</span></a></li>
+                        <li class="bg-danger"><a class="btn btn-danger" href={{route('foodItemDelete', $request->id)}}>Delete</a></li>
+
+
+
+                    </ul>
+                </div>
+
 
             </td>
         </tr>
