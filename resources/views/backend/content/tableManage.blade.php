@@ -27,14 +27,14 @@
             <th scope="row">1</th>
             <td><img src="{{url('/files/photo/'.$request->file)}}" style="width:70px; height:60px;" ></td>
             <td>{{$request->capacity}}</td>
-            <td>{{$request->price}}</td>
 
 
-            {{-- <td>
+
+            {{-- <>
                 <button type="button" class="btn btn-info text-white">Edit</button>
                 <a class="btn btn-danger" href="{{route('tableDelete', $request->id)}}"> Delete</a>
 
-            </td> --}}
+            </> --}}
             <td>
                 <div class="dropdown">
                     <button class="btn btn-sm btn-light dropdown-toggle" type="button" id="dropdownMenuButton1"
@@ -88,12 +88,12 @@
 
             </div>
 
-            <div class="modal-body">
+            {{-- <div class="modal-body">
                 <div class="form-group">
                     <label for="exampleInputName">Price</label>
                     <input name="price" type="number" class="form-control" id="exampleInputName" placeholder="Enter price">
 
-                </div>
+                </div> --}}
 
 
 

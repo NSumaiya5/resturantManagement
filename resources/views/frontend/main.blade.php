@@ -30,7 +30,7 @@
     <link rel="icon" href="/docs/5.0/assets/img/favicons/favicon.ico">
     <meta name="theme-color" content="#7952b3">
 
-
+    @stack('css')
 
     <style>
         .bd-placeholder-img {

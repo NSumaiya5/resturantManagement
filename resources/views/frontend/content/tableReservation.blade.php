@@ -40,7 +40,6 @@
                                   {{--
                                     {{-- < href="{{route('product.show',$data->id)}}" class="btn btn-sm btn-warning">View</> --}}
                                 </div>
-                                <small class="text-muted">{{$data->price}} BDT</small>
                             </div>
                         </div>
                     </div>

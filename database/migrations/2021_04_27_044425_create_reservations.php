@@ -17,8 +17,8 @@ class CreateReservations extends Migration
             $table->id();
 
             $table->integer('tables_id');
-        //     $table->integer('user_id');
-        //     $table->integer('user_name');
+            $table->integer('user_id');
+            //  $table->integer('user_name');
         //   $table->integer('user_email');
         //     $table->integer('user_phone');
         //     $table->integer('user_address');
@@ -27,8 +27,9 @@ class CreateReservations extends Migration
             $table->Time('reservation_time_to');
         //  $table->dateTime('booking_time_from');
         //  $table->dateTime('booking_time_to');
-            $table->text('details')->nullable();
-            $table->text('reservation_amount')->nullable();
+            $table->text('message')->nullable();
+            // $table->string('status')->default('pending');
+
 
 
             // $table->integer('rate')->nullable();

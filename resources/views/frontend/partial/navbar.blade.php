@@ -31,6 +31,9 @@
                     <li class="nav-item ">
                       <a class="nav-link text-dark ms-3" href="#">Contact Us</a>
                     </li>
+                    <li class="nav-item ">
+                        <a class="nav-link text-dark ms-3" href="{{route('carts')}}">My Cart</a>
+                      </li>
                     @auth
                     <li class="nav-item">
                         <div class="nav-link   text-dark   ">

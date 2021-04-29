@@ -38,8 +38,7 @@ class TableManageController extends Controller
     }
     Table::create([
             'file' => $file_name,
-            'capacity' => $request->capacity,
-            'price'=>$request->price]);
+            'capacity' => $request->capacity]);
 
 
 

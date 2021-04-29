@@ -51,7 +51,7 @@
                     <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
 
 
-                        <li class="bg-info"><a class="btn" href="">Edit</span></a></li>
+                        <li class="bg-info"><a class="btn"  href="{{route('staffEdit', $request->id)}}">Edit</span></a></li>
                         <li class="bg-danger"><a class="btn btn-danger" href={{ route('staffDelete', $request['id']) }}>Delete</a></li>
 
 
@@ -110,18 +110,26 @@
                 <input name="name" required type="text" class="form-control" id="exampleInputName" placeholder="Enter Staff Name">
 
             </div>
-            <div class="form-group">
+
+            {{-- <div class="form-group">
                 <label for="exampleInputName">Working Area</label>
                 <input name="workingArea" required type="text" class="form-control" id="exampleInputName" placeholder="Enter Working Area">
 
-                {{-- <select class="form-select" name="workingArea_id">
-                    <option selected>Open this select Area</option>
-                    @foreach ($workingArea as $request)
-                        <option value="{{ $request->id }}">{{ $request->workingArea }}</option>
-                    @endforeach
-                </select> --}}
+            </div> --}}
 
-            </div>
+          <div class="form-group">
+            <label for="exampleInputName">Working Area</label>
+            <select class="form-select mb-3" type="text" name="workingArea">
+                <option selected>Select workArea type </option>
+                <option >Kitchen Area</option>
+                <option >Serve Area</option>
+                <option >Accounts</option>
+                <option >Security </option>
+                {{-- @foreach ($designations as $request)
+                    <option value="{{ $request->id }}">{{ $request->designation}}</option>
+                @endforeach --}}
+            </select>
+        </div>
 
                 </select>
             <div class="form-group">
@@ -140,11 +148,6 @@
             <input name="address" required type="text" class="form-control" id="exampleInputAddress" placeholder="Enter staff Address">
 
         </div>
-            <div class="form-group">
-                <label for="exampleInputPassword">Password</label>
-                <input name="password" required type="password" class="form-control" id="exampleInputPassword" placeholder="Enter Staff Password">
-
-            </div>
             {{-- <div class="form-group">
                 <label for="exampleInputRePassword">Retype Password</label>
                 <input name="repassword" type="password" class="form-control" id="exampleInputRePassword" placeholder="Enter Employee Password Again">

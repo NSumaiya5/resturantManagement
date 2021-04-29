@@ -10,7 +10,7 @@ class ReservationController extends Controller
 {
     public function showReservation()
     {
-        $reservations = Reservation::with(['table'])->get();
+        $reservations = Reservation::all();
 //        dd($allBooking);
         return view('backend.content.reservationManage',compact('reservations'));
     }

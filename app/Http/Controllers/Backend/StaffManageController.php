@@ -43,8 +43,7 @@ class StaffManageController extends Controller
             'workingArea' => $request->workingArea,
             'email'=>$request->email,
             'contact'=>$request->contact,
-            'address'=>$request->address,
-            'password'=>$request->password]);
+            'address'=>$request->address]);
 
             return redirect()->back();
     }
@@ -59,6 +58,34 @@ class StaffManageController extends Controller
         $staffs->delete();
 
         return redirect()->back();
+    }
+    public function staffEdit($id)
+    {
+
+     $staff = Staff::find($id);
+     // dd($user);
+     return view('backend.content.staffEdit',compact('staff'));
+
+    }
+    public function staffUpdate(Request $request,$id)
+    {
+     // dd($request->all());
+     $staff = Staff::find($id);
+
+
+     $staff->update([
+           'name'=>$request->input('name'),
+           'workingArea'=>$request->input('workingArea'),
+           'email'=>$request->input('email'),
+           'contact'=>$request->input('contact'),
+           'address'=>$request->input('address'),
+
+
+
+
+     ]);
+
+     return redirect()->route('staff')->with('success','Details Updated Successfully');
     }
 
 }

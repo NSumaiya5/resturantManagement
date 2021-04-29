@@ -16,9 +16,13 @@
                  {{-- @dd($tables); --}}
                 <div class="mb-3 ">
                 <input type="hidden" value="{{$tables->id}}" name="tables_id">
-                <label for="">Table Capacity: {{$tables->capacity}}</label>
+                <label for="">Table id: {{$tables->id}}</label>
 
-                <label  class="ms-5" for="">Reservation Price: {{$tables->price}} BDT</label>
+
+                <label class="ms-5 " for="">Table Capacity: {{$tables->capacity}}</label>
+
+
+
 
                 <div class="form-group">
                     <label for="">Date:</label>
@@ -35,7 +39,7 @@
                     <input required name="to_time" type="time" class="form-control">
                 </div>
                 <div class="form-group mt-5">
-                    <label for="">Details:</label>
+                    <label for="">message:</label>
                     <textarea  name="details" id="" class="form-control"></textarea>
                 </div>
 

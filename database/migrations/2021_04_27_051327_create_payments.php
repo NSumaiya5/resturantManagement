@@ -19,6 +19,7 @@ class CreatePayments extends Migration
             $table->integer('reservation_amount');
             $table->integer('payment_method');
             $table->integer('transaction_id');
+
             $table->timestamps();
         });
     }

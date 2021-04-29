@@ -21,7 +21,6 @@ class CreateStaffTable extends Migration
             $table->string('email');
             $table->string('contact');
             $table->string('address');
-            $table->string('password');
             $table->timestamps();
         });
     }

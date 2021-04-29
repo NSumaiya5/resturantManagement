@@ -13,7 +13,7 @@ use App\Http\Controllers\Frontend\TableReservationController;
 use App\Http\Controllers\Frontend\ViewGalleryController;
 use App\Http\Controllers\Frontend\ViewReservationController;
 use App\Http\Controllers\Frontend\ViewUserController;
-
+use App\Http\Controllers\Frontend\CartController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -60,10 +60,9 @@ Route::get('/goUserLogin',[ViewUserController::class,'goUserLogin'])->name('goUs
 Route::get('/view/tableReservation/{id}',[ViewReservationController::class,'tableReservation'])->name('tableReservation');
 Route::post('/reservation/{id}',[ViewReservationController::class,'reservation'])->name('reservation');
 
-
-
-
-
+// Cart
+Route::get('/add-to-cart/{id}',[CartController::class,'addToCart'])->name('addToCart');
+Route::get('carts',[CartController::class,'index'])->name('carts');
 
 Route::group(['prefix'=>'LoginUser'],function (){
 
@@ -109,7 +108,11 @@ Route::get('/staffManage',[StaffManageController::class,'staffManage'])->name('s
 Route::post('/CreateStaffManage',[StaffManageController::class,'staffCreate'])->name('staffCreate');
 Route::get('/staffDelete/{id}',[StaffManageController::class,'staffDelete'])->name('staffDelete');
 
+//AdminPanel.staff Edit
+Route::get('/staffEdit/{id}',[StaffManageController::class,'staffEdit'])->name('staffEdit');
 
+//AdminPanel.staff.Update
+Route::post('/staffUpdate/{id}',[StaffManageController::class,'staffUpdate'])->name('staffUpdate');
 
 
 

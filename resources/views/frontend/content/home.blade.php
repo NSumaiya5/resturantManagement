@@ -76,7 +76,7 @@
                             <p class="card-text">{{$data->description}}</p>
                             <div class="d-flex justify-content-between align-items-center">
                                 <div class="btn-group">
-                                    <button  type="button" class="btn btn-success">Order</button>
+                                    <a href="{{route('addToCart',$data->id)}}"  type="button" class="btn btn-success">Add To Cart</a>
                                     {{-- <a href="{{route('product.show',$data->id)}}" class="btn btn-sm btn-warning">View</a> --}}
                                 </div>
                                 <small class="text-muted">{{$data->price}} BDT</small>
