@@ -14,7 +14,7 @@
                     <a class="nav-link text-dark ms-3" href="{{route('viewGallery')}}">Gallery</a>
                   </li>
                   <li class="nav-item">
-                    <a class="nav-link text-dark ms-3" href="#">Menu</a>
+                    <a class="nav-link text-dark ms-3" href="{{route('foodItemMenu')}}">Menu</a>
                   </li>
                   <li class="nav-item">
                     <a class="nav-link text-dark ms-3" href="{{route('showTableReservation')}}">Reservation</a>
@@ -31,9 +31,19 @@
                     <li class="nav-item ">
                       <a class="nav-link text-dark ms-3" href="#">Contact Us</a>
                     </li>
-                    <li class="nav-item ">
+                    {{-- <li class="nav-item ">
                         <a class="nav-link text-dark ms-3" href="{{route('carts')}}">My Cart</a>
-                      </li>
+                      </li> --}}
+
+
+                      @if (auth()->user())
+                      <li class="nav-item">
+                      <a   class="nav-link text-dark ms-3" href="{{route('carts')}}">My-Cart</a>
+                      @else
+                      <a  class="nav-link text-dark ms-3" href="{{route('sorryMsg')}}">My-Cart</a>
+
+                      @endif
+
                     @auth
                     <li class="nav-item">
                         <div class="nav-link   text-dark   ">

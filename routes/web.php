@@ -14,6 +14,9 @@ use App\Http\Controllers\Frontend\ViewGalleryController;
 use App\Http\Controllers\Frontend\ViewReservationController;
 use App\Http\Controllers\Frontend\ViewUserController;
 use App\Http\Controllers\Frontend\CartController;
+use App\Http\Controllers\Frontend\FoodItemMenuController;
+use App\Http\Controllers\Frontend\OrderController;
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -30,6 +33,16 @@ use App\Http\Controllers\Frontend\CartController;
 // show homepage
 Route::get('/',[HomeController::class,'home'])->name('homepage');
 // Route::get('/homepage',[HomeController::class,'home'])->name('homepage');
+
+// food item menu
+Route::get('/foodItemMenu',[FoodItemMenuController::class,'foodItemMenu'])->name('foodItemMenu');
+// Route::get('/foodItem',[FoodItemMenuController::class,'foodItem'])->name('foodItem');
+
+
+// see more food item menu
+Route::get('/allFoodItemMenu',[HomeController::class,'allFoodItemMenu'])->name('allFoodItemMenu');
+
+
 
 // show staff
 Route::get('/viewStaff',[staffController::class,'viewStaff'])->name('viewStaff');
@@ -63,7 +76,18 @@ Route::post('/reservation/{id}',[ViewReservationController::class,'reservation']
 // Cart
 Route::get('/add-to-cart/{id}',[CartController::class,'addToCart'])->name('addToCart');
 Route::get('carts',[CartController::class,'index'])->name('carts');
+// msg for no chose cart
+Route::get('/sorryMsg',[CartController::class,'sorryMsg'])->name('sorryMsg');
 
+
+// Order Info
+Route::get('/order',[OrderController::class,'order'])->name('order');
+// order confirm
+Route::post('/orderConfirm',[OrderController::class,'orderConfirm'])->name('orderConfirm');
+
+
+
+//user login
 Route::group(['prefix'=>'LoginUser'],function (){
 
 Route::post('/registration',[ViewUserController::class,'registration'])->name('registration');

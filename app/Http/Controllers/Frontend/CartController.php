@@ -21,8 +21,11 @@ class CartController extends Controller
             $sub_total += $cart->foodItem->price * $cart->quantity;
         }
 
+        $tax = $sub_total*(5/100);
+        $grandtotal = $sub_total+$tax;
 
-        return view('frontend.content.cartView',compact('carts','sub_total'));
+
+        return view('frontend.content.cartView',compact('carts','sub_total','tax', 'grandtotal'));
     }
 
     public function addToCart($id){
@@ -51,7 +54,13 @@ class CartController extends Controller
 
         }
 
-        return redirect()->back();
+        return redirect()->back()->with('success','Add To cart Successful');
+    }
+
+    public function sorryMsg()
+    {
+
+        return view('frontend.content.sorryMsg');
     }
     //
 }

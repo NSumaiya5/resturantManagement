@@ -22,10 +22,10 @@
       </tr>
     </thead>
     <tbody>
-     @foreach($foodItems as $request)
+     @foreach($foodItems as $key=> $request)
 
         <tr>
-            <th scope="row">1</th>
+            <th scope="row">{{$key+1}}</th>
             <td><img src="{{url('/files/photo/'.$request->file)}}" style="width:70px; height:60px;" ></td>
             <td>{{$request->name}}</td>
             <td>{{$request->description}}</td>

@@ -12,12 +12,11 @@ class HomeController extends Controller
 {
     public function home()
     {
-        $gallerys=Gallery::take(3)->get();
+        $gallerys=Gallery::take(6)->get();
 
-        $foodItems=FoodItem::where('status','=','Published')->get();
+        $foodItems=FoodItem::where('status','=','Published')->take(6)->get();
 
-
-         $staffs=Staff::take(2)->get();
+         $staffs=Staff::take(3)->get();
 
 
 
@@ -26,8 +25,6 @@ class HomeController extends Controller
 
     public function allStaffView()
     {
-
-
 
         $staffs=Staff::all();
         return view('frontend.content.viewStaff',compact('staffs'));
@@ -38,12 +35,21 @@ class HomeController extends Controller
 public function  viewMoreGallery()
 {
 
-
-
     $gallerys=Gallery::all();
     return view('frontend.content.ViewGallery',compact('gallerys'));
 
 }
+
+public function  allFoodItemMenu()
+{
+
+    $foodItems=FoodItem::where('status','=','Published')->get();
+
+  return view('frontend.content.foodItemMenu',compact('foodItems'));
+
+
+}
+
 }
 
 //Staf::where('type','shpae')
