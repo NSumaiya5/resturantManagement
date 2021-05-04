@@ -70,6 +70,15 @@
           </li>
 
 
+
+          <li class="nav-item">
+            <a class="nav-link" href="{{route('adminOrder')}}">
+              <span ></span>
+              Manage Order
+            </a>
+          </li>
+
+
         <li class="nav-item">
             <a class="nav-link" href="#">
               <span ></span>

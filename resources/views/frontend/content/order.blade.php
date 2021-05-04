@@ -15,39 +15,48 @@
     <div class="col-md-4 order-md-2 mb-4">
       <h4 class="d-flex justify-content-between align-items-center mb-3">
 
+
         <span class="text-muted">Your Food</span>
         <span class="badge badge-secondary badge-pill">3</span>
       </h4>
       <ul class="list-group mb-3">
-        <li class="list-group-item d-flex justify-content-between lh-condensed">
-          <div>
-            <h6 class="my-0">Food Item</h6>
-            <small class="text-muted"> description</small>
-          </div>
-          <span class="text-muted">$12</span>
-        </li>
-        <li class="list-group-item d-flex justify-content-between lh-condensed">
-          <div>
-            <h6 class="my-0">Second product</h6>
-            <small class="text-muted">Brief description</small>
-          </div>
-          <span class="text-muted">$8</span>
-        </li>
-        <li class="list-group-item d-flex justify-content-between lh-condensed">
-          <div>
-            <h6 class="my-0">Third item</h6>
-            <small class="text-muted">Brief description</small>
-          </div>
-          <span class="text-muted">$5</span>
-        </li>
+     @foreach ($carts as $cart )
 
-        <li class="list-group-item d-flex justify-content-between">
-          <span>Total (USD)</span>
-          <strong>$20</strong>
+
+        <li class="list-group-item d-flex justify-content-between lh-condensed">
+          <div>
+            <h6 class="my-0">{{$cart->foodItem->name}}</h6>
+          </div>
+          <span class="text-muted">{{$cart->quantity}}</span>
+          <span class="text-muted">{{$cart->foodItem->price}}</span>
+
+
         </li>
+        {{-- <li class="list-group-item d-flex justify-content-between">
+            <span>Total </span>
+            <strong>{{$cart->foodItem->price * $cart->quantity}}</strong>
+          </li> --}}
+        {{-- <li class="list-group-item d-flex justify-content-between">
+            <span>Sub-Total </span>
+            <strong>{{$sub_total}}</strong>
+          </li>
+
+          <li class="list-group-item d-flex justify-content-between">
+            <span>Tax</span>
+            <strong>{{$tax}}</strong>
+          </li> --}}
+
+
+        @endforeach
+
       </ul>
 
     </div>
+
+
+
+
+
     <div class="col-md-8 order-md-1">
       <h4 class="mb-3">Confirmation Address</h4>
 
@@ -81,7 +90,26 @@
           </div>
         </div>
 
+
+
         <h4 class="mb-3">Payment</h4>
+
+
+        <div class="d-flex mb-5 ">
+            <div class="">
+                <div class="mt-2">
+                  <label>Subtotal</label>
+                  <span class="ml-4">: {{$sub_total}}</span>
+                </div>
+                <div class="border-bottom">
+                  <label>Tax (5%)</label>
+                  <span class="ml-5">: {{$tax}}</span>
+                </div>
+
+                <div class="totals-item totals-item-total">
+                  <label>Grand Total:</label>
+                  <span class="" id="cart-total"> {{$grandtotal}}</span>
+                </div>
 
         <div class="d-block my-3">
           <div class="custom-control custom-radio">
@@ -90,13 +118,16 @@
           </div>
 
         </div>
+
         <button class="btn btn-primary btn-lg btn-block" type="submit">Order Confirm</button>
+
       </form>
     </div>
   </div>
 
 
 </div>
+
 </div>
 
 

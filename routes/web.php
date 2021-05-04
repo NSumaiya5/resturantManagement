@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\Backend\AdminOrderController;
 use App\Http\Controllers\Backend\GalleryController;
 use Illuminate\Support\Facades\Route;
 use  App\Http\Controllers\Backend\StaffManageController;
@@ -170,6 +171,14 @@ Route::get('/tableShowHide/{id}/{status}', [TableManageController::class, 'table
 // reservation table
 
 Route::get('/showReservation',[BackendReservationController::class,'showReservation'])->name('showReservation');
+
+// order confirm admin
+Route::get('/adminOrder',[AdminOrderController::class,'adminOrder'])->name('adminOrder');
+
+// order confirm accepted
+Route::get('/orderAccept/{id}/{status}',[AdminOrderController::class,'orderAccept'])->name('orderAccept');
+// admin order view admin
+Route::get('/adminOrderView/{id}',[AdminOrderController::class,'adminOrderView'])->name('adminOrderView');
 
 
 });

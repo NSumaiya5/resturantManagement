@@ -13,11 +13,24 @@ use Throwable;
 class OrderController extends Controller
 {
     public function order()
+
     {
-        return view('frontend.content.order');
+        $carts = Cart::where('user_id',auth()->user()->id)->get();
+        $cartQuantity = $carts->sum('quantity');
+        $sub_total = 0;
+
+        foreach ($carts as $cart){
+            $sub_total += $cart->foodItem->price * $cart->quantity;
+        }
+
+        $tax = $sub_total*(5/100);
+        $grandtotal = $sub_total+$tax;
+
+        return view('frontend.content.order',compact('carts','sub_total','tax', 'grandtotal'));
     }
     public function orderConfirm(Request $request)
     {
+        // dd($request->all());
         $total =0;
         $orderData = [
             'user_id'=>auth()->user()->id,
@@ -26,7 +39,7 @@ class OrderController extends Controller
             'total'=>0,
         ];
 
-  //      dd($orderData);
+  //  dd($orderData);
 
 
         $carts = Cart::where('user_id',auth()->user()->id)->get();
@@ -52,7 +65,7 @@ class OrderController extends Controller
             DB::commit();
 
         }catch(Throwable $e){
-            dd($e->getMessage());
+            //  dd($e->getMessage());
             DB::rollback();
 
         }
