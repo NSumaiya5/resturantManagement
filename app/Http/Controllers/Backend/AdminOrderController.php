@@ -34,25 +34,28 @@ return view('backend.content.orderManage',compact('orders'));
         $orderViews = Order::find($id);
         $orderList = OrderDetail::where('order_id', $orderViews->id)->get();
         $total = $orderList->sum('sub_total');
+        $tax = $total *(5/100);
+        $grand_total = $total + $tax;
         // $tax = $orderList->sub_total
+
 
         //  dd($total);
 
 
-        $productPrice=0;
+        // $productPrice=0;
 
-        foreach($orderList as $item){
-            $subtotal = $item->sub_total;
-            $productPrice=$productPrice+$subtotal;
-        }
+        // foreach($orderList as $item){
+        //     $subtotal = $item->sub_total;
+        //     $productPrice=$productPrice+$subtotal;
+        // }
 
-        $tax = $subtotal*(5/100);
+        // $tax = $subtotal*(5/100);
 
 
 
-        $total = $productPrice+$tax;
+        // $total = $productPrice+$tax;
 
-        return view('backend.content.adminOrderView',compact('orderViews','orderList','total'));
+        return view('backend.content.adminOrderView',compact('orderViews','orderList','total','tax','grand_total'));
 }
 
 }

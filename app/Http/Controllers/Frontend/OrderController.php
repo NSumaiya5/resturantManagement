@@ -30,6 +30,9 @@ class OrderController extends Controller
     }
     public function orderConfirm(Request $request)
     {
+        $request->validate([
+            'delivery_address' => 'required',
+        ]);
         // dd($request->all());
         $total =0;
         $orderData = [

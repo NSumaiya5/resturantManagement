@@ -141,13 +141,13 @@ hr {
 
     <div class="page-content container">
         <div class="page-header text-blue-d2">
-            <h1 class="page-title text-secondary-d1">
+            {{-- <h1 class="page-title text-secondary-d1">
                 Invoice
                 <small class="page-info">
                     <i class="fa fa-angle-double-right text-80"></i>
                     ID: #111-222
                 </small>
-            </h1>
+            </h1> --}}
 
 
         <div class="container px-0">
@@ -157,7 +157,7 @@ hr {
                         <div class="col-12">
                             <div class="text-center text-150">
                                 <i class="fa fa-book fa-2x text-success-m2 mr-1"></i>
-                                <span class="text-default-d3"> Fresh Food</span>
+                                <span class="text-default-d3 fs-1"> Fresh Food</span>
                             </div>
                         </div>
                     </div>
@@ -166,7 +166,7 @@ hr {
                     <hr class="row brc-default-l1 mx-n1 mb-4" />
 
                     <div class="row">
-                        <div class="col-sm-6">
+                        <div class="col-sm-6 mb-5">
                             <div>
                                 <span class="text-600 text-110 text-blue align-middle ms-5">Name:{{$orderViews->user->name}}</span>
                                 <br/>
@@ -194,22 +194,24 @@ hr {
 
                                 <div class="my-2"><i class="fa fa-circle text-blue-m2 text-xs mr-1"></i> <span class="text-600 text-90">Order Date:</span> {{$orderViews->created_at->format('Y-m-d H:i:s')}}</div>
 
-                                <div class="my-2"><i class="fa fa-circle text-blue-m2 text-xs mr-1"></i> <span class="text-600 text-90">Status:</span> <span class="badge badge-warning badge-pill px-25">{{$orderViews->status}}</span></div>
+                                <div class="my-2"><i class="fa fa-circle text-blue-m2 text-xs mr-1"></i> <span class="text-600 text-90">Status:</span>{{{$orderViews->status}}} <span class="badge badge-warning badge-pill px-25">{{$orderViews->status}}</span></div>
                             </div>
                         </div>
                         <!-- /.col -->
                     </div>
 
                     <div class="mt-4 mb-5">
-                        <div class="row text-600 text-white bgc-default-tp1 py-25">
-                            <div class="d-none d-sm-block col-1">#</div>
+                        <div class="row text-600 text-white bgc-default-tp1 py-25 bg-info">
+                            <div class="d-none d-sm-block col-1 text-dark">Serial</div>
                             <div class="col-9 col-sm-5 text-dark">Food Item Name</div>
                             <div class="d-none d-sm-block col-4 col-sm-2 text-dark">Qty</div>
                             <div class="d-none d-sm-block col-sm-2 text-dark">Unit Price</div>
-                            <div class="col-2 text-dark">Amount</div>
+                            <div class="col-2 text-dark">Subtotal</div>
                         </div>
 
+
                         <div class="text-95 text-secondary-d3 mt-5">
+
                             @foreach($orderList  as $key=> $order)
 
                             {{-- @dd($order->food); --}}
@@ -220,6 +222,8 @@ hr {
                                     <div class="d-none d-sm-block col-2 text-95">{{ $order->food->price }}</div>
                                     <div class="col-2 text-secondary-d2">{{ $order->sub_total }}</div>
                                 </div>
+                                <hr />
+
                                 @endforeach
                         </div>
 
@@ -228,16 +232,16 @@ hr {
 
 
                         <div class="row ">
-                            <div class="col-12 col-sm-8 text-grey-d2 text-95 mt-2 mt-lg-0">
+                            <div class="col-12 col-sm-8 text-grey-d2 text-95  mt-lg-0">
                             </div>
 
                             <div class="col-12 col-sm-4 text-grey text-90 order-first order-sm-last mt-5">
                                 <div class="row my-2">
                                     <div class="col-7 text-right">
-                                        SubTotal
+                                        Total
                                     </div>
                                     <div class="col-5">
-                                        <span class="text-120 text-secondary-d1">{{ $order->sub_total }}</span>
+                                        <span class="text-120 text-secondary-d1">{{$total}}</span>
                                     </div>
                                 </div>
 
@@ -246,7 +250,7 @@ hr {
                                         Tax (5%)
                                     </div>
                                     <div class="col-5">
-                                        <span class="text-110 text-secondary-d1"></span>
+                                        <span class="text-110 text-secondary-d1">{{$tax}}</span>
                                     </div>
                                 </div>
                                 <hr />
@@ -257,7 +261,7 @@ hr {
                                      Total
                                     </div>
                                     <div class="col-5">
-                                        <span class="text-110 text-secondary-d1">{{$total}}</span>
+                                        <span class="text-110 text-secondary-d1">{{$grand_total}}</span>
                                     </div>
                                 </div>
                             </div>
@@ -265,6 +269,11 @@ hr {
 
 
                     </div>
+                    <button type="button" class="btn btn-success mb-5"><i class="fas fa-print"></i>Print </button>
+                    <button type="button" class="btn btn-success mb-5">Show</button>
+
+
+
                 </div>
             </div>
         </div>

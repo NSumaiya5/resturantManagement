@@ -43,6 +43,11 @@ Route::get('/foodItemMenu',[FoodItemMenuController::class,'foodItemMenu'])->name
 // see more food item menu
 Route::get('/allFoodItemMenu',[HomeController::class,'allFoodItemMenu'])->name('allFoodItemMenu');
 
+// view food Details
+Route::get('/viewFood/{id}',[HomeController::class,'viewFood'])->name('viewFood');
+
+
+
 
 
 // show staff
@@ -79,6 +84,9 @@ Route::get('/add-to-cart/{id}',[CartController::class,'addToCart'])->name('addTo
 Route::get('carts',[CartController::class,'index'])->name('carts');
 // msg for no chose cart
 Route::get('/sorryMsg',[CartController::class,'sorryMsg'])->name('sorryMsg');
+//  cart updated
+Route::post('/updateCart/{id}',[CartController::class,'updateCart'])->name('updateCart');
+
 
 
 // Order Info
@@ -88,6 +96,12 @@ Route::post('/orderConfirm',[OrderController::class,'orderConfirm'])->name('orde
 
 // user Profile
 Route::get('/userProfile',[viewUserController::class,'userProfile'])->name('userProfile');
+
+
+
+
+// profile data show
+
 
 
 //user login

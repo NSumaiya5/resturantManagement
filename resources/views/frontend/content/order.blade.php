@@ -9,6 +9,13 @@
 </head>
 
 <body>
+    @if ($errors->any())
+        @foreach ($errors->all() as $error)
+            <div class="alert alert-danger">{{ $error }}</div>
+        @endforeach
+    @endif
+
+
   <div class="container">
 
   <div class="row ">
@@ -84,7 +91,7 @@
 
         <div class="mb-3">
           <label for="address">Delivary Address</label>
-          <input type="text" {{auth()->user()->address}} name="delivery_address" class="form-control" id="address" placeholder="" required>
+          <input type="text"   name="delivery_address" class="form-control" id="address" placeholder="" required>
           <div class="invalid-feedback">
 
           </div>

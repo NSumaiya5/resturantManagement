@@ -82,7 +82,7 @@
                         <img style="height:250px;width:269px;"src="{{url('/files/photo/'.$data->file)}}"alt="foodItem image">
                         <div class="card-body" >
                             <p class="card-text">{{$data->name}}</p>
-                            <p class="card-text">{{$data->description}}</p>
+                            <small class="text-muted">{{$data->price}}</small>
                             <div class="d-flex justify-content-between align-items-center">
                                 <div class="btn-group">
 
@@ -96,7 +96,9 @@
                                     {{-- <a href="{{route('addToCart',$data->id)}}"  type="button" class="btn btn-success">Add To Cart</a> --}}
                                     {{-- <a href="{{route('product.show',$data->id)}}" class="btn btn-sm btn-warning">View</a> --}}
                                 </div>
-                                <small class="text-muted">{{$data->price}} BDT</small>
+                                <div>
+                                    <a class="btn btn-success"href="{{route('viewFood',$data->id)}}">View</a>
+                                </div>
                             </div>
                         </div>
                     </div>

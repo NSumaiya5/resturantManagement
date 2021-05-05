@@ -13,16 +13,16 @@
                   <div class="row row-cols-1 row-cols-sm-2 g-3 ">
                     <div class="col ">
                             <h4 class="text-dark">Name:{{auth()->user()->name}} </h4>
-                            <p class="text-dark">User email:{{auth()->user()->email}} </p>
-                            <p class="text-dark">User email:{{auth()->user()->phone}} </p>
-                            <p class="text-dark">User email:{{auth()->user()->address}} </p>
+                            <p class="text-dark">email:{{auth()->user()->email}} </p>
+                            <p class="text-dark">Phone:{{auth()->user()->phone}} </p>
+                            <p class="text-dark">address:{{auth()->user()->address}} </p>
 
 
                       </div>
+
                     </div>
                   </div>
                 </div>
-
             </div>
         </div>
         <div class="col-md-4 bg-warning">

@@ -17,7 +17,6 @@
             <th scope="col">Description</th>
             <th scope="col">Price</th>
             <th scope="col">Quantity</th>
-            <th scope="col">Added/Remove</th>
             <th scope="col">Total</th>
 
 
@@ -27,19 +26,27 @@
         @foreach ($carts as $key=>$cart)
         <tbody>
 
+
           <tr>
             <th scope="row">{{$key+1}}</th>
             <td><img src="{{url('/files/photo/'.$cart->foodItem->file)}}" style="width:100px;height:100px"></td>
             <td>{{$cart->foodItem->name}}</td>
             <td>{{$cart->foodItem->description}}</td>
             <td>{{$cart->foodItem->price}}</td>
-            <td><input style="width:30px" class="ms-5"type="number" value="{{$cart->quantity}}" min="1"></td>
             <td>
-                <a href="" class="btn btn-danger">Remove</a>
-                <a href="" class="btn btn-success">Add</a>
+                <form action="{{route('updateCart',$cart->id)}}" method="post">
+                    @csrf
+
+                <input name="quantity" style="width:30px" class="ms-5"type="string" value="{{$cart->quantity}}" min="1">
+
+                <button type="submit" class="btn btn-primary">Update</button>
+                </form>
+
+
             </td>
             <td> {{$cart->foodItem->price * $cart->quantity}}</td>
           </tr>
+
         </tbody>
       @endforeach
     </table>

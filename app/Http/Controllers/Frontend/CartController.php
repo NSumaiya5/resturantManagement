@@ -63,4 +63,16 @@ class CartController extends Controller
         return view('frontend.content.sorryMsg');
     }
     //
+
+
+    public function updateCart(Request $request,$id)
+    {
+
+
+        $carts = Cart::find($id);
+        $carts->update([
+            'quantity' =>$request->quantity
+        ]);
+        return redirect()->back();
+    }
 }

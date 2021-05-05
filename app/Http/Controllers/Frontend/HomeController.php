@@ -49,6 +49,19 @@ public function  allFoodItemMenu()
 
 
 }
+public function  viewFood($id)
+{
+
+
+    $viewFood=FoodItem::where('status','=','Published')->where('id',$id)->first();
+    $foodItems=FoodItem::where('status','=','Published')->where('id',$id)->first();
+
+    // dd($viewFood);
+
+  return view('frontend.content.foodView',compact('viewFood','foodItems'));
+
+
+}
 
 }
 

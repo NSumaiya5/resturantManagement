@@ -93,6 +93,9 @@
 
                      <td>
                          <a href="{{route('adminOrderView',$request->id)}}"><i class="fas fa-eye"></i>
+                            <a href=""><i class="far fa-edit"></i>
+
+                            </a>
                          </a>
 
                      </td>
