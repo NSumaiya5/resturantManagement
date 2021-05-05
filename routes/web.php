@@ -86,6 +86,8 @@ Route::get('/order',[OrderController::class,'order'])->name('order');
 // order confirm
 Route::post('/orderConfirm',[OrderController::class,'orderConfirm'])->name('orderConfirm');
 
+// user Profile
+Route::get('/userProfile',[viewUserController::class,'userProfile'])->name('userProfile');
 
 
 //user login

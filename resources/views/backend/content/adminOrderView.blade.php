@@ -171,6 +171,11 @@ hr {
                                 <span class="text-600 text-110 text-blue align-middle ms-5">Name:{{$orderViews->user->name}}</span>
                                 <br/>
                                 <span class="text-600 text-110 text-blue align-middle ms-5">Address:{{$orderViews->delivery_address}}</span>
+                            <br/>
+                            <span class="text-600 text-110 text-blue align-middle ms-5">Contact Number:{{$orderViews->user->phone}}</span>
+                            <br/>
+                            <span class="text-600 text-110 text-blue align-middle ms-5">Email:{{$orderViews->user->email}}</span>
+
 
                             </div>
 
@@ -222,42 +227,42 @@ hr {
 
 
 
-                        <div class="row mt-3">
-                            <div class="col-12 col-sm-7 text-grey-d2 text-95 mt-2 mt-lg-0">
-                                Extra note such as company or payment information...
+                        <div class="row ">
+                            <div class="col-12 col-sm-8 text-grey-d2 text-95 mt-2 mt-lg-0">
                             </div>
 
-                            <div class="col-12 col-sm-5 text-grey text-90 order-first order-sm-last">
+                            <div class="col-12 col-sm-4 text-grey text-90 order-first order-sm-last mt-5">
                                 <div class="row my-2">
                                     <div class="col-7 text-right">
                                         SubTotal
                                     </div>
                                     <div class="col-5">
-                                        <span class="text-120 text-secondary-d1">$2,250</span>
+                                        <span class="text-120 text-secondary-d1">{{ $order->sub_total }}</span>
                                     </div>
                                 </div>
 
                                 <div class="row my-2">
                                     <div class="col-7 text-right">
-                                        Tax (10%)
+                                        Tax (5%)
                                     </div>
                                     <div class="col-5">
-                                        <span class="text-110 text-secondary-d1">$225</span>
+                                        <span class="text-110 text-secondary-d1"></span>
                                     </div>
                                 </div>
+                                <hr />
 
-                                <div class="row my-2 align-items-center bgc-primary-l3 p-2">
+
+                                <div class="row my-2">
                                     <div class="col-7 text-right">
-                                        Total Amount
+                                     Total
                                     </div>
                                     <div class="col-5">
-                                        <span class="text-150 text-success-d3 opacity-2">$2,475</span>
+                                        <span class="text-110 text-secondary-d1">{{$total}}</span>
                                     </div>
                                 </div>
                             </div>
                         </div>
 
-                        <hr />
 
                     </div>
                 </div>

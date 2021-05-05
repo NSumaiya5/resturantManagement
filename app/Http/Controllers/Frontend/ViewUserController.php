@@ -75,5 +75,9 @@ class ViewUserController extends Controller
         return redirect()->route('login.registration.from');
 
     }
+    public function userProfile()
+    {
+        return view('frontend.content.userProfile');
+    }
 }
 
