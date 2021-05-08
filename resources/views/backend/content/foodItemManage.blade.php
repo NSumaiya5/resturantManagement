@@ -7,7 +7,11 @@
  <button type="button" class="btn btn-primary mt-5 mx-3" data-bs-toggle="modal" data-bs-target="#staticBackdrop">
     Add New Food</button>
 
-
+@if (session()->has('error-message'))
+    <div class="alert alert-danger">
+        {{ session()->get('error-message') }}
+    </div>
+@endif
 
 {{-- Employee Details table --}}
 <table class="table my-3 " style="margin-right: 200px;">
@@ -66,27 +70,7 @@
         </tr>
         @endforeach
         </tbody>
-    {{-- <tbody>
-      <tr>
-        <th scope="row">1</th>
-        <td>Mark</td>
-        <td>Otto</td>
-        <td>@mdo</td>
-        <td>@mdo</td>
-      </tr>
-      <tr>
-        <th scope="row">2</th>
-        <td>Jacob</td>
-        <td>Thornton</td>
-        <td>@fat</td>
-      </tr>
-      <tr>
-        <th scope="row">3</th>
-        <td colspan="2">Larry the Bird</td>
-        <td>@twitter</td>
-      </tr>
-    </tbody> --}}
-  {{-- </table> --}}
+
 
 
 
@@ -114,21 +98,16 @@
             </div>
             <div class="form-group">
                 <label for="exampleInputName">Description</label>
-                <input name="description" type="text" class="form-control" id="exampleInputName" placeholder="Enter Working Area">
+                <input name="description" type="text" class="form-control" id="exampleInputName" placeholder="Enter description">
 
-                {{-- <select class="form-select" name="workingArea_id">
-                    <option selected>Open this select Area</option>
-                    @foreach ($workingArea as $request)
-                        <option value="{{ $request->id }}">{{ $request->workingArea }}</option>
-                    @endforeach
-                </select> --}}
+
 
             </div>
 
                 </select>
             <div class="form-group">
                 <label for="exampleInputEmail1">Price</label>
-                <input name="price" type="number" class="form-control" id="exampleInputEmail1" placeholder="Enter Price">
+                <input name="price" type="string" class="form-control" id="exampleInputEmail1" placeholder="Enter Price">
 
             </div>
 

@@ -9,23 +9,25 @@
     @endif --}}
 
 
-    <table class="table">
-        <thead>
-        <tr>
+    <table class="table fs-6">
+        <thead >
+        <tr >
             <th scope="col">#</th>
             <th scope="col">User</th>
             <th scope="col">User Email</th>
             <th scope="col">User Contact No</th>
-            <th scope="col">Delivary address</th>
+            {{-- <th scope="col">Address</th> --}}
+            <th scope="col" >PaymentStatus</th>
+            <th scope="col">Payment</b>Action</th>
+
             {{-- <th scope="col">Food Item</th>
             <th scope="col">Food Quantity</th>
             <th scope="col">Subtotal</th>
             <th scope="col">Tax</th> --}}
-
             {{-- <th scope="col">Total</th> --}}
             {{-- <th scope="col">Paid Amount</th> --}}
             <th scope="col">Status</th>
-            <th scope="col">Action</th>
+            {{-- <th scope="col">Action</th> --}}
             <th scope="col">View</th>
 
 
@@ -42,7 +44,32 @@
               <td>{{$request->user->name}}</td>
               <td>{{$request->user->email}}</td>
               <td>{{$request->user->phone}}</td>
-              <td>{{$request->delivery_address}}</td>
+              {{-- <td>{{$request->address}}</td> --}}
+
+              <td class="text-center">{{$request->paid_amount}}</td>
+
+              <td>
+                    <div class="dropdown ">
+                        <button class="btn btn-sm btn-light dropdown-toggle" type="button" id="dropdownMenuButton1"
+                            data-bs-toggle="dropdown" aria-expanded="false">
+                            Action
+                        </button>
+                        <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
+
+                     <li>
+                        {{-- @if ($request->status == 'unpaid') --}}
+                        {{-- <a  class="btn btn-success m-2"href="">Unpaid</a> --}}
+                        @if ( $request->status == 'paid')
+                        <a  class="btn btn-warning m-2"href="">Paid</a>
+                        @else
+                        <a class="btn" href="{{route('orderPaid',['id'=>$request->id,'status'=>'unpaid'])}}">cancle</a>
+                        <a class="btn" href="{{route('orderPaid',['id'=>$request->id,'status'=>'paid'])}}">paid</a>
+                        @endif
+                 </li>
+                        </ul>
+                    </div>
+            </td>
+
 {{--
               <td>
                 <div class="dropdown">
@@ -55,6 +82,7 @@
                          <li class="bg-info"><a class="btn" href="{{route('orderAccept',['id'=>$request->id,'status'=>'confirm'])}} ">Confirm</span></a></li>
                         <li class="bg-danger"><a class="btn btn-danger" href="{{route('orderAccept',['id'=>$request->id,'status'=>'decline'])}} ">Cancel</a></li>
                         </td> --}}
+
               <td>{{$request->status}}</td>
 
               {{-- <td>{{$request->orderTODetails->food->name}}</td>
@@ -64,7 +92,7 @@
 
 
 
-              <td>
+              {{-- <td>
                 <div class="dropdown">
                     <button class="btn btn-sm btn-light dropdown-toggle" type="button" id="dropdownMenuButton1"
                         data-bs-toggle="dropdown" aria-expanded="false">
@@ -73,9 +101,7 @@
                     <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
 
 
-                        {{-- <li class="bg-info"><a class="btn" href="{{route('orderAccept',['id'=>$request->id,'status'=>'confirm'])}} ">Confirm</span></a></li>
-                        <li class="bg-danger"><a class="btn btn-danger" href="{{route('orderAccept',['id'=>$request->id,'status'=>'decline'])}}
-                            ">Cancel</a></li> --}}
+
 
 
                      <li>
@@ -90,12 +116,15 @@
 
                             @endif
                      </li>
+                    </ul>
+                </div>
+                    </td> --}}
 
                      <td>
                          <a href="{{route('adminOrderView',$request->id)}}"><i class="fas fa-eye"></i>
-                            <a href=""><i class="far fa-edit"></i>
+                            {{-- < href=""><i class="far fa-edit"></i> --}}
 
-                            </a>
+
                          </a>
 
                      </td>
@@ -108,7 +137,7 @@
                 {{-- <td>{{$request->total}}</td> --}}
                 {{-- <td>fsadfasfsdf</td>
                 <td><a href="">view</a></td> --}}
-            </tr>
+
 
 @endforeach
 

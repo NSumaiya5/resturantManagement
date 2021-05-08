@@ -192,9 +192,11 @@ Route::get('/showReservation',[BackendReservationController::class,'showReservat
 Route::get('/adminOrder',[AdminOrderController::class,'adminOrder'])->name('adminOrder');
 
 // order confirm accepted
-Route::get('/orderAccept/{id}/{status}',[AdminOrderController::class,'orderAccept'])->name('orderAccept');
+// Route::get('/orderAccept/{id}/{status}',[AdminOrderController::class,'orderAccept'])->name('orderAccept');
 // admin order view admin
 Route::get('/adminOrderView/{id}',[AdminOrderController::class,'adminOrderView'])->name('adminOrderView');
+//paid status
+Route::get('/orderPaid/{id}/{status}',[AdminOrderController::class,'orderPaid'])->name('orderPaid');
 
 
 });

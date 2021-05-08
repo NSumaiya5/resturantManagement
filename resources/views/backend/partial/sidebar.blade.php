@@ -18,7 +18,7 @@
 </ul>
   </nav>
 
-<nav id="sidebarMenu" class="col-md-3 col-lg-2 d-md-block bg-dark sidebar collapse">
+<nav id="sidebarMenu" class="col-md-3 col-lg-2 d-md-block bg-dark sidebar collapse" >
     <div class="position-sticky pt-4 ">
       <ul class="nav flex-column">
         <li class="nav-item">
@@ -40,7 +40,7 @@
         <li class="nav-item">
           <a class="nav-link" href={{route('staff')}}>
             <span ></span>
-           Staff
+          Manage Staff
           </a>
         </li>
         <li class="nav-item">
@@ -55,12 +55,7 @@
               Manage Table
             </a>
           </li>
-        <li class="nav-item">
-          <a class="nav-link" href="#">
-            <span ></span>
-            Order list
-          </a>
-        </li>
+
 
           <li class="nav-item">
             <a class="nav-link" href="{{route('showReservation')}}">
@@ -78,7 +73,12 @@
             </a>
           </li>
 
-
+          <li class="nav-item">
+            <a class="nav-link" href="#">
+              <span ></span>
+              Order list
+            </a>
+          </li>
         <li class="nav-item">
             <a class="nav-link" href="#">
               <span ></span>

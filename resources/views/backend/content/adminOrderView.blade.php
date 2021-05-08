@@ -141,13 +141,6 @@ hr {
 
     <div class="page-content container">
         <div class="page-header text-blue-d2">
-            {{-- <h1 class="page-title text-secondary-d1">
-                Invoice
-                <small class="page-info">
-                    <i class="fa fa-angle-double-right text-80"></i>
-                    ID: #111-222
-                </small>
-            </h1> --}}
 
 
         <div class="container px-0">
@@ -170,7 +163,7 @@ hr {
                             <div>
                                 <span class="text-600 text-110 text-blue align-middle ms-5">Name:{{$orderViews->user->name}}</span>
                                 <br/>
-                                <span class="text-600 text-110 text-blue align-middle ms-5">Address:{{$orderViews->delivery_address}}</span>
+                                <span class="text-600 text-110 text-blue align-middle ms-5">Address:{{$orderViews->address}}</span>
                             <br/>
                             <span class="text-600 text-110 text-blue align-middle ms-5">Contact Number:{{$orderViews->user->phone}}</span>
                             <br/>
@@ -194,7 +187,7 @@ hr {
 
                                 <div class="my-2"><i class="fa fa-circle text-blue-m2 text-xs mr-1"></i> <span class="text-600 text-90">Order Date:</span> {{$orderViews->created_at->format('Y-m-d H:i:s')}}</div>
 
-                                <div class="my-2"><i class="fa fa-circle text-blue-m2 text-xs mr-1"></i> <span class="text-600 text-90">Status:</span>{{{$orderViews->status}}} <span class="badge badge-warning badge-pill px-25">{{$orderViews->status}}</span></div>
+                                <div class="my-2"><i class="fa fa-circle text-blue-m2 text-xs mr-1"></i> Status:<span class="text-600 text-90 ms-1">{{$orderViews->status}}</span></div>
                             </div>
                         </div>
                         <!-- /.col -->
@@ -270,7 +263,7 @@ hr {
 
                     </div>
                     <button type="button" class="btn btn-success mb-5"><i class="fas fa-print"></i>Print </button>
-                    <button type="button" class="btn btn-success mb-5">Show</button>
+                    <button type="button" class="btn btn-success mb-5">Mail</button>
 
 
 

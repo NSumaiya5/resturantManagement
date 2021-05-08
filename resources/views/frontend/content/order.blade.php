@@ -90,8 +90,8 @@
         </div>
 
         <div class="mb-3">
-          <label for="address">Delivary Address</label>
-          <input type="text"   name="delivery_address" class="form-control" id="address" placeholder="" required>
+          <label for="address">Address</label>
+          <input type="text"   name="address"  value="{{auth()->user()->address}}" class="form-control" id="address" placeholder="" required>
           <div class="invalid-feedback">
 
           </div>
@@ -121,7 +121,7 @@
         <div class="d-block my-3">
           <div class="custom-control custom-radio">
             <input id="credit" name="paymentMethod" type="radio" value="cashOnDelivary" class="custom-control-input" checked required>
-            <label class="custom-control-label" for="credit">Cash On Delivary</label>
+            <label class="custom-control-label" for="credit">Cash On Service</label>
           </div>
 
         </div>

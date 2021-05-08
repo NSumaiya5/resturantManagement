@@ -30,14 +30,13 @@ class OrderController extends Controller
     }
     public function orderConfirm(Request $request)
     {
-        $request->validate([
-            'delivery_address' => 'required',
-        ]);
-        // dd($request->all());
+        // $request->validate([
+        //     'delivery_address' => 'required',
+        // ]);
         $total =0;
         $orderData = [
             'user_id'=>auth()->user()->id,
-            'delivery_address'=>$request->input('delivery_address'),
+            'address'=>$request->input('address'),
             'payment_method'=>$request->input('paymentMethod'),
             'total'=>0,
         ];
@@ -68,7 +67,6 @@ class OrderController extends Controller
             DB::commit();
 
         }catch(Throwable $e){
-            //  dd($e->getMessage());
             DB::rollback();
 
         }

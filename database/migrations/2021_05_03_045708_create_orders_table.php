@@ -18,9 +18,9 @@ class CreateOrdersTable extends Migration
             $table->foreignId('user_id');
             $table->decimal('total');
             $table->string('status')->default('pending');
-            $table->decimal('paid_amount')->nullable();
+            $table->string('paid_amount')->default('unpaid');
             $table->string('payment_method');
-            $table->text('delivery_address');
+            $table->text('address');
             $table->timestamps();
         });
     }

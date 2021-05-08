@@ -62,9 +62,21 @@ class manageFoodController extends Controller
    public function foodItemUpdate( $id, $status)
     {
         $foodItems=FoodItem :: find($id);
-        $foodItems->update(['status'=>$status]);
 
-        return redirect()->back();
+        try{
+            $foodItems->update(['status'=>$status]);
+
+            return redirect()->back();
+
+        }
+        catch(Throwable $e){
+            if($e->getCode() == '23000')
+            {
+            return redirect()->back()->with('error-message', 'This item already have order;');
+            }
+            return back();
+        }
+
     }
 
 }
