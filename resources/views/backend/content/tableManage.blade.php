@@ -16,7 +16,7 @@
         <th scope="col">#</th>
         <th scope="col">Picture</th>
         <th scope="col">Capacity</th>
-        <th scope="col">Price</th>
+        <th scope="col">TimeSlot</th>
 
       </tr>
     </thead>
@@ -87,6 +87,15 @@
                 <input name="capacity" type="number" class="form-control" id="exampleInputName" placeholder="Enter capacity">
 
             </div>
+              <div >
+                  <span>Time</span>
+              <select class="form-select form-select-mds " aria-label=".form-select-sm example">
+                <option selected>Timeslot</option>
+                <option value="1">Morning</option>
+                <option value="2">Lunch</option>
+                <option value="3">Evening</option>
+              </select>
+              </div>
 
             {{-- <div class="modal-body">
                 <div class="form-group">

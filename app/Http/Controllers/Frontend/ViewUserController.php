@@ -3,6 +3,8 @@
 namespace App\Http\Controllers\Frontend;
 
 use App\Http\Controllers\Controller;
+use App\Models\Order;
+use App\Models\OrderDetail;
 use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
@@ -75,9 +77,37 @@ class ViewUserController extends Controller
         return redirect()->route('login.registration.from');
 
     }
-    public function userProfile()
+    public function userProfile($id)
     {
-        return view('frontend.content.userProfile');
+
+
+        $orderViews = Order::where('user_id',auth()->user()->id)->get();
+
+
+        // $showOrder = OrderDetail::where('order_id', $orderViews->id)->get();
+
+        // $orderList = OrderDetail::where('order_id', $orderViews->id)->get();
+        // $total = $orderList->sum('sub_total');
+        // $tax = $total * (5 / 100);
+        // $grand_total = $total + $tax;
+        // $showOrder = OrderDetail :: where('user_id',auth()->user()->id)->get();
+        // dd($orderViews);
+
+        return view('frontend.content.userProfile',compact('orderViews'));
+    }
+    public function customerOrderView($id)
+
+
+    {
+        $orderViews = Order::find($id);
+      $orderList = OrderDetail::where('order_id', $orderViews->id)->get();
+         $total = $orderList->sum('sub_total');
+          $tax = $total * (5 / 100);
+        $grand_total = $total + $tax;
+        // $showOrder = OrderDetail :: where('user_id',auth()->user()->id)->get();
+        return view('frontend.content.customerOrderView',compact('orderViews','orderList','total','tax','grand_total'));
+
+        // dd($orderViews);
     }
 }
 

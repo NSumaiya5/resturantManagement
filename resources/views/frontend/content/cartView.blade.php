@@ -37,7 +37,7 @@
                 <form action="{{route('updateCart',$cart->id)}}" method="post">
                     @csrf
 
-                <input name="quantity" style="width:30px" class="ms-5"type="string" value="{{$cart->quantity}}" min="1">
+                <input name="quantity" style="width:30px" class="ms-5"type="number" value="{{$cart->quantity}}" min="1">
 
                 <button type="submit" class="btn btn-primary">Update</button>
                 </form>

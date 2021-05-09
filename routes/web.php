@@ -7,6 +7,7 @@ use  App\Http\Controllers\Backend\StaffManageController;
 use App\Http\Controllers\Backend\manageFoodController;
 use App\Http\Controllers\Backend\ReservationController as BackendReservationController;
 use App\Http\Controllers\Backend\TableManageController;
+use App\Http\Controllers\Backend\TimeSlotController;
 use App\Http\Controllers\Backend\UserController;
 use App\Http\Controllers\Frontend\HomeController;
 use App\Http\Controllers\Frontend\staffController;
@@ -95,7 +96,9 @@ Route::get('/order',[OrderController::class,'order'])->name('order');
 Route::post('/orderConfirm',[OrderController::class,'orderConfirm'])->name('orderConfirm');
 
 // user Profile
-Route::get('/userProfile',[viewUserController::class,'userProfile'])->name('userProfile');
+Route::get('/userProfile/{id}',[viewUserController::class,'userProfile'])->name('userProfile');
+Route::get('/customerOrderView/{id}',[viewUserController::class,'customerOrderView'])->name('customerOrderView');
+
 
 
 
@@ -187,6 +190,12 @@ Route::get('/tableShowHide/{id}/{status}', [TableManageController::class, 'table
 // reservation table
 
 Route::get('/showReservation',[BackendReservationController::class,'showReservation'])->name('showReservation');
+
+// Time Slot
+Route::get('/time-slot',[TimeSlotController::class,'timeSlot'])->name('timeSlot');
+// timeSlotCreate
+Route::post('/timeSlotCreate',[TimeSlotController::class,'timeSlotCreate'])->name('timeSlotCreate');
+
 
 // order confirm admin
 Route::get('/adminOrder',[AdminOrderController::class,'adminOrder'])->name('adminOrder');

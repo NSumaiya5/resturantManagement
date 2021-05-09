@@ -49,6 +49,13 @@
             Food Item
           </a>
         </li>
+
+        <li class="nav-item">
+            <a class="nav-link" href={{route('timeSlot')}}>
+              <span ></span>
+              Manage Timeslot
+            </a>
+          </li>
         <li class="nav-item">
             <a class="nav-link" href={{route('table')}}>
               <span ></span>

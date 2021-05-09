@@ -13,7 +13,6 @@
             <form action="{{route('reservation',$tables->id)}}" method="post"  class="container mt-5 w-50 p-5 border shadow p-3 mb-5 bg-white">
                 {{--  --}}
                  @csrf
-                 {{-- @dd($tables); --}}
                 <div class="mb-3 ">
                 <input type="hidden" value="{{$tables->id}}" name="tables_id">
                 <label for="">Table id: {{$tables->id}}</label>
@@ -46,6 +45,7 @@
                 <div class="form-group mt-5">
                     <button type="submit" class="btn btn-primary">Submit</button>
                 </div>
+                {{-- @dd($tables); --}}
 
             </div>
             </form>
