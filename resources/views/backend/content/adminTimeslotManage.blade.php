@@ -20,6 +20,7 @@
         <th scope="col">Name</th>
         <th scope="col">Reservation Time From</th>
         <th scope="col">Reservation Time To</th>
+        <th scope="col">Delete</th>
       </tr>
     </thead>
     <tbody>
@@ -38,7 +39,9 @@
 
                         {{-- <li class="bg-info"><a class="btn" href="">Edit</span></a></li>
                         <li class="bg-danger"><a class="btn btn-danger" href={{route('foodItemDelete', $request->id)}}>Delete</a></li> --}}
-
+<td>
+    <a href={{route('timeSlotDelete', $request['id'])}}"><i class="fas fa-trash-alt"></i></a>
+</td>
 
 
                     </ul>
@@ -85,7 +88,10 @@
                 </div>
 
 
+
         </div>
+
+
         <div class="modal-footer">
           {{-- <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button> --}}
           <button type="submit" class="btn btn-primary" style="margin-right: 385px;">Add</button>

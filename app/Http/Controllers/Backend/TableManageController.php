@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Backend;
 
 use App\Http\Controllers\Controller;
 use App\Models\Table;
+use App\Models\TimeSlot;
 use Illuminate\Http\Request;
 
 class TableManageController extends Controller
@@ -11,7 +12,8 @@ class TableManageController extends Controller
     public function  tableManage()
     {
         $tables=Table::all();
-        return view('backend.content.tableManage',compact('tables'));
+        $time_slot =TimeSlot::all();
+        return view('backend.content.tableManage',compact('tables','time_slot'));
     }
 
     public function tableCreate(Request $request)
@@ -38,7 +40,9 @@ class TableManageController extends Controller
     }
     Table::create([
             'file' => $file_name,
-            'capacity' => $request->capacity]);
+            'capacity' => $request->capacity,
+            // 'time_id' => $request -> time_id
+            ]);
 
 
 

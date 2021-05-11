@@ -77,7 +77,7 @@
                                 <td>{{$order->user->phone}}</td>
                                 <td>{{$order->address}}</td>
 
-                                <td class="text-center">{{$order->paid_amount}}</td>
+                                <td class="text-center">{{$order->paid_status}}</td>
                                 <td>{{$order->status}}</td>
 
 

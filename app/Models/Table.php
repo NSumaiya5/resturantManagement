@@ -10,4 +10,11 @@ class Table extends Model
     use HasFactory;
     protected $guarded= [];
 
+
+    public function timeSlot()
+
+    {
+        return $this->belongsTo(TimeSlot::class,'time_id','id');
+    }
+
 }

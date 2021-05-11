@@ -16,12 +16,17 @@
         <th scope="col">#</th>
         <th scope="col">Picture</th>
         <th scope="col">Capacity</th>
-        <th scope="col">TimeSlot</th>
+        {{-- <th scope="col">TimeSlot</th> --}}
+        <th scope="col">View</th>
+
+
 
       </tr>
     </thead>
     <tbody>
      @foreach($tables as $request)
+     {{-- @dd($request->timeSlot->name); --}}
+
 
         <tr>
             <th scope="row">1</th>
@@ -35,6 +40,8 @@
                 <a class="btn btn-danger" href="{{route('tableDelete', $request->id)}}"> Delete</a>
 
             </> --}}
+            {{-- <td>{{ $request->timeSlot->name}}({{ $request->timeSlot->reservation_time_from}}-{{ $request->timeSlot->reservation_time_to }})</td> --}}
+
             <td>
                 <div class="dropdown">
                     <button class="btn btn-sm btn-light dropdown-toggle" type="button" id="dropdownMenuButton1"
@@ -87,15 +94,19 @@
                 <input name="capacity" type="number" class="form-control" id="exampleInputName" placeholder="Enter capacity">
 
             </div>
-              <div >
+              {{-- <div >
                   <span>Time</span>
-              <select class="form-select form-select-mds " aria-label=".form-select-sm example">
+              <select class="form-select form-select-mds " name="time_id" aria-label=".form-select-sm example">
                 <option selected>Timeslot</option>
-                <option value="1">Morning</option>
-                <option value="2">Lunch</option>
-                <option value="3">Evening</option>
+
+                  @foreach ($time_slot as $data )
+                  <option value="{{$data->id}}">{{$data->name}}({{$data->reservation_time_from}}-{{$data->reservation_time_to}})</option>
+
+
+                  @endforeach
+
               </select>
-              </div>
+              </div> --}}
 
             {{-- <div class="modal-body">
                 <div class="form-group">

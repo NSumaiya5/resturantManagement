@@ -189,12 +189,16 @@ Route::get('/tableShowHide/{id}/{status}', [TableManageController::class, 'table
 
 // reservation table
 
-Route::get('/showReservation',[BackendReservationController::class,'showReservation'])->name('showReservation');
+Route::get('/showReservation',[BackendReservationController::class, 'showReservation'])->name('showReservation');
+Route::get('/reservationConfirm/{id}/{status}',[BackendReservationController::class, 'reservationConfirm'])->name('reservationConfirm');
 
 // Time Slot
 Route::get('/time-slot',[TimeSlotController::class,'timeSlot'])->name('timeSlot');
-// timeSlotCreate
 Route::post('/timeSlotCreate',[TimeSlotController::class,'timeSlotCreate'])->name('timeSlotCreate');
+Route::get('/timeSlotDelete/{id}',[TimeSlotController::class,'timeSlotDelete'])->name('timeSlotDelete');
+
+
+
 
 
 // order confirm admin

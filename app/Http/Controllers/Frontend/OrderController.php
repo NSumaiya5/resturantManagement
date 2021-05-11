@@ -28,20 +28,25 @@ class OrderController extends Controller
 
         return view('frontend.content.order',compact('carts','sub_total','tax', 'grandtotal'));
     }
+
     public function orderConfirm(Request $request)
     {
         // $request->validate([
         //     'delivery_address' => 'required',
         // ]);
-        $total =0;
+        // $total =0;
         $orderData = [
             'user_id'=>auth()->user()->id,
-            'address'=>$request->input('address'),
-            'payment_method'=>$request->input('paymentMethod'),
-            'total'=>0,
+            // 'address'=>$request->input('address'),
+            // // 'payment_method'=>$request->input('paymentMethod'),
+            // 'status'=>$request->input('cancle'),
+            //  'paid_status'=>$request->input('paidStatus'),
+
+
+            // 'total'=>0,
         ];
 
-  //  dd($orderData);
+//    dd($orderData);
 
 
         $carts = Cart::where('user_id',auth()->user()->id)->get();
@@ -59,6 +64,7 @@ class OrderController extends Controller
                     'quantity'=>$cart->quantity,
                     'sub_total'=>$cart->foodItem->price * $cart->quantity
                 ]);
+
             }
 
             $carts->each(function($item) {
@@ -70,6 +76,8 @@ class OrderController extends Controller
             DB::rollback();
 
         }
+        return redirect()->back();
+
 
     }
 }

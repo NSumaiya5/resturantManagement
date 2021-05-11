@@ -18,7 +18,7 @@
 
 
 
-
+{{--
                 <div class="form-group">
                     <label for="">Date:</label>
                     <input required name="date" type="date" class="form-control">
@@ -44,7 +44,7 @@
 
                 <div class="form-group mt-5">
                     <button type="submit" class="btn btn-primary">Submit</button>
-                </div>
+                </div> --}}
                 {{-- @dd($tables); --}}
 
             </div>

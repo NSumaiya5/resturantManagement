@@ -16,11 +16,11 @@ class CreateOrdersTable extends Migration
         Schema::create('orders', function (Blueprint $table) {
             $table->id();
             $table->foreignId('user_id');
-            $table->decimal('total');
+            // $table->decimal('total');
             $table->string('status')->default('pending');
-            $table->string('paid_amount')->default('unpaid');
-            $table->string('payment_method');
-            $table->text('address');
+            $table->string('paid_status')->default('unpaid');
+            // $table->string('payment_method');
+            // $table->text('address');
             $table->timestamps();
         });
     }

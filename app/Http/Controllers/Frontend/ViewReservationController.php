@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Frontend;
 use App\Http\Controllers\Controller;
 use App\Models\Reservation;
 use App\Models\Table;
+use App\Models\TimeSlot;
 use App\Models\User;
 use Illuminate\Http\Request;
 
@@ -13,9 +14,11 @@ class ViewReservationController extends Controller
     public function tableReservation($id)
     {
         $tables =Table::find($id);
+        $time_slot = TimeSlot:: all();
+//    dd($time_slot);
 
         // dd($tables);
-        return view('frontend.content.reservation',compact('tables'));
+        return view('frontend.content.reservation',compact('tables','time_slot'));
     }
 
     public function reservation(Request $request,$id)
@@ -41,12 +44,16 @@ class ViewReservationController extends Controller
 
 
                 'reservation_date'=>$request->date,
-                'reservation_time_from'=>$request->from_time,
-                'reservation_time_to'=>$request->to_time,
+                'time_slot'=>$request->time_id,
+                // 'reservation_time_from'=>$request->from_time,
+                // 'reservation_time_to'=>$request->to_time,
                 'message'=>$request->message,
+
 
                 // 'total'=>$car->price*$daysCalculate,
             ]);
+            // dd($tables);
+
 
             return redirect()->back()->with('message','Booking created Successfully');
     }

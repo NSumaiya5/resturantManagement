@@ -81,12 +81,12 @@ class AdminOrderController extends Controller
         if($status == 'unpaid'){
             $orders->update([
                 'status' => 'cancle',
-                'paid_amount' => $status
+                'paid_status' => $status
             ]);
         }else{
             $orders->update([
                 'status' => 'confirm',
-                'paid_amount' => $status
+                'paid_status' => $status
             ]);
         }
 

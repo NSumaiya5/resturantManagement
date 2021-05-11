@@ -23,11 +23,14 @@ class CreateReservations extends Migration
         //     $table->integer('user_phone');
         //     $table->integer('user_address');
             $table->date('reservation_date');
-            $table->Time('reservation_time_from');
-            $table->Time('reservation_time_to');
+            $table->string('time_slot');
+
+
         //  $table->dateTime('booking_time_from');
         //  $table->dateTime('booking_time_to');
             $table->text('message')->nullable();
+            $table->string('status')->default('pending');
+
             // $table->string('status')->default('pending');
 
 

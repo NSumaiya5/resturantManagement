@@ -46,7 +46,7 @@
               <td>{{$request->user->phone}}</td>
               {{-- <td>{{$request->address}}</td> --}}
 
-              <td class="text-center">{{$request->paid_amount}}</td>
+              <td class="text-center">{{$request->paid_status}}</td>
 
               <td>
                     <div class="dropdown ">

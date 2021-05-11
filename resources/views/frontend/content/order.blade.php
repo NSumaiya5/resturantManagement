@@ -65,7 +65,7 @@
 
 
     <div class="col-md-8 order-md-1">
-      <h4 class="mb-3">Confirmation Address</h4>
+      <h4 class="mb-3">Confirmation </h4>
 
       <form  action={{route('orderConfirm')}} method="post" class="needs-validation" novalidate>
         @csrf
@@ -117,12 +117,12 @@
                   <label>Grand Total:</label>
                   <span class="" id="cart-total"> {{$grandtotal}}</span>
                 </div>
-
+{{--
         <div class="d-block my-3">
           <div class="custom-control custom-radio">
             <input id="credit" name="paymentMethod" type="radio" value="cashOnDelivary" class="custom-control-input" checked required>
             <label class="custom-control-label" for="credit">Cash On Service</label>
-          </div>
+          </div> --}}
 
         </div>
 

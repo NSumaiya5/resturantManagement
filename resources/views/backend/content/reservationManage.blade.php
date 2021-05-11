@@ -12,16 +12,14 @@
     <table class="table">
         <thead>
         <tr>
-            <th scope="col">#</th>
-            <th scope="col">Table_Id</th>
+            <th scope="col">serial</th>
+            <th scope="col">Table_number</th>
             <th scope="col">Capacity</th>
-            <th scope="col">amount</th>
-            <th scope="col">User</th>
+            <th scope="col">User_name</th>
             <th scope="col">User Email</th>
             <th scope="col">User Contact No</th>
             <th scope="col"> Date</th>
-            <th scope="col">From time</th>
-            <th scope="col">To time</th>
+            <th scope="col">Time_Slot</th>
             <th scope="col"> message</th>
             {{-- <th scope="col">Total</th> --}}
             <th scope="col">Status</th>
@@ -31,21 +29,50 @@
         <tbody>
 
 @foreach( $reservations as $key=>$request)
-{{-- @dd($request->reservation_date) --}}
+{{-- @dd($request) --}}
             <tr>
                 <td>{{$key+1}}</td>
                 <td>{{$request->table->id}}</td>
                 <td>{{$request->table->capacity}}</td>
-                <td>{{$request->table->price}}</td>
+                {{-- <td>{{$request->table->price}}</td> --}}
                {{-- @dd($request); --}}
                 <td>{{$request->user->name}}</td>
                 <td>{{$request->user->email}}</td>
                 <td>{{$request->user->phone}}</td>
 
-                <td>{{$request->reservation_date}} </td>
-                <td>{{$request->reservation_time_from}} </td>
-                <td>{{$request->reservation_time_to}}</td>
+                {{-- <td>{{$request->time_slots->name}}</td> </td> --}}
+                {{-- {{-- <td>{{$request->reservation_time_from}} </td> --}}
+                <td>{{$request->reservation_date}}</td>
+                <td>{{$request->time_slot_name->name}}({{$request->time_slot_name->reservation_time_from}}-{{$request->time_slot_name->reservation_time_to}})</td>
+                {{-- @dd($request->time_slot_name); --}}
+
                 <td>{{$request->message}}</td>
+
+               <td class="text-center">{{$request->status}}</td>
+
+               <td>
+                <div class="dropdown ">
+                    <button class="btn btn-sm btn-light dropdown-toggle" type="button" id="dropdownMenuButton1"
+                        data-bs-toggle="dropdown" aria-expanded="false">
+                        Action
+                    </button>
+                    <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
+
+                 <li>
+                    {{-- @if ($request->status == 'unpaid') --}}
+                    {{-- <a  class="btn btn-success m-2"href="">Unpaid</a> --}}
+                    @if ( $request->status == 'pending')
+                    <a  class="btn btn-warning m-2"href="">Confirm</a>
+                    <a  class="btn btn-warning m-2"href="">Cancle</a>
+
+                    @else
+                    <a class="btn" href="{{route('reservationConfirm',['id'=>$request->id,'status'=>'cancle'])}}">cancle</a>
+                    <a class="btn" href="{{route('reservationConfirm',['id'=>$request->id,'status'=>'confirm'])}}">confirm</a>
+                    @endif
+             </li>
+                    </ul>
+                </div>
+        </td>
 
 
                 {{-- <td>{{$request->total}}</td> --}}

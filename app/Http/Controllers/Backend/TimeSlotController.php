@@ -34,5 +34,18 @@ class TimeSlotController extends Controller
             return redirect()->back();
     }
 
+    public function timeSlotDelete($id)
+    {
+    //  dd($id);
 
-}
+        $timeSlotDelete = TimeSlot::find($id);
+
+
+        //then delete it
+        $timeSlotDelete->delete();
+
+        return redirect()->route('timeSlot');
+    }
+ }
+
+

@@ -18,6 +18,9 @@ class CreateTablesTable extends Migration
             $table->text('file')->nullable();
             $table->integer('capacity');
             $table->string('status')->default('show');
+            // $table->integer('time_id');
+
+
             $table->timestamps();
         });
     }
