@@ -18,12 +18,13 @@ class CreateReservations extends Migration
 
             $table->integer('tables_id');
             $table->integer('user_id');
+            $table->string('time_slot_id');
+
             //  $table->integer('user_name');
         //   $table->integer('user_email');
         //     $table->integer('user_phone');
         //     $table->integer('user_address');
             $table->date('reservation_date');
-            $table->string('time_slot');
 
 
         //  $table->dateTime('booking_time_from');

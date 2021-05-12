@@ -17,6 +17,7 @@ class CreateTablesTable extends Migration
             $table->id();
             $table->text('file')->nullable();
             $table->integer('capacity');
+            $table->string('table_status')->default('available');
             $table->string('status')->default('show');
             // $table->integer('time_id');
 

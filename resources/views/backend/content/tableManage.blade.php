@@ -16,8 +16,13 @@
         <th scope="col">#</th>
         <th scope="col">Picture</th>
         <th scope="col">Capacity</th>
+        <th scope="col">Status</th>
+
+
         {{-- <th scope="col">TimeSlot</th> --}}
         <th scope="col">View</th>
+        <th scope="col">Action</th>
+
 
 
 
@@ -27,11 +32,15 @@
      @foreach($tables as $request)
      {{-- @dd($request->timeSlot->name); --}}
 
-
+{{-- @dd($request) --}}
         <tr>
             <th scope="row">1</th>
             <td><img src="{{url('/files/photo/'.$request->file)}}" style="width:70px; height:60px;" ></td>
             <td>{{$request->capacity}}</td>
+            <td>{{$request->table_status}}</td>
+             <td>{{$request->status}}</td>
+
+
 
 
 
@@ -71,6 +80,9 @@
             </td>
         </tr>
         @endforeach
+<tr>
+</tr>
+
         </tbody>
 
 

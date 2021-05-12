@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Backend;
 
 use App\Http\Controllers\Controller;
 use App\Models\Reservation;
+use App\Models\Table;
 use App\Models\TimeSlot;
 use App\Models\User;
 use Illuminate\Http\Request;
@@ -23,28 +24,18 @@ class ReservationController extends Controller
 
     public function reservationConfirm($id, $status)
     {
-
         $reservation = Reservation::find($id);
         $customer = User::where('id', $reservation->user_id)->first();
 
         // dd($status);
+ $reservation->update([
 
-
-        if($status == 'pending'){
-            $reservation->update([
-                'status' => 'cancle',
-                 'status' => $status
-            ]);
-        }else{
-            $reservation->update([
-                'status' => 'confirm',
-                'status' => $status
+     'status' => 'cancle',
+      'status' => $status
             ]);
 
-        }
+            // dd($reservation)
         return redirect()->back();
-
-
 
 }
 }

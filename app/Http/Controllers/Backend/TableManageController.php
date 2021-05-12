@@ -11,6 +11,7 @@ class TableManageController extends Controller
 {
     public function  tableManage()
     {
+
         $tables=Table::all();
         $time_slot =TimeSlot::all();
         return view('backend.content.tableManage',compact('tables','time_slot'));
@@ -38,16 +39,21 @@ class TableManageController extends Controller
             $file->storeAs('photo',$file_name);
         }
     }
+
     Table::create([
             'file' => $file_name,
             'capacity' => $request->capacity,
+
             // 'time_id' => $request -> time_id
             ]);
 
 
 
+
             return redirect()->back();
     }
+
+
     public function tableDelete($id)
    {
     // dd($id);

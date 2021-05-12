@@ -9,6 +9,11 @@
                     {{ session()->get('message') }}
                 </div>
             @endif
+     @if(session()->has('status'))
+        <div class="alert alert-danger">
+            {{ session()->get('status') }}
+        </div>
+    @endif
 
             <form action="{{route('reservation',$tables->id)}}" method="post"  class="container mt-5 w-50 p-5 border shadow p-3 mb-5 bg-white">
                 {{--  --}}
@@ -38,7 +43,10 @@
                    {{-- <input value="{{$tables->time_id}}" name="time_id"> --}}
               <select class="form-select form-select-mds " name="time_id" aria-label="form-select-sm example">
 
+
+
                    @foreach ($time_slot as $data)
+
 
                   <option value="{{$data->id}}" >{{$data->name}}({{$data->reservation_time_from}}-{{$data->reservation_time_to}})</option>
 

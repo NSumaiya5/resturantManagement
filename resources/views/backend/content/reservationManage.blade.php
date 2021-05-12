@@ -61,14 +61,10 @@
                  <li>
                     {{-- @if ($request->status == 'unpaid') --}}
                     {{-- <a  class="btn btn-success m-2"href="">Unpaid</a> --}}
-                    @if ( $request->status == 'pending')
-                    <a  class="btn btn-warning m-2"href="">Confirm</a>
-                    <a  class="btn btn-warning m-2"href="">Cancle</a>
-
-                    @else
                     <a class="btn" href="{{route('reservationConfirm',['id'=>$request->id,'status'=>'cancle'])}}">cancle</a>
                     <a class="btn" href="{{route('reservationConfirm',['id'=>$request->id,'status'=>'confirm'])}}">confirm</a>
-                    @endif
+
+
              </li>
                     </ul>
                 </div>
