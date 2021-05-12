@@ -95,9 +95,18 @@ Route::get('/order',[OrderController::class,'order'])->name('order');
 // order confirm
 Route::post('/orderConfirm',[OrderController::class,'orderConfirm'])->name('orderConfirm');
 
+//Profile
+
+Route::get('/profile',[viewUserController::class,'profile'])->name('profile');
+
+
 // user Profile
 Route::get('/userProfile/{id}',[viewUserController::class,'userProfile'])->name('userProfile');
+
 Route::get('/customerOrderView/{id}',[viewUserController::class,'customerOrderView'])->name('customerOrderView');
+// reservation profile
+Route::get('/reservationProfile/{id}',[viewUserController::class,'reservationProfile'])->name('reservationProfile');
+
 
 
 

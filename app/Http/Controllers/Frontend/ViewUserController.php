@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Frontend;
 use App\Http\Controllers\Controller;
 use App\Models\Order;
 use App\Models\OrderDetail;
+use App\Models\Reservation;
 use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
@@ -77,6 +78,13 @@ class ViewUserController extends Controller
         return redirect()->route('login.registration.from');
 
     }
+public function profile()
+{
+    return view('frontend.content.profile');
+
+}
+
+
     public function userProfile($id)
     {
 
@@ -95,6 +103,19 @@ class ViewUserController extends Controller
 
         return view('frontend.content.userProfile',compact('orderViews'));
     }
+
+
+
+    public function reservationProfile($id)
+    {
+
+
+        $reservationViews = Reservation::where('user_id',auth()->user()->id)->get();
+
+        // dd($reservationViews);
+        return view('frontend.content.reservationProfile',compact('reservationViews'));
+    }
+
     public function customerOrderView($id)
 
 

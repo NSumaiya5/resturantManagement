@@ -46,9 +46,9 @@
 
                     @auth
                     <li class="nav-item">
-                        <div class="nav-link   text-dark   ">
+                        <div class="nav-link   text-dark">
 
-                            <a class="btn btn-success"href="{{route('userProfile',auth()->user()->id)}}">Profile</a>
+                            <a class="btn btn-success"href="{{route('profile',auth()->user()->id)}}">Profile</a>
 
                         <span style="color:black;" >{{auth()->user()->name}}</span> <a  class="text-decoration-none text-dark" href="{{route('userLogout')}}">Logout</a>
                         </div>

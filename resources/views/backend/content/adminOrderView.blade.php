@@ -62,7 +62,8 @@
 
                               <div class="my-2"><i class="fa fa-circle text-blue-m2 text-xs mr-1"></i> <span class="text-600 text-90">Order ID:</span> #{{$orderViews->id}}</div>
 
-                                <div class="my-2"><i class="fa fa-circle text-blue-m2 text-xs mr-1"></i> <span class="text-600 text-90">Order Date:</span> {{$orderViews->created_at->format('Y-m-d H:i:s')}}</div>
+                                <div class="my-2"><i class="fa fa-circle text-blue-m2 text-xs mr-1"></i> <span class="text-600 text-90">Order Date:</span> {{$orderViews->created_at->format('Y-m-d ')}}</div>
+                                                                                                                                                                                      {{-- H:i:s --}}
 
                                 <div class="my-2"><i class="fa fa-circle text-blue-m2 text-xs mr-1"></i> Status:<span class="text-600 text-90 ms-1">{{$orderViews->status}}</span></div>
                             </div>

@@ -6,10 +6,10 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Document</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/css/bootstrap.min.css" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"  />
-
 </head>
 <body>
+
+
 
 
                       <div class="row container text-center ms-5 ">
@@ -17,7 +17,7 @@
                         <div class="col-md-11 ms-5 ">
 
                           {{-- @dd($showOrder); --}}
-                          <h1 class="text-center fs-1 mt-5">order info</h1>
+                          <h1 class="text-center fs-1 mt-5">Reservation Details</h1>
                           <div class="mt-4 mb-5">
                             <p class="text-dark">Name:{{auth()->user()->name}} </p>
                             <p class="text-dark">email:{{auth()->user()->email}} </p>
@@ -25,43 +25,49 @@
                             <p class="text-dark">address:{{auth()->user()->address}} </p>
                           <hr/>
 
-                            <table class="table fs-6 ">
+                            <table class="table fs-6">
                                 <thead >
 
 
  <tr >
     <th scope="col">Serial</th>
-    <th scope="col">Date</th>
+    <th scope="col">Image</th>
+
+    <th scope="col">Reservation Date</th>
+    <th scope="col">Time Slot</th>
+    <th scope="col">Table Number</th>
+    <th scope="col">Message</th>
+    <th scope="col">Status</th>
+
+
+
+
       {{-- <th scope="col">User</th>
     <th scope="col">User Email</th>
     <th scope="col">User Contact No</th> --}}
-    <th scope="col" >PaymentStatus</th>
-    <th scope="col" >Status</th>
-     <th scope="col" >View</th>
 
 
 
-                                <tbody class="table-primary">
-                                    {{-- @dd($orderViews); --}}
 
-                                @foreach ($orderViews as $key => $order)
+                                <tbody>
+                                    {{-- @dd($reservationViews); --}}
+
+                                @foreach ($reservationViews  as $key=> $data)
                                 <td>{{$key+1}}</td>
-
-                                <td>{{$order->created_at->format('d-m-Y')}} </td>
-                                 {{-- <td>{{$order->user->name}}</td>
-                                <td>{{$order->user->email}}</td>
-                                <td>{{$order->user->phone}}</td> --}}
-                                {{-- <td>{{$order->address}}</td> --}}
-
-                                <td >{{$order->paid_status}}</td>
-                                <td>{{$order->status}}</td>
+                                <td><img src="{{url('/files/photo/'.$data->table->file)}}" style="width:70px; height:60px;" ></td>
 
 
+                                <td>{{$data->reservation_date}} </td>
+                                <td>{{$data->time_slot_name->name}}({{$data->time_slot_name->reservation_time_from}}-{{$data->time_slot_name->reservation_time_from}}) </td>
+                                <td>{{$data->tables_id}}</td> </td>
 
-                              <td>
-                                <a href="{{route('customerOrderView',$order->id)}}"><i class="fas fa-eye"></i>
+                                <td>{{$data->message}}</td> </td>
+                                <td>{{$data->status}}</td> </td>
 
-                                </td>
+
+
+
+
 
                                 </tr>
                                   @endforeach

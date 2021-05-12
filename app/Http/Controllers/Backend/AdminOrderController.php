@@ -53,18 +53,7 @@ class AdminOrderController extends Controller
         //  dd($total);
 
 
-        // $productPrice=0;
 
-        // foreach($orderList as $item){
-        //     $subtotal = $item->sub_total;
-        //     $productPrice=$productPrice+$subtotal;
-        // }
-
-        // $tax = $subtotal*(5/100);
-
-
-
-        // $total = $productPrice+$tax;
 
         return view('backend.content.adminOrderView', compact('orderViews', 'orderList', 'total', 'tax', 'grand_total'));
     }
