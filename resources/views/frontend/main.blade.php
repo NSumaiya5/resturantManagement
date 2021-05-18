@@ -11,6 +11,10 @@
     <link rel="canonical" href="https://getbootstrap.com/docs/5.0/examples/album/">
     {{-- css --}}
   <link rel="stylesheet" href="style/css/btn.css">
+  <link rel="stylesheet" href="style/css/footer.css">
+  <link rel="stylesheet" href="style/css/writeReview.css">
+
+
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/css/bootstrap.min.css" rel="stylesheet">
 
 
@@ -28,7 +32,14 @@
     <link rel="manifest" href="/docs/5.0/assets/img/favicons/manifest.json">
     <link rel="mask-icon" href="/docs/5.0/assets/img/favicons/safari-pinned-tab.svg" color="#7952b3">
     <link rel="icon" href="/docs/5.0/assets/img/favicons/favicon.ico">
-    <meta name="theme-color" content="#7952b3">
+    {{-- <meta name="theme-color" content="#7952b3"> --}}
+
+
+
+<!------ Include the above in your HEAD tag ---------->
+
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.2.0/css/all.css" integrity="sha384-hWVjflwFxL6sNzntih27bfxkr27PmbbK/iSvJ+a4+0owXq79v+lsFkW54bOGbiDQ" crossorigin="anonymous">
+
 
     @stack('css')
 
@@ -74,5 +85,8 @@
 
 
 
+<script src="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<script src="hhttps://use.fontawesome.com/a6f0361695.js"></script>
 </body>
 </html>

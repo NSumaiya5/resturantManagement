@@ -68,11 +68,27 @@ class CartController extends Controller
     public function updateCart(Request $request,$id)
     {
 
-
         $carts = Cart::find($id);
         $carts->update([
             'quantity' =>$request->quantity
         ]);
         return redirect()->back();
     }
-}
+
+    public function foodItemRemove($id)
+    {
+    //   dd($id);
+        //first get the product
+        $foodItemRemove = Cart::find($id);
+
+
+        //then delete it
+        $foodItemRemove->delete();
+
+        return redirect()->back();
+    }
+ }
+
+
+
+

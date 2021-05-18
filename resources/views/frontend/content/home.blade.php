@@ -14,7 +14,9 @@
     <div class="col-md-5 offset-md-1 ">
         <h1 style="color: #3A4256;"><span style="color: #dd7140;" >Treat Your</span> <br/> Self</h1>
         <p class="text-secondary">Lorem ipsum, dolor sit amet consectetur adipisicing elit. Dolore eveniet necessitatibus et iusto corrupti minima.</p>
-        <button  type="button" class="btn btn-success ">ORDER FOOD</button>
+        {{-- <button  type="button" class="btn btn-success ">ORDER FOOD</button> --}}
+        <a  type="button" class="btn btn-success " href="{{route('foodItemMenu')}}">ORDER FOOD</a>
+
     </div>
     <div class="col-md-6 ">
         <img  src="{{asset('/style/image/pablo-merchan-montes-Orz90t6o0e4-unsplash.jpg')}}" alt="" class="img-fluid "/>

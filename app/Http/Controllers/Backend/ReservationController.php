@@ -3,11 +3,13 @@
 namespace App\Http\Controllers\Backend;
 
 use App\Http\Controllers\Controller;
+use App\Mail\ReservationConfrim;
 use App\Models\Reservation;
 use App\Models\Table;
 use App\Models\TimeSlot;
 use App\Models\User;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Mail;
 
 class ReservationController extends Controller
 {
@@ -35,6 +37,10 @@ class ReservationController extends Controller
             ]);
 
             // dd($reservation)
+
+             //send email to user
+             Mail::to($customer->email)->send(new ReservationConfrim($reservation));
+
         return redirect()->back();
 
 }

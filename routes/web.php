@@ -18,6 +18,7 @@ use App\Http\Controllers\Frontend\ViewUserController;
 use App\Http\Controllers\Frontend\CartController;
 use App\Http\Controllers\Frontend\FoodItemMenuController;
 use App\Http\Controllers\Frontend\OrderController;
+use App\Http\Controllers\Frontend\ReviewController;
 
 /*
 |--------------------------------------------------------------------------
@@ -76,6 +77,7 @@ Route::get('/goUserLogin',[ViewUserController::class,'goUserLogin'])->name('goUs
 
 
 // Customer Reservation
+
 // problem
 Route::get('/view/tableReservation/{id}',[ViewReservationController::class,'tableReservation'])->name('tableReservation');
 Route::post('/reservation/{id}',[ViewReservationController::class,'reservation'])->name('reservation');
@@ -87,6 +89,8 @@ Route::get('carts',[CartController::class,'index'])->name('carts');
 Route::get('/sorryMsg',[CartController::class,'sorryMsg'])->name('sorryMsg');
 //  cart updated
 Route::post('/updateCart/{id}',[CartController::class,'updateCart'])->name('updateCart');
+Route::get('/foodItemRemove/{id}',[CartController::class,'foodItemRemove'])->name('foodItemRemove');
+
 
 
 
@@ -108,6 +112,8 @@ Route::get('/customerOrderView/{id}',[viewUserController::class,'customerOrderVi
 Route::get('/reservationProfile/{id}',[viewUserController::class,'reservationProfile'])->name('reservationProfile');
 
 
+// write Review
+Route::get('/writeReview',[ReviewController::class,'writeReview'])->name('writeReview');
 
 
 

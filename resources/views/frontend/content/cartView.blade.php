@@ -17,6 +17,7 @@
             <th scope="col">Description</th>
             <th scope="col">Price</th>
             <th scope="col">Quantity</th>
+            <th scope="col">Remove</th>
             <th scope="col">Total</th>
 
 
@@ -40,10 +41,17 @@
                 <input name="quantity" style="width:30px" class="ms-5"type="number" value="{{$cart->quantity}}" min="1">
 
                 <button type="submit" class="btn btn-primary">Update</button>
+
                 </form>
 
 
             </td>
+            <td >
+            <a class="btn btn-danger" href={{ route('foodItemRemove', $cart['id']) }}>Remove</a>
+            </td>
+                {{-- <li class="bg-danger"><a class="btn btn-danger" href={{ route('foodItemRemove', $cart['id']) }}>Delete</a></li> --}}
+
+   {{-- </td>  --}}
             <td> {{$cart->foodItem->price * $cart->quantity}}</td>
           </tr>
 

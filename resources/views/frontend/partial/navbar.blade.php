@@ -24,7 +24,7 @@
                       <ul class="dropdown-menu">
                         <li><a class="dropdown-item" href="#">Organization History</a></li>
                         <li><a class="dropdown-item" href="#">Achivement</a></li>
-                        <li><a class="dropdown-item" href="#">Review</a></li>
+                        <li><a class="dropdown-item" href="{{route('writeReview')}}">Review</a></li>
                         <li><a class="dropdown-item" href={{route('viewStaff')}}>Our Community</a></li>
                       </ul>
                     </li>
@@ -38,19 +38,26 @@
 
                       @if (auth()->user())
                       <li class="nav-item">
-                      <a   class="nav-link text-dark ms-3" href="{{route('carts')}}">My-Cart</a>
-                      @else
-                      <a  class="nav-link text-dark ms-3" href="{{route('sorryMsg')}}">My-Cart</a>
 
+                      <a   class="nav-link text-dark ms-3 mb-3" href="{{route('carts')}}">
+                        <i class="mb-3 fas fa-cart-arrow-down "></i> </a>
+                      @else
+                      <a  class="nav-link text-dark ms-3" href="{{route('sorryMsg')}}"><i class="fas fa-cart-arrow-down"></i></a>
+                      </li>
                       @endif
+
+                      <li class="nav-item">
+                        <span class="badge bg-success rounded-pill mb-2">{{$foodItem_count}}</span>
+                      </li>
+
 
                     @auth
                     <li class="nav-item">
                         <div class="nav-link   text-dark">
 
-                            <a class="btn btn-success"href="{{route('profile',auth()->user()->id)}}">Profile</a>
+                            <a class="btn btn-success"href="{{route('profile',auth()->user()->id)}}">{{auth()->user()->name}}</a>
 
-                        <span style="color:black;" >{{auth()->user()->name}}</span> <a  class="text-decoration-none text-dark" href="{{route('userLogout')}}">Logout</a>
+                            <a class="btn btn-success"href="{{route('userLogout')}}">Logout</a>
                         </div>
                       @else
                       <a class="nav-link text-dark " href="{{route('login.registration.from')}}">Login</a>

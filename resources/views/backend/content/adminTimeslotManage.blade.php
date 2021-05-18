@@ -40,7 +40,7 @@
                         {{-- <li class="bg-info"><a class="btn" href="">Edit</span></a></li>
                         <li class="bg-danger"><a class="btn btn-danger" href={{route('foodItemDelete', $request->id)}}>Delete</a></li> --}}
 <td>
-    <a href={{route('timeSlotDelete', $request['id'])}}"><i class="fas fa-trash-alt"></i></a>
+    <a href={{route('timeSlotDelete', $request['id'])}}><i class="fas fa-trash-alt"></i></a>
 </td>
 
 

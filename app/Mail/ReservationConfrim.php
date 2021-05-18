@@ -7,7 +7,7 @@ use Illuminate\Contracts\Queue\ShouldQueue;
 use Illuminate\Mail\Mailable;
 use Illuminate\Queue\SerializesModels;
 
-class OrderConformation extends Mailable
+class ReservationConfrim extends Mailable
 {
     use Queueable, SerializesModels;
 
@@ -16,10 +16,11 @@ class OrderConformation extends Mailable
      *
      * @return void
      */
-    protected $orders;
-    public function __construct($orders)
+    protected $reservation;
+    public function __construct($reservation)
     {
-        $this -> orders = $orders;
+        $this -> reservation = $reservation;
+
     }
 
     /**
@@ -29,6 +30,8 @@ class OrderConformation extends Mailable
      */
     public function build()
     {
-        return $this->view('backend.content.mail')->with(['ordersData'=>$this -> orders]);
+        return $this->view('backend.content.reservationMail')->with(['reservationData'=>$this -> reservation]);
     }
 }
+
+
