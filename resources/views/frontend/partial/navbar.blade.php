@@ -24,7 +24,7 @@
                       <ul class="dropdown-menu">
                         <li><a class="dropdown-item" href="#">Organization History</a></li>
                         <li><a class="dropdown-item" href="#">Achivement</a></li>
-                        <li><a class="dropdown-item" href="{{route('writeReview')}}">Review</a></li>
+                        {{-- <li><a class="dropdown-item" href="{{route('writeReview')}}">Review</a></li> --}}
                         <li><a class="dropdown-item" href={{route('viewStaff')}}>Our Community</a></li>
                       </ul>
                     </li>

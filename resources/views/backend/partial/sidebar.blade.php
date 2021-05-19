@@ -80,19 +80,26 @@
             </a>
           </li>
 
-          <li class="nav-item">
-            <a class="nav-link" href="#">
+          {{-- <li class="nav-item">
+            <a class="nav-link" href="{{route('orderReport')}}">
               <span ></span>
               Order list
             </a>
           </li>
         <li class="nav-item">
-            <a class="nav-link" href="#">
+            <a class="nav-link" href="{{route('reservationReport')}}">
               <span ></span>
               Manage Record
             </a>
-          </li>
+          </li> --}}
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle text-blue " data-bs-toggle="dropdown" href="#" role="button" aria-expanded="false">Report</a>
+            <ul class="dropdown-menu">
+              <li><a class="nav-link" href="{{route('reservationReport')}}">Reservation Report</li>
+              <li><a class="nav-link" href="{{route('orderReport')}}">Order Report</a></li>
 
+            </ul>
+          </li>
 </li>
       </ul>
     </div>

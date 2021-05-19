@@ -91,16 +91,6 @@ public function profile()
 
         $orderViews = Order::where('user_id',auth()->user()->id)->get();
 
-
-        // $showOrder = OrderDetail::where('order_id', $orderViews->id)->get();
-
-        // $orderList = OrderDetail::where('order_id', $orderViews->id)->get();
-        // $total = $orderList->sum('sub_total');
-        // $tax = $total * (5 / 100);
-        // $grand_total = $total + $tax;
-        // $showOrder = OrderDetail :: where('user_id',auth()->user()->id)->get();
-        // dd($orderViews);
-
         return view('frontend.content.userProfile',compact('orderViews'));
     }
 
@@ -108,16 +98,13 @@ public function profile()
 
     public function reservationProfile($id)
     {
-
-
-        $reservationViews = Reservation::where('user_id',auth()->user()->id)->get();
+      $reservationViews = Reservation::where('user_id',auth()->user()->id)->get();
 
         // dd($reservationViews);
         return view('frontend.content.reservationProfile',compact('reservationViews'));
     }
 
     public function customerOrderView($id)
-
 
     {
         $orderViews = Order::find($id);

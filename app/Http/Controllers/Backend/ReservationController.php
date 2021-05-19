@@ -44,4 +44,25 @@ class ReservationController extends Controller
         return redirect()->back();
 
 }
+public function reservationReport()
+
+{
+
+    $reservationViews = Reservation::all();
+
+
+
+        if (isset($_GET['from_date'])) {
+            $fromDate = date('Y-m-d', strtotime($_GET['from_date']));
+            $toDate = date('Y-m-d', strtotime($_GET['to_date']));
+
+            // dd($toDate);
+
+            $reservationViews = Reservation::whereBetween('reservation_date',[$fromDate,$toDate])->get();
+        }
+
+    return view('backend.content.reservationReport',compact('reservationViews'));
+
+}
+
 }

@@ -84,4 +84,26 @@ class AdminOrderController extends Controller
         Mail::to($customer->email)->send(new OrderConformation($orders));
         return redirect()->back();
     }
+
+    public function orderReport()
+    {
+           $orderViews = Order::all();
+         $orderList = OrderDetail::all();
+            $total = $orderList->sum('sub_total');
+             $tax = $total * (5 / 100);
+           $grand_total = $total + $tax;
+
+           if (isset($_GET['from_date'])) {
+            $fromDate = date('Y-m-d', strtotime($_GET['from_date']));
+            $toDate = date('Y-m-d', strtotime($_GET['to_date']));
+
+            // dd($toDate);
+
+            $orderViews = Order::whereBetween('created_at',[$fromDate,$toDate])->get();
+        }
+           // $showOrder = OrderDetail :: where('user_id',auth()->user()->id)->get();
+           return view('backend.content.orderReport',compact('orderViews','orderList','total','tax','grand_total'));
+
+           // dd($orderViews);
+       }
 }

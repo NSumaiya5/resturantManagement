@@ -226,6 +226,10 @@ Route::get('/adminOrderView/{id}',[AdminOrderController::class,'adminOrderView']
 //paid status
 Route::get('/orderPaid/{id}/{status}',[AdminOrderController::class,'orderPaid'])->name('orderPaid');
 
+// reservation report
+ Route::get('/reservationReport',[BackendReservationController::class,'reservationReport'])->name('reservationReport');
+
+ Route::get('/orderReport',[AdminOrderController::class,'orderReport'])->name('orderReport');
 
 });
 
