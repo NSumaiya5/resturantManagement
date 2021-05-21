@@ -156,5 +156,63 @@
             alert("Are you sure?");
         }
     </script> --}}
+    {{-- review section --}}
+    <div class="album py-5 bg-light mt-5">
+        <div class="container">
+
+            <div class="text-center">
+
+                <h2 style="color: #3A4256;" >Meet Our </h2>
+                <h3 style="color: #dd7140;" class="mb-5">Community</h3>
+                {{-- <div>
+                    <a href="{{route('allStaffView')}}"> <i class="fas fa-arrow-right"></i> see more</a>
+                </div> --}}
+
+
+            <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-3">
+
+
+
+@foreach($review as $data)
+
+                {{-- <div class="col mt-5">
+                    <div class="card shadow-sm h-100" style="height:250px;width:270px;">
+                        <div class="card-body" >
+                            <p class="card-text">Name:{{$data->reviewUser->name}}</p>
+                            <p class="card-text">Email:{{$data->reviewUser->email}}</p>
+                            <p class="card-text">Rate:{{$data->rate}}</p>
+                             <p class="card-text">Opinion:{{$data->message}}</p>
+
+                        </div>
+                    </div>
+                </div> --}}
+                @endforeach
+
+                <div id="carouselExampleControls" class="carousel slide" data-ride="carousel">
+                    <div class="carousel-inner">
+                      <div class="carousel-item active">
+                        <img class="d-block w-100" src="{{asset('/style/image/gb2.jpg')}}" alt="First slide">
+                        <p class="card-text">Name:{{$data->reviewUser->name}}</p>
+                            <p class="card-text">Email:{{$data->reviewUser->email}}</p>
+                            <p class="card-text">Rate:{{$data->rate}}</p>
+                             <p class="card-text">Opinion:{{$data->message}}</p>
+                      </div>
+
+                    <a class="carousel-control-prev" href="#carouselExampleControls" role="button" data-slide="prev">
+                      <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                      <span class="sr-only">Previous</span>
+                    </a>
+                    <a class="carousel-control-next" href="#carouselExampleControls" role="button" data-slide="next">
+                      <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                      <span class="sr-only">Next</span>
+                    </a>
+                  </div>
+
+
+            </div>
+        </div>
+    </div>
+
+
 @endsection
 

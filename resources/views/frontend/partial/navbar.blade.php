@@ -22,7 +22,7 @@
                   <li class="nav-item dropdown">
                       <a class="nav-link dropdown-toggle text-dark ms-3" data-bs-toggle="dropdown" href="#" role="button" aria-expanded="false">About Us</a>
                       <ul class="dropdown-menu">
-                        <li><a class="dropdown-item" href="#">Organization History</a></li>
+                        <li><a class="dropdown-item" href="{{route('aboutUs')}}">History</a></li>
                         <li><a class="dropdown-item" href="#">Achivement</a></li>
                         {{-- <li><a class="dropdown-item" href="{{route('writeReview')}}">Review</a></li> --}}
                         <li><a class="dropdown-item" href={{route('viewStaff')}}>Our Community</a></li>

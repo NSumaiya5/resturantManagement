@@ -1,10 +1,10 @@
 
 
 /***Google fonts***/
-@import url('https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400;700&family=Devonshire&family=Ewert&family=Fascinate+Inline&family=Girassol&family=Itim&family=Kenia&family=Oswald:wght@300;400&family=Pangolin&family=Roboto&display=swap');
+/* @import url('https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400;700&family=Devonshire&family=Ewert&family=Fascinate+Inline&family=Girassol&family=Itim&family=Kenia&family=Oswald:wght@300;400&family=Pangolin&family=Roboto&display=swap'); */
 
 /***Font for clock and date***/
-@import url('https://fonts.googleapis.com/css2?family=Orbitron&display=swap');
+/* @import url('https://fonts.googleapis.com/css2?family=Orbitron&display=swap'); */
 
 
 /*font-family: 'Dancing Script', cursive;
@@ -154,21 +154,19 @@ body{
 
 .about{
     letter-spacing: 5px;
-    font-size: 3rem;
-    font-family: 'Ewert', cursive;
+    font-size: 10rem;
+    /* font-family: 'Ewert', cursive; */
     padding-top: 50px;
     padding-bottom: 30px;
 }
 
-.about-p{
-    padding-bottom: 50px;
+ .about-p{
+     padding-bottom: 50px;
     text-align: justify;
-    font-family: 'Oswald', sans-serif;
-    font-size: 1.2rem;
+    /* font-family: Arial, Helvetica, sans-serif; */
+     font-size: 1.2rem;
     letter-spacing: 2px;
-}
-
-
+ }
 
 .menu{
     letter-spacing: 5px;

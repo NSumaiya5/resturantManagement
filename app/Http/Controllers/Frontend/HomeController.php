@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Frontend;
 use App\Http\Controllers\Controller;
 use App\Models\FoodItem;
 use App\Models\Gallery;
+use App\Models\Review;
 use App\Models\Staff;
 use Illuminate\Http\Request;
 
@@ -18,9 +19,10 @@ class HomeController extends Controller
 
          $staffs=Staff::take(3)->get();
 
+         $review=Review::all();
 
 
-        return view('frontend.content.home',compact('foodItems','staffs','gallerys'));
+        return view('frontend.content.home',compact('foodItems','staffs','gallerys','review'));
     }
 
     public function allStaffView()
@@ -64,5 +66,7 @@ public function  viewFood($id)
 }
 
 }
+
+
 
 //Staf::where('type','shpae')

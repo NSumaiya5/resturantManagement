@@ -10,6 +10,7 @@ use App\Http\Controllers\Backend\ReservationController as BackendReservationCont
 use App\Http\Controllers\Backend\TableManageController;
 use App\Http\Controllers\Backend\TimeSlotController;
 use App\Http\Controllers\Backend\UserController;
+use App\Http\Controllers\Frontend\AboutUsController;
 use App\Http\Controllers\Frontend\HomeController;
 use App\Http\Controllers\Frontend\staffController;
 use App\Http\Controllers\Frontend\TableReservationController;
@@ -115,6 +116,14 @@ Route::get('/reservationProfile/{id}',[viewUserController::class,'reservationPro
 
 // write Review
 Route::get('/writeReview',[ReviewController::class,'writeReview'])->name('writeReview');
+
+// submitReview
+Route::post('/submitReview',[ReviewController::class,'submitReview'])->name('submitReview');
+
+// aboutUs
+Route::get('/aboutUs',[AboutUsController::class,'aboutUs'])->name('aboutUs');
+
+
 
 
 
