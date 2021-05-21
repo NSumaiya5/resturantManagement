@@ -15,4 +15,11 @@ class OrderDetail extends Model
 
         return $this->belongsTo(FoodItem::class,'food_item_id','id');
     }
+
+    public function orderForDetails(){
+
+        return $this->belongsTo(Order::class,'order_id','id');
+
+    }
+
 }

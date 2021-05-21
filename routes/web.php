@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\Backend\AdminOrderController;
+use App\Http\Controllers\Backend\DashboardController;
 use App\Http\Controllers\Backend\GalleryController;
 use Illuminate\Support\Facades\Route;
 use  App\Http\Controllers\Backend\StaffManageController;
@@ -230,6 +231,9 @@ Route::get('/orderPaid/{id}/{status}',[AdminOrderController::class,'orderPaid'])
  Route::get('/reservationReport',[BackendReservationController::class,'reservationReport'])->name('reservationReport');
 
  Route::get('/orderReport',[AdminOrderController::class,'orderReport'])->name('orderReport');
+
+ Route::get('/dashboard',[DashboardController::class,'dashboard'])->name('dashboard');
+
 
 });
 

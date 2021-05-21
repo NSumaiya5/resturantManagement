@@ -21,6 +21,12 @@
                 <p class="text-dark">email:{{auth()->user()->email}} </p>
                 <p class="text-dark">Phone:{{auth()->user()->phone}} </p>
                 <p class="text-dark">address:{{auth()->user()->address}} </p>
+                <p class="text-dark">Status :{{ $orderViews->status}}</p>
+                <p class="text-dark">Payment :{{ $orderViews->paid_status}}</p>
+
+
+                <td></td>
+
 
 
 
@@ -61,6 +67,8 @@
  </div>
  <div class="">
     <button type="button" onclick="printDiv()" class="btn btn-success mx-3">Print</button>
+    <a href="{{route('userProfile',auth()->user()->id)}}"type="button"  class="btn btn-success mx-3">Back</a>
+
 </div>
 
             </div>

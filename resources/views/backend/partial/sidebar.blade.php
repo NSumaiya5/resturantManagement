@@ -25,8 +25,7 @@
 
         </li>
         <li class="nav-item">
-              <a class="nav-link active" aria-current="page" href="#">
-                <span data-feather="home"></span>
+              <a class="nav-link active" aria-current="page"href="{{route('dashboard')}}">
             Dashboard
           </a>
         </li>

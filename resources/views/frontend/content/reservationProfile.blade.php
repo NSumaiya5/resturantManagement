@@ -6,10 +6,12 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Document</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"/>
 </head>
 <body>
 
 
+    <div id="printArea">
 
 
                       <div class="row container text-center ms-5 ">
@@ -42,6 +44,8 @@
 
 
 
+
+
       {{-- <th scope="col">User</th>
     <th scope="col">User Email</th>
     <th scope="col">User Contact No</th> --}}
@@ -53,16 +57,18 @@
                                     {{-- @dd($reservationViews); --}}
 
                                 @foreach ($reservationViews  as $key=> $data)
+
                                 <td>{{$key+1}}</td>
                                 <td><img src="{{url('/files/photo/'.$data->table->file)}}" style="width:70px; height:60px;" ></td>
 
 
                                 <td>{{$data->reservation_date}} </td>
                                 <td>{{$data->time_slot_name->name}}({{$data->time_slot_name->reservation_time_from}}-{{$data->time_slot_name->reservation_time_from}}) </td>
-                                <td>{{$data->tables_id}}</td> </td>
+                                <td>{{$data->tables_id}}</td>
 
-                                <td>{{$data->message}}</td> </td>
-                                <td>{{$data->status}}</td> </td>
+                                <td>{{$data->message}}</td>
+                                <td>{{$data->status}}</td>
+
 
 
 
@@ -78,10 +84,35 @@
 
 
 
+                                </div>
+
+                                <div class="mb-5">
+                                    <button type="button" onclick="printDiv()" class="btn btn-success mx-3">Print</button>
+
+                                 <a href="{{route('profile',auth()->user()->id)}}"type="button"  class="btn btn-success mx-3">Back</a>
+                                </div>
 
 
 
     </div>
+
+
+
+
+
+    <script type="text/javascript">
+        function printDiv() {
+            var printContents = document.getElementById("printArea").innerHTML;
+            var originalContents = document.body.innerHTML;
+
+            document.body.innerHTML = printContents;
+
+            window.print();
+
+            document.body.innerHTML = originalContents;
+        }
+
+    </script>
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-p34f1UUtsS3wqzfto5wAAmdvj+osOnFyQFpp4Ua3gs/ZVWx6oOypYoCJhGGScy+8" crossorigin="anonymous"></script>
 

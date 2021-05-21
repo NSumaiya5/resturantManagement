@@ -105,8 +105,7 @@ public function profile()
     }
 
     public function customerOrderView($id)
-
-    {
+ {
         $orderViews = Order::find($id);
       $orderList = OrderDetail::where('order_id', $orderViews->id)->get();
          $total = $orderList->sum('sub_total');

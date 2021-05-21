@@ -104,6 +104,6 @@ class AdminOrderController extends Controller
            // $showOrder = OrderDetail :: where('user_id',auth()->user()->id)->get();
            return view('backend.content.orderReport',compact('orderViews','orderList','total','tax','grand_total'));
 
-           // dd($orderViews);
+           dd($orderViews);
        }
 }

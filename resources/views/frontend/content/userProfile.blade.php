@@ -66,9 +66,12 @@
                                 </tr>
                                   @endforeach
                                   </tbody>
+
                                   </table>
+                                  <div class="mt-5">
+                                  <a href="{{route('profile',auth()->user()->id)}}"type="button"  class="btn btn-success mx-3">Back</a>
 
-
+                                  </div>
 
 
 
@@ -79,7 +82,7 @@
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-p34f1UUtsS3wqzfto5wAAmdvj+osOnFyQFpp4Ua3gs/ZVWx6oOypYoCJhGGScy+8" crossorigin="anonymous"></script>
 
-    <script type="text/javascript">
+    {{-- <script type="text/javascript">
         function printDiv() {
             var printContents = document.getElementById("printArea").innerHTML;
             var originalContents = document.body.innerHTML;
@@ -91,6 +94,6 @@
             document.body.innerHTML = originalContents;
         }
 
-    </script>
+    </script> --}}
 </body>
 </html>

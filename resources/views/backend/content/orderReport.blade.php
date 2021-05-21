@@ -42,14 +42,21 @@
                 <th scope="col">Food Item Name</th>
                 <th scope="col">Quantity</th>
                 <th scope="col">Grand Total</th>
+                <th scope="col">Status</th>
+
+
                 </tr>
             </thead>
 
             <tbody>
+
                 @if ($orderViews ->count() > 0)
+
+
 
             @foreach($orderList  as $key=> $order)
 
+            {{-- @dd($order->orderForDetails->status); --}}
 
 
       <tr>
@@ -60,10 +67,13 @@
         <td>{{ $order->food->name }}</td>
         <td>{{ $order->quantity }}</td>
         <td>{{ $grand_total}}/=</td>
+        <td>{{ $order->orderForDetails->status}}</td>
+      </tr>
 
 
-    </tr>
     @endforeach
+
+
     @else
 
 <td>
