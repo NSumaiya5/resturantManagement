@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Backend;
 
 use App\Http\Controllers\Controller;
+use App\Mail\OrderCancle;
 use App\Mail\OrderConformation;
 use App\Models\Order;
 use App\Models\OrderDetail;
@@ -41,8 +42,9 @@ class AdminOrderController extends Controller
     public function adminOrderView($id)
     {
 
-        //   dd($request->all());
         $orderViews = Order::find($id);
+
+    //   dd($orderViews);
         $orderList = OrderDetail::where('order_id', $orderViews->id)->get();
         $total = $orderList->sum('sub_total');
         $tax = $total * (5 / 100);
@@ -72,16 +74,19 @@ class AdminOrderController extends Controller
                 'status' => 'cancle',
                 'paid_status' => $status
             ]);
+            Mail::to($customer->email)->send(new OrderCancle($orders));
+
         }else{
             $orders->update([
                 'status' => 'confirm',
                 'paid_status' => $status
             ]);
+            Mail::to($customer->email)->send(new OrderConformation($orders));
+
         }
 
 
         // dd($status);
-        Mail::to($customer->email)->send(new OrderConformation($orders));
         return redirect()->back();
     }
 
@@ -104,6 +109,6 @@ class AdminOrderController extends Controller
            // $showOrder = OrderDetail :: where('user_id',auth()->user()->id)->get();
            return view('backend.content.orderReport',compact('orderViews','orderList','total','tax','grand_total'));
 
-           dd($orderViews);
+        //    dd($orderViews);
        }
 }

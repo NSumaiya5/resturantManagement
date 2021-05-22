@@ -19,15 +19,7 @@
             {{-- <th scope="col">Address</th> --}}
             <th scope="col" >PaymentStatus</th>
             <th scope="col">Payment</b>Action</th>
-
-            {{-- <th scope="col">Food Item</th>
-            <th scope="col">Food Quantity</th>
-            <th scope="col">Subtotal</th>
-            <th scope="col">Tax</th> --}}
-            {{-- <th scope="col">Total</th> --}}
-            {{-- <th scope="col">Paid Amount</th> --}}
             <th scope="col">Status</th>
-            {{-- <th scope="col">Action</th> --}}
             <th scope="col">View</th>
 
 
@@ -60,7 +52,7 @@
                         {{-- @if ($request->status == 'unpaid') --}}
                         {{-- <a  class="btn btn-success m-2"href="">Unpaid</a> --}}
                         @if ( $request->status == 'paid')
-                        <a  class="btn btn-warning m-2"href="">Paid</a>
+                        <a  class="btn btn-warning m-2"href="{{route('orderPaid',['id'=>$request->id,'status'=>'paid'])}}">Paid</a>
                         @else
                         <a class="btn" href="{{route('orderPaid',['id'=>$request->id,'status'=>'unpaid'])}}">cancle</a>
                         <a class="btn" href="{{route('orderPaid',['id'=>$request->id,'status'=>'paid'])}}">paid</a>

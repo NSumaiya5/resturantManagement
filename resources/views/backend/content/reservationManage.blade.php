@@ -59,11 +59,16 @@
                     <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
 
                  <li>
-                    {{-- @if ($request->status == 'unpaid') --}}
-                    {{-- <a  class="btn btn-success m-2"href="">Unpaid</a> --}}
-                    <a class="btn" href="{{route('reservationConfirm',['id'=>$request->id,'status'=>'cancle'])}}">cancle</a>
+
+                    @if ( $request->status == 'pending')
+
+                    <a class="btn" href="{{route('reservationConfirm',['id'=>$request->id,'status'=>'cancel'])}}">cancel</a>
+                    <a class="btn" href="{{route('reservationConfirm',['id'=>$request->id,'status'=>'confirm'])}}">confirm</a>
+                    @else
+                    <a class="btn" href="{{route('reservationConfirm',['id'=>$request->id,'status'=>'cancel'])}}">cancel</a>
                     <a class="btn" href="{{route('reservationConfirm',['id'=>$request->id,'status'=>'confirm'])}}">confirm</a>
 
+          @endif
 
              </li>
                     </ul>
@@ -74,9 +79,9 @@
                 {{-- <td>{{$request->total}}</td> --}}
                 {{-- <td>fsadfasfsdf</td>
                 <td><a href="">view</a></td> --}}
-            </tr>
 
-@endforeach
+            </tr>
+            @endforeach
 
         </tbody>
 

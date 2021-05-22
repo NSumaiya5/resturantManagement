@@ -67,7 +67,7 @@ else if( $tables ==$request->tables_id && $time_slot_id ==$request->time_id &&  
             // dd($tables);
 
 
-            return redirect()->back()->with('message','Booking created Successfully');
+            return redirect()->back()->with('message','Reservation request create Successfully');
     }
 
 }

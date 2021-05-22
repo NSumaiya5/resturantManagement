@@ -21,6 +21,8 @@ class HomeController extends Controller
 
          $review=Review::all();
 
+        // $slider=Gallery::take(6)->get();
+
 
         return view('frontend.content.home',compact('foodItems','staffs','gallerys','review'));
     }

@@ -24,6 +24,7 @@
 
           </tr>
         </thead>
+        {{-- @dd($carts); --}}
         @foreach ($carts as $key=>$cart)
         <tbody>
 

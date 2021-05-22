@@ -44,6 +44,8 @@
 
 @foreach($gallerys as $data)
 
+
+
             <div class="col mt-5">
                 <div class="card shadow-sm h-100" style="height:250px;width:270px;">
                     <img style="height:250px;width:269px;" src="{{url('/files/photo/'.$data->file)}}"alt="gallery image">
@@ -162,56 +164,83 @@
 
             <div class="text-center">
 
-                <h2 style="color: #3A4256;" >Meet Our </h2>
-                <h3 style="color: #dd7140;" class="mb-5">Community</h3>
-                {{-- <div>
-                    <a href="{{route('allStaffView')}}"> <i class="fas fa-arrow-right"></i> see more</a>
+                {{-- <h2 style="color: #3A4256;" >Meet Our </h2> --}}
+                <h3 style="color: #dd7140;" class="mb-5">Review</h3>
+               <div>
+                    {{-- <a href="{{route('allStaffView')}}"> <i class="fas fa-arrow-right"></i> see more</a>
                 </div> --}}
 
-
-            <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-3">
-
+ <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-3">
 
 
-@foreach($review as $data)
 
-                {{-- <div class="col mt-5">
+ @foreach($review as $data)
+
+                <div class="col mt-5">
                     <div class="card shadow-sm h-100" style="height:250px;width:270px;">
                         <div class="card-body" >
                             <p class="card-text">Name:{{$data->reviewUser->name}}</p>
                             <p class="card-text">Email:{{$data->reviewUser->email}}</p>
-                            <p class="card-text">Rate:{{$data->rate}}</p>
+                            {{-- <p class="card-text">
+                                <span class="review-stars" style="color: #dd7140;;">
+                                    <!-- ////////////// STAR RATE CHECKER ////////////// -->
+
+                                        @if($data->rate === 1)
+                                            <i class="fa fa-star" aria-hidden="true"></i>
+                                            <i class="fa fa-star-o" aria-hidden="true"></i>
+                                            <i class="fa fa-star-o" aria-hidden="true"></i>
+                                            <i class="fa fa-star-o" aria-hidden="true"></i>
+                                            <i class="fa fa-star-o" aria-hidden="true"></i>
+                                        @elseif($data->rate === 2)
+                                            <i class="fa fa-star" aria-hidden="true"></i>
+                                            <i class="fa fa-star" aria-hidden="true"></i>
+                                            <i class="fa fa-star-o" aria-hidden="true"></i>
+                                            <i class="fa fa-star-o" aria-hidden="true"></i>
+                                            <i class="fa fa-star-o" aria-hidden="true"></i>
+                                        @elseif($data->rate === 3)
+                                            <i class="fa fa-star" aria-hidden="true"></i>
+                                            <i class="fa fa-star" aria-hidden="true"></i>
+                                            <i class="fa fa-star" aria-hidden="true"></i>
+                                            <i class="fa fa-star-o" aria-hidden="true"></i>
+                                            <i class="fa fa-star-o" aria-hidden="true"></i>
+                                        @elseif($data->rate=== 4)
+                                            <i class="fa fa-star" aria-hidden="true"></i>
+                                            <i class="fa fa-star" aria-hidden="true"></i>
+                                            <i class="fa fa-star" aria-hidden="true"></i>
+                                            <i class="fa fa-star" aria-hidden="true"></i>
+                                            <i class="fa fa-star-o" aria-hidden="true"></i>
+                                        @elseif($data->rate >= 5)
+                                            <i class="fa fa-star" aria-hidden="true"></i>
+                                            <i class="fa fa-star" aria-hidden="true"></i>
+                                            <i class="fa fa-star" aria-hidden="true"></i>
+                                            <i class="fa fa-star" aria-hidden="true"></i>
+                                            <i class="fa fa-star" aria-hidden="true"></i>
+                                        @endif
+                                        <!-- ///////////////////////////////////////////// -->
+                                    </span></p> --}}
                              <p class="card-text">Opinion:{{$data->message}}</p>
+
 
                         </div>
                     </div>
-                </div> --}}
+                </div>
                 @endforeach
 
-                <div id="carouselExampleControls" class="carousel slide" data-ride="carousel">
-                    <div class="carousel-inner">
-                      <div class="carousel-item active">
-                        <img class="d-block w-100" src="{{asset('/style/image/gb2.jpg')}}" alt="First slide">
-                        <p class="card-text">Name:{{$data->reviewUser->name}}</p>
-                            <p class="card-text">Email:{{$data->reviewUser->email}}</p>
-                            <p class="card-text">Rate:{{$data->rate}}</p>
-                             <p class="card-text">Opinion:{{$data->message}}</p>
-                      </div>
 
-                    <a class="carousel-control-prev" href="#carouselExampleControls" role="button" data-slide="prev">
-                      <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-                      <span class="sr-only">Previous</span>
-                    </a>
-                    <a class="carousel-control-next" href="#carouselExampleControls" role="button" data-slide="next">
-                      <span class="carousel-control-next-icon" aria-hidden="true"></span>
-                      <span class="sr-only">Next</span>
-                    </a>
-                  </div>
+
 
 
             </div>
+            {{-- @dd($review) --}}
+
+
+
         </div>
+
     </div>
+
+
+
 
 
 @endsection

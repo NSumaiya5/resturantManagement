@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Backend;
 
 use App\Http\Controllers\Controller;
+use App\Mail\ReservationCancel;
 use App\Mail\ReservationConfrim;
 use App\Models\Reservation;
 use App\Models\Table;
@@ -30,16 +31,31 @@ class ReservationController extends Controller
         $customer = User::where('id', $reservation->user_id)->first();
 
         // dd($status);
- $reservation->update([
 
-     'status' => 'cancle',
+        if($status=='cancel'){
+            $reservation->update([
+
+
+     'status' => 'cancel',
       'status' => $status
             ]);
+            Mail::to($customer->email)->send(new ReservationCancel($reservation));
+
+        }
+        else{
+
+            $reservation->update([
+
+                'status' => 'confirm',
+                 'status' => $status
+                       ]);
+
+            Mail::to($customer->email)->send(new ReservationConfrim($reservation));
 
             // dd($reservation)
 
              //send email to user
-             Mail::to($customer->email)->send(new ReservationConfrim($reservation));
+            }
 
         return redirect()->back();
 

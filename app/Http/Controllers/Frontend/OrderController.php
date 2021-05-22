@@ -31,19 +31,10 @@ class OrderController extends Controller
 
     public function orderConfirm(Request $request)
     {
-        // $request->validate([
-        //     'delivery_address' => 'required',
-        // ]);
-        // $total =0;
+
         $orderData = [
             'user_id'=>auth()->user()->id,
-            // 'address'=>$request->input('address'),
-            // // 'payment_method'=>$request->input('paymentMethod'),
-            // 'status'=>$request->input('cancle'),
-            //  'paid_status'=>$request->input('paidStatus'),
 
-
-            // 'total'=>0,
         ];
 
 //    dd($orderData);
@@ -76,7 +67,7 @@ class OrderController extends Controller
             DB::rollback();
 
         }
-        return redirect()->back();
+        return redirect()->back()->with('message','Order request create Successfully');
 
 
     }

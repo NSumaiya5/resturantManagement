@@ -1,7 +1,7 @@
    <nav class="navbar navbar-expand-lg navbar-light ">
         <div class="container-fluid">
             <img style="height:30px;weight:33px;" class="ms-3" src="{{asset('/style/image/logo2.jpg')}}" alt="" class="img-fluid " alt=""/>
-          <a class="navbar-brand fs-6" href="#">BE FRESH<br/>FOOD</a>
+          <a class="navbar-brand fs-6" href="#"> FRESH<br/>FOOD</a>
           <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
           </button>

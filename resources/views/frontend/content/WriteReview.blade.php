@@ -41,9 +41,9 @@
 
 
   <div class="input-group">
-  <span class="input-group-addon"><i class="fa fa-heart"></i></span>
+  <span class="input-group-addon"><i class="fa fa-star checked"></i></span>
    <select name="rate" class="form-control" id="rate">
-      <option value="1">1</option>
+      <option value="1">1<i class="fa fa-star checked"></i></option>
       <option value="2">2</option>
       <option value="3">3</option>
       <option value="4">4</option>

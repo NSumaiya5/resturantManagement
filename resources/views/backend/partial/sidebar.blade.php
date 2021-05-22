@@ -18,7 +18,7 @@
 </ul>
   </nav>
 
-<nav id="sidebarMenu" class="col-md-3 col-lg-2 d-md-block bg-dark sidebar collapse" >
+<nav id="sidebarMenu" class="col-md-3 col-lg-2 w-20  d-md-block bg-dark sidebar collapse"style="height:800px" >
     <div class="position-sticky pt-4 ">
       <ul class="nav flex-column">
         <li class="nav-item">
