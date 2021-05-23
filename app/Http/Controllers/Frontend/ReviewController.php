@@ -27,12 +27,6 @@ class ReviewController extends Controller
 
 
         }
-        // public function viewReview()
-        // {
-        //     $review=Review::all();
-
-        //     return view('frontend.content.viewGallery',compact('gallerys'));
-        // }
 
 
 

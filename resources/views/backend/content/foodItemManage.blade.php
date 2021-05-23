@@ -57,8 +57,9 @@
                             @endif
                         </li>
 
-                        <li class="bg-info"><a class="btn" href="">Edit</span></a></li>
-                        <li class="bg-danger"><a class="btn btn-danger" href={{route('foodItemDelete', $request->id)}}>Delete</a></li>
+                        <li class="bg-info"><a class="btn" href="{{route('foodItemEdit', $request['id'])}}">Edit</span></a></li>
+                        <li class="bg-danger"><a class="btn btn-danger" href={{route('foodItemDelete', $request['id'])}}>Delete</a></li>
+
 
 
 

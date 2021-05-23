@@ -171,6 +171,8 @@ Route::get('/logout', [UserController::class, 'logout'])->name('admin.logout');
 // Route::get('/adminPanel', function () {
 //     return view('backend.partial.main');
 // });
+Route::get('/dashboard',[DashboardController::class,'dashboard'])->name('dashboard');
+
 
 //Staff Route
 Route::get('/staffManage',[StaffManageController::class,'staffManage'])->name('staff');
@@ -193,6 +195,13 @@ Route::get('/foodItemManage',[manageFoodController::class,'foodItemManage'])->na
 Route::post('/CreateFoodItemManage',[manageFoodController::class,'foodItemCreate'])->name('foodItemCreate');
 Route::get('/foodItemDelete/{id}',[manageFoodController::class,'foodItemDelete'])->name('foodItemDelete');
 Route::get('/foodItemStatus/{id}/{status}', [manageFoodController::class, 'foodItemUpdate'])->name('foodItemUpdate');
+//AdminPanel food Edit
+
+Route::get('/foodItemEdit/{id}',[manageFoodController::class,'foodItemEdit'])->name('foodItemEdit');
+//AdminPanel.foodItem.Update
+
+Route::post('/foodItemEditUpdate/{id}',[manageFoodController::class,'foodItemEditUpdate'])->name('foodItemEditUpdate');
+
 
 
 
@@ -241,7 +250,6 @@ Route::get('/orderPaid/{id}/{status}',[AdminOrderController::class,'orderPaid'])
 
  Route::get('/orderReport',[AdminOrderController::class,'orderReport'])->name('orderReport');
 
- Route::get('/dashboard',[DashboardController::class,'dashboard'])->name('dashboard');
 
 
 });

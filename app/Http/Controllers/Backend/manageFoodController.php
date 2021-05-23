@@ -59,6 +59,7 @@ class manageFoodController extends Controller
 
        return redirect()->back();
    }
+
    public function foodItemUpdate( $id, $status)
     {
         $foodItems=FoodItem :: find($id);
@@ -78,8 +79,42 @@ class manageFoodController extends Controller
         }
 
     }
+    public function foodItemEdit($id)
+    {
+
+     $foodItem = FoodItem::find($id);
+     // dd($user);
+     return view('backend.content.foodItemEdit',compact('foodItem'));
+
+    }
+    public function foodItemEditUpdate(Request $request,$id)
+    {
+    //  dd($request->all());
+     $foodItem = FoodItem::find($id);
+
+
+     $foodItem->update([
+        //    'name'=>$request->input('name'),
+        //    'workingArea'=>$request->input('workingArea'),
+        //    'email'=>$request->input('email'),
+        //    'contact'=>$request->input('contact'),
+        //    'address'=>$request->input('address'),
+
+
+        'name'=>$request->input('name'),
+        'description' => $request->input('description'),
+        'price'=>$request->input('price')]);
+
+
+// @dd($request);
+
+
+     return redirect()->route('foodItem')->with('success','Item Updated Successfully');
+    }
 
 }
+
+
 
 
 
