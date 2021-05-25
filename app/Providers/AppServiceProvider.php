@@ -31,7 +31,8 @@ class AppServiceProvider extends ServiceProvider
     $foodItemCount = Cart::all();
     foreach ($foodItemCount as $request)
     {
-       $count = $request->quantity ;
+       $count = $count + $request->quantity ;
+
     }
     // dd( $request->quantity );
     view()->share('foodItem_count',$count);

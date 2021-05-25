@@ -18,7 +18,7 @@ class CreateOrderDetailsTable extends Migration
             $table->foreignId('order_id');
             $table->foreignId('food_item_id')->constrained()->restrictOnDelete();
             $table->integer('quantity');
-            $table->decimal('sub_total');
+            $table->string('sub_total');
             $table->timestamps();
         });
     }

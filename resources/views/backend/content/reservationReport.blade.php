@@ -34,7 +34,14 @@
                         </form>
 
                         <div id="printArea">
-<table class="table fs-6 mt-5">
+
+
+<div>
+
+
+
+
+                            <table class="table fs-6 mt-5">
   <thead >
 
 
@@ -44,6 +51,7 @@
     <th scope="col">User Name</th>
     <th scope="col">Email</th>
     <th scope="col">Time Slot</th>
+
     <th scope="col">Table Number</th>
     <th scope="col">message</th>
     <th scope="col">Status</th>
@@ -64,6 +72,7 @@
                                 <td>{{auth()->user()->name}} </td>
                                 <td>{{auth()->user()->email}} </td>
                                 <td>{{$data->time_slot_name->name}}({{$data->time_slot_name->reservation_time_from}}-{{$data->time_slot_name->reservation_time_from}}) </td>
+
                                 <td>{{$data->tables_id}}</td>
                                   <td>{{$data->message}}</td>
                                   <td>{{$data->status}}</td>

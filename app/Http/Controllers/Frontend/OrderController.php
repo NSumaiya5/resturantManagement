@@ -31,9 +31,13 @@ class OrderController extends Controller
 
     public function orderConfirm(Request $request)
     {
-
         $orderData = [
             'user_id'=>auth()->user()->id,
+            't_id'=>$request->t_id,
+             't_phone'=>$request->contact,
+             'payment_amount'=>$request->payment_amount,
+             'payment_method'=>$request->payment_method,
+
 
         ];
 
@@ -47,13 +51,19 @@ class OrderController extends Controller
 
          $order = Order::create($orderData);
 
+
             foreach($carts as $cart){
 
                 OrderDetail::create([
                     'order_id'=>$order->id,
                     'food_item_id'=>$cart->food_items_id,
                     'quantity'=>$cart->quantity,
-                    'sub_total'=>$cart->foodItem->price * $cart->quantity
+                    'sub_total'=>$cart->foodItem->price * $cart->quantity,
+
+
+                //   't_id'=>$order->id,
+                //   't_phone'=>$order->phone,
+                //   'payment_method'=>$order->payment_method,
                 ]);
 
             }
@@ -65,8 +75,10 @@ class OrderController extends Controller
 
         }catch(Throwable $e){
             DB::rollback();
+            return redirect()->back()->with('message','Fill up all information');
 
         }
+
         return redirect()->back()->with('message','Order request create Successfully');
 
 

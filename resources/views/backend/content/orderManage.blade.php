@@ -13,10 +13,12 @@
         <thead >
         <tr >
             <th scope="col">#</th>
-            <th scope="col">User</th>
             <th scope="col">User Email</th>
-            <th scope="col">User Contact No</th>
             {{-- <th scope="col">Address</th> --}}
+            <th scope="col">Paid Amount</th>
+            <th scope="col">Payment Method</th>
+            <th scope="col">Transaction Id</th>
+            <th scope="col">Payment Contact No</th>
             <th scope="col" >PaymentStatus</th>
             <th scope="col">Payment</b>Action</th>
             <th scope="col">Status</th>
@@ -33,9 +35,11 @@
 {{-- @dd($request); --}}
             <tr>
               <td>{{$key+1}}</td>
-              <td>{{$request->user->name}}</td>
               <td>{{$request->user->email}}</td>
-              <td>{{$request->user->phone}}</td>
+              <td>{{$request->payment_amount}}</td>
+              <td>{{$request->payment_method}}</td>
+              <td>{{$request->t_id}}</td>
+              <td>{{$request->t_phone}}</td>
               {{-- <td>{{$request->address}}</td> --}}
 
               <td class="text-center">{{$request->paid_status}}</td>
@@ -52,7 +56,8 @@
                         {{-- @if ($request->status == 'unpaid') --}}
                         {{-- <a  class="btn btn-success m-2"href="">Unpaid</a> --}}
                         @if ( $request->status == 'paid')
-                        <a  class="btn btn-warning m-2"href="{{route('orderPaid',['id'=>$request->id,'status'=>'paid'])}}">Paid</a>
+                        <a class="btn btn-warning" href="{{route('orderPaid',['id'=>$request->id,'status'=>'paid'])}}">paid</a>
+
                         @else
                         <a class="btn" href="{{route('orderPaid',['id'=>$request->id,'status'=>'unpaid'])}}">cancle</a>
                         <a class="btn" href="{{route('orderPaid',['id'=>$request->id,'status'=>'paid'])}}">paid</a>

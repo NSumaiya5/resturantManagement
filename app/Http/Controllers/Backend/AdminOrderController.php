@@ -65,7 +65,6 @@ class AdminOrderController extends Controller
 
         $orders = Order::find($id);
         $customer = User::where('id', $orders->user_id)->first();
-
         // dd($status);
 
 
@@ -93,7 +92,7 @@ class AdminOrderController extends Controller
     public function orderReport()
     {
            $orderViews = Order::all();
-         $orderList = OrderDetail::all();
+            $orderList = OrderDetail::all();
             $total = $orderList->sum('sub_total');
              $tax = $total * (5 / 100);
            $grand_total = $total + $tax;

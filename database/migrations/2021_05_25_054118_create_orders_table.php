@@ -21,6 +21,11 @@ class CreateOrdersTable extends Migration
             $table->string('paid_status')->default('unpaid');
             // $table->string('payment_method');
             // $table->text('address');
+            $table->string('t_id');
+            $table->string('payment_amount');
+
+            $table->string('t_phone');
+            $table->string('payment_method');
             $table->timestamps();
         });
     }

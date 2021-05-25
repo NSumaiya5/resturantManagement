@@ -22,12 +22,8 @@
                 <p class="text-dark">Phone:{{auth()->user()->phone}} </p>
                 <p class="text-dark">address:{{auth()->user()->address}} </p>
                 <p class="text-dark">Status :{{ $orderViews->status}}</p>
+                <p class="text-dark">Payment :{{ $orderViews->payment_method}}</p>
                 <p class="text-dark">Payment :{{ $orderViews->paid_status}}</p>
-
-
-                <td></td>
-
-
 
 
         <table class="table table-bordered table-striped table-success">

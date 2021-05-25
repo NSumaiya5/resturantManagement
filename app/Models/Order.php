@@ -30,6 +30,8 @@ class Order extends Model
     public function user(){
         return $this->belongsTo(User::class,'user_id','id');
     }
-
+    public function payment(){
+        return $this->belongsTo(User::class,'payment_id','id');
+    }
 
 }

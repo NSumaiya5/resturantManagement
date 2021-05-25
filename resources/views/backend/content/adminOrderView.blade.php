@@ -140,8 +140,7 @@
 
 
                     </div>
-                    <button type="button" class="btn btn-success mb-5"><i class="fas fa-print"></i>Print </button>
-                    <button type="button" class="btn btn-success mb-5">Mail</button>
+
 
 
 

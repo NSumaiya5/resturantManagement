@@ -17,12 +17,12 @@ class ReservationController extends Controller
     public function showReservation()
     {
         $reservations = Reservation::all();
-        $time_slot =TimeSlot::all();
+        // $time_slot =TimeSlot::all();
 
         // dd($reservations);
             //  dd($time_slot);
 
-        return view('backend.content.reservationManage',compact('reservations','time_slot'));
+        return view('backend.content.reservationManage',compact('reservations'));
     }
 
     public function reservationConfirm($id, $status)
@@ -35,10 +35,9 @@ class ReservationController extends Controller
         if($status=='cancel'){
             $reservation->update([
 
+                   'status' => 'cancel',
+                    'status' => $status ]);
 
-     'status' => 'cancel',
-      'status' => $status
-            ]);
             Mail::to($customer->email)->send(new ReservationCancel($reservation));
 
         }

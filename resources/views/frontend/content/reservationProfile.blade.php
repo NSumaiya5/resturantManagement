@@ -60,12 +60,10 @@
 
                                 <td>{{$key+1}}</td>
                                 <td><img src="{{url('/files/photo/'.$data->table->file)}}" style="width:70px; height:60px;" ></td>
-
-
                                 <td>{{$data->reservation_date}} </td>
+                                {{-- @dd($data); --}}
                                 <td>{{$data->time_slot_name->name}}({{$data->time_slot_name->reservation_time_from}}-{{$data->time_slot_name->reservation_time_from}}) </td>
                                 <td>{{$data->tables_id}}</td>
-
                                 <td>{{$data->message}}</td>
                                 <td>{{$data->status}}</td>
 
