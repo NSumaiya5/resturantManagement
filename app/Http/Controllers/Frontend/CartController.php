@@ -6,6 +6,8 @@ use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\Models\FoodItem;
 use App\Models\Cart;
+use App\Models\User;
+
 class CartController extends Controller
 {
 
@@ -17,15 +19,21 @@ class CartController extends Controller
         $cartQuantity = $carts->sum('quantity');
         $sub_total = 0;
 
+        // dd($foodItems);
+
         foreach ($carts as $cart){
             $sub_total += $cart->foodItem->price * $cart->quantity;
         }
 
         $tax = $sub_total*(5/100);
         $grandtotal = $sub_total+$tax;
+// cart count
+
+
 
 
         return view('frontend.content.cartView',compact('carts','sub_total','tax', 'grandtotal'));
+
     }
 
     public function addToCart($id){
@@ -34,14 +42,18 @@ class CartController extends Controller
 
         $user_id = auth()->user()->id;
 
+
+
         $checkAlreadyExistItem = Cart::where('food_items_id',$id)->where('user_id',$user_id)->first();
+
+
 
 
         if(!$checkAlreadyExistItem){
             $cartData = [
                 'food_items_id' =>$foodItem->id,
                 'quantity' =>1,
-                'user_id'=>auth()->user()->id,
+                'user_id'=>$user_id,
             ];
             Cart::create($cartData);
         }else{

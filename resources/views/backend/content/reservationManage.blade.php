@@ -19,9 +19,8 @@
             <th scope="col">User Email</th>
             <th scope="col">User Contact No</th>
             <th scope="col"> Date</th>
-            {{-- <th scope="col">Time_Slot</th> --}}
-            <th scope="col">From Time</th>
-            <th scope="col">To Time</th>
+            <th scope="col">Time_Slot</th>
+
             <th scope="col"> message</th>
             {{-- <th scope="col">Total</th> --}}
             <th scope="col">Status</th>
@@ -44,15 +43,14 @@
                 <td>{{$request->user->email}}</td>
                 <td>{{$request->user->phone}}</td>
 
-                {{-- <td>{{$request->time_slots->name}}</td> </td> --}}
+                {{-- <td>{{$request->time_slot_name->name}}</td> </td> --}}
                 {{-- {{-- <td>{{$request->reservation_time_from}} </td> --}}
                 <td>{{$request->reservation_date}}</td>
-                {{-- <td>{{$request->time_slot_name->name}}({{$request->time_slot_name->reservation_time_from}}-{{$request->time_slot_name->reservation_time_to}})</td> --}}
-                {{-- @dd($request->time_slot_name); --}}
+                <td>{{$request->time_slot_name->name}}({{$request->time_slot_name->reservation_time_from}}-{{$request->time_slot_name->reservation_time_to}})</td> --}}
+                {{-- @dd($request->time_slot_name);
                 {{-- <td>{{$request->created_at->format('Y-m-d H:i:s')}}</td> --}}
 
-                <td>{{$request->from_time }}</td>
-                <td>{{$request->to_time }}</td>
+
 
 
 

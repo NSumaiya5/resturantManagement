@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Backend;
 
 use App\Http\Controllers\Controller;
+use App\Models\Cart;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
@@ -53,6 +54,8 @@ class UserController extends Controller
     public function logout()
     {
         Auth::logout();
+
+
 
         return redirect()->route('admin.login')->with('success', 'Logout Successful.');
     }

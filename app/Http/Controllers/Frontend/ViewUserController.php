@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Frontend;
 
 use App\Http\Controllers\Controller;
+use App\Models\Cart;
 use App\Models\Order;
 use App\Models\OrderDetail;
 use App\Models\Reservation;
@@ -27,43 +28,41 @@ class ViewUserController extends Controller
         // dd($request->all());
 
         $request->validate([
-            'name'=>'required',
-            'email'=>'email|required|unique:users',
-             'password'=>'required|min:6'
-         ]);
+            'name' => 'required',
+            'email' => 'email|required|unique:users',
+            'password' => 'required|min:6'
+        ]);
         //  dd($request->all());
         User::create([
-            'name'=>$request->name,
-            'email'=>$request->email,
-            'address'=>$request->address,
-            'phone'=>$request->phone,
-            'password'=>bcrypt($request->password)
-         ]);
-         return redirect()->route('login.registration.from')->with('success','User Registration Successful.');
-
-
+            'name' => $request->name,
+            'email' => $request->email,
+            'address' => $request->address,
+            'phone' => $request->phone,
+            'password' => bcrypt($request->password)
+        ]);
+        return redirect()->route('login.registration.from')->with('success', 'User Registration Successful.');
     }
 
     public function userLogin(Request $request)
     {
-//        dd($request->all());
-//validate input
+        //        dd($request->all());
+        //validate input
         $request->validate([
-            'email'=>'required|email',
-            'password'=>'required|min:6'
+            'email' => 'required|email',
+            'password' => 'required|min:6'
         ]);
 
         //authenticate
         $credentials = $request->only('email', 'password');
-//   dd($credentials);
+        //   dd($credentials);
         if (Auth::attempt($credentials)) {
             $request->session()->regenerate();
+
             return redirect()->route('homepage');
         }
         return back()->withErrors([
             'email' => 'Invalid Credentials.',
         ]);
-
     }
     public function goUserLogin()
     {
@@ -73,48 +72,51 @@ class ViewUserController extends Controller
 
     public function userLogout()
     {
+
+        $item_cart = Cart::where('user_id', auth()->user()->id)->get();
+        foreach ($item_cart as $data) {
+            $data->delete();
+        }
+
         Auth::logout();
 
         return redirect()->route('login.registration.from');
-
     }
-public function profile()
-{
-    return view('frontend.content.profile');
-
-}
+    public function profile()
+    {
+        return view('frontend.content.profile');
+    }
 
 
     public function userProfile($id)
     {
 
 
-        $orderViews = Order::where('user_id',auth()->user()->id)->get();
+        $orderViews = Order::where('user_id', auth()->user()->id)->get();
 
-        return view('frontend.content.userProfile',compact('orderViews'));
+        return view('frontend.content.userProfile', compact('orderViews'));
     }
 
 
 
     public function reservationProfile($id)
     {
-      $reservationViews = Reservation::where('user_id',auth()->user()->id)->get();
+        $reservationViews = Reservation::where('user_id', auth()->user()->id)->get();
 
         // dd($reservationViews);
-        return view('frontend.content.reservationProfile',compact('reservationViews'));
+        return view('frontend.content.reservationProfile', compact('reservationViews'));
     }
 
     public function customerOrderView($id)
- {
+    {
         $orderViews = Order::find($id);
-      $orderList = OrderDetail::where('order_id', $orderViews->id)->get();
-         $total = $orderList->sum('sub_total');
-          $tax = $total * (5 / 100);
+        $orderList = OrderDetail::where('order_id', $orderViews->id)->get();
+        $total = $orderList->sum('sub_total');
+        $tax = $total * (5 / 100);
         $grand_total = $total + $tax;
         // $showOrder = OrderDetail :: where('user_id',auth()->user()->id)->get();
-        return view('frontend.content.customerOrderView',compact('orderViews','orderList','total','tax','grand_total'));
+        return view('frontend.content.customerOrderView', compact('orderViews', 'orderList', 'total', 'tax', 'grand_total'));
 
         // dd($orderViews);
     }
 }
-

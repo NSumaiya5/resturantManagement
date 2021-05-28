@@ -41,14 +41,16 @@
 
                       <a   class="nav-link text-dark ms-3 mb-3" href="{{route('carts')}}">
                         <i class="mb-3 fas fa-cart-arrow-down "></i> </a>
+                        <li class="nav-item">
+                            <span class="badge bg-success rounded-pill mb-2">{{$foodItem_count}}</span>
+                          </li>
                       @else
                       <a  class="nav-link text-dark ms-3" href="{{route('sorryMsg')}}"><i class="fas fa-cart-arrow-down"></i></a>
                       </li>
+
                       @endif
 
-                      <li class="nav-item">
-                        <span class="badge bg-success rounded-pill mb-2">{{$foodItem_count}}</span>
-                      </li>
+
 
 
                     @auth
