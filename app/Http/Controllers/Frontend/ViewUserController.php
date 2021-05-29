@@ -10,7 +10,7 @@ use App\Models\Reservation;
 use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
-
+use Carbon\Carbon;
 class ViewUserController extends Controller
 {
     public function viewLoginRegistration()
@@ -72,6 +72,7 @@ class ViewUserController extends Controller
 
     public function userLogout()
     {
+        // cart delete
 
         $item_cart = Cart::where('user_id', auth()->user()->id)->get();
         foreach ($item_cart as $data) {
@@ -98,14 +99,25 @@ class ViewUserController extends Controller
     }
 
 
+//user profile reservation blade
 
     public function reservationProfile($id)
     {
-        $reservationViews = Reservation::where('user_id', auth()->user()->id)->get();
-
+        $reservationViews = Reservation::where('user_id', auth()->user()->id)->paginate(3);
+        $now = Carbon::now();
         // dd($reservationViews);
-        return view('frontend.content.reservationProfile', compact('reservationViews'));
+        return view('frontend.content.reservationProfile', compact('reservationViews','now'));
     }
+    public function reservationCancelRequest($id)
+    {
+        $reservationViews = Reservation::find($id);
+        $reservationViews->update([
+            'status' => 'Requested for cancellation'
+        ]);
+        return redirect()->back()->with('success','Successfully requested for cancellation');
+    }
+
+    // order profile blade
 
     public function customerOrderView($id)
     {

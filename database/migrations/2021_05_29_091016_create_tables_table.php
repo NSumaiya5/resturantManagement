@@ -15,6 +15,7 @@ class CreateTablesTable extends Migration
     {
         Schema::create('tables', function (Blueprint $table) {
             $table->id();
+            // $table->integer('time_id');
             $table->text('file')->nullable();
             $table->integer('capacity');
             $table->string('table_status')->default('Available');

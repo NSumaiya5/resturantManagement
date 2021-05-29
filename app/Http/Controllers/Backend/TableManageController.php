@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Backend;
 
 use App\Http\Controllers\Controller;
+use App\Models\Reservation;
 use App\Models\Table;
 use App\Models\TimeSlot;
 use Illuminate\Http\Request;
@@ -14,6 +15,7 @@ class TableManageController extends Controller
 
         $tables=Table::all();
         $time_slot =TimeSlot::all();
+
         return view('backend.content.tableManage',compact('tables','time_slot'));
     }
 
@@ -69,7 +71,10 @@ class TableManageController extends Controller
    public function tableShowHide( $id, $status)
    {
        $tables=Table :: find($id);
+
        $tables->update(['status'=>$status]);
+
+
 
        return redirect()->back();
    }

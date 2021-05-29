@@ -3,6 +3,7 @@
 
 
 @section('content')
+
 <div>
     <h3 class="text-center mt-5">Food Cart</h3>
 </div>
@@ -78,9 +79,9 @@
           <span class="" id="cart-total"> {{$grandtotal}}</span>
         </div>
 
-        <diV>
+        <div class="mb-5">
           <a href="{{route('order')}}"class="btn btn-success btn-lg mt-4" >Checkout</a>
-        </diV>
+        </div>
     </div>
 </div>
 

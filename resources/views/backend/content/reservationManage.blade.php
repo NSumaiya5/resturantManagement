@@ -23,7 +23,8 @@
 
             <th scope="col"> message</th>
             {{-- <th scope="col">Total</th> --}}
-            <th scope="col">Status</th>
+            <th scope="col" class="text-center">Status</th>
+
             <th scope="col">Action</th>
         </tr>
         </thead>
@@ -50,13 +51,9 @@
                 {{-- @dd($request->time_slot_name);
                 {{-- <td>{{$request->created_at->format('Y-m-d H:i:s')}}</td> --}}
 
-
-
-
-
                 <td>{{$request->message}}</td>
 
-               <td class="text-center">{{$request->status}}</td>
+               <td  class="text-center">{{$request->status}}</td>
 
                <td>
                 <div class="dropdown ">

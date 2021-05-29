@@ -112,6 +112,7 @@ Route::get('/userProfile/{id}',[viewUserController::class,'userProfile'])->name(
 Route::get('/customerOrderView/{id}',[viewUserController::class,'customerOrderView'])->name('customerOrderView');
 // reservation profile
 Route::get('/reservationProfile/{id}',[viewUserController::class,'reservationProfile'])->name('reservationProfile');
+Route::get('/reservationProfile/cancel/{id}',[viewUserController::class,'reservationCancelRequest'])->name('reservationCancel.request');
 
 
 // write Review

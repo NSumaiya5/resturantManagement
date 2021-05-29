@@ -28,26 +28,32 @@ class ReservationController extends Controller
     public function reservationConfirm($id, $status)
     {
         $reservation = Reservation::find($id);
+        $table = Table::find($reservation->tables_id);
         $customer = User::where('id', $reservation->user_id)->first();
 
         // dd($status);
 
         if($status=='cancel'){
             $reservation->update([
+                'status' => $status
+            ]);
+            $table->update([
+                'table_status' => 'Available'
+            ]);
 
-                   'status' => 'cancel',
-                    'status' => $status ]);
 
             Mail::to($customer->email)->send(new ReservationCancel($reservation));
 
         }
-        else{
+        if($status=='confirm'){
 
             $reservation->update([
 
-                'status' => 'confirm',
-                 'status' => $status
-                       ]);
+                'status' => $status
+            ]);
+            $table->update([
+                'table_status' => 'Reserved'
+            ]);
 
             Mail::to($customer->email)->send(new ReservationConfrim($reservation));
 

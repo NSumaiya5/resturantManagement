@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Document</title>
+    <title>Fresh Food</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"/>
 </head>
@@ -40,15 +40,7 @@
     <th scope="col">Table Number</th>
     <th scope="col">Message</th>
     <th scope="col">Status</th>
-
-
-
-
-
-
-      {{-- <th scope="col">User</th>
-    <th scope="col">User Email</th>
-    <th scope="col">User Contact No</th> --}}
+    <th scope="col">Cancel</th>
 
 
 
@@ -67,21 +59,24 @@
                                 <td>{{$data->message}}</td>
                                 <td>{{$data->status}}</td>
 
-
-
-
-
-
+{{-- @dd($data->created_at->addHours(7)); --}}
+                                <td>
+                                    @if ($data->status == 'Requested for cancellation')
+                                       <p>Wait for admin to approve your request.</p>
+                                    @elseif ($data->created_at->addHours(2) > $now && $data->status !=  'cancel')
+                                    <a class="btn btn-success text-center text-black " href="{{ route('reservationCancel.request', $data->id) }}"> Cancel </a>
+                                    @elseif ($data->status ==  'cancel')
+                                    <p>Request canceled by the Admin.</p>
+                                    @endif
+                                </td>
 
                                 </tr>
                                   @endforeach
+
+
                                   </tbody>
                                   </table>
-
-
-
-
-
+                                  {{$reservationViews->links()}}
                                 </div>
 
                                 <div class="mb-5">

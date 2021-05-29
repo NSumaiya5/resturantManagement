@@ -16,6 +16,8 @@
         <th scope="col">#</th>
         <th scope="col">Picture</th>
         <th scope="col">Food Name</th>
+        <th scope="col">Delete</th>
+
       </tr>
     </thead>
     <tbody>
@@ -25,31 +27,8 @@
             <th scope="row">1</th>
             <td><img src="{{url('/files/photo/'.$request->file)}}" style="width:70px; height:60px;" ></td>
             <td>{{$request->name}}</td>
-
-            {{-- <td>
-                <button type="button" class="btn btn-info text-white">Edit</button>
-                <a class="btn btn-danger" href="{{route('galleryDelete', $request->id)}}"> Delete</a>
-
-            </td> --}}
-
             <td>
-                <div class="dropdown">
-                    <button class="btn btn-sm btn-light dropdown-toggle" type="button" id="dropdownMenuButton1"
-                        data-bs-toggle="dropdown" aria-expanded="false">
-                        Action
-                    </button>
-                    <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
-
-
-                        <li class="bg-info"><a class="btn" href="">Edit</span></a></li>
-                        <li class="bg-danger"><a class="btn btn-danger" href={{ route('galleryDelete', $request['id']) }}>Delete</a></li>
-
-
-
-                    </ul>
-                </div>
-
-
+                <a href={{ route('galleryDelete', $request['id']) }}><i class="fas fa-trash-alt"></i></a>
             </td>
         </tr>
         @endforeach
@@ -62,7 +41,7 @@
     <div class="modal-dialog">
       <div class="modal-content">
         <div class="modal-header">
-          <h5 class="modal-title" id="staticBackdropLabel">Add Food</h5>
+          <h5 class="modal-title" id="staticBackdropLabel">Add Picture</h5>
           <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
         </div>
 
@@ -72,8 +51,8 @@
 @csrf
         <div class="modal-body">
             <div class="form-group">
-                <label for="exampleInputName">Food Name</label>
-                <input name="name" type="text" class="form-control" id="exampleInputName" placeholder="Enter Food  Name">
+                <label for="exampleInputName">Name</label>
+                <input name="name" type="text" class="form-control" id="exampleInputName" placeholder="Enter Picture Name">
 
             </div>
 

@@ -32,7 +32,7 @@ class UserController extends Controller
             $request->session()->regenerate();
 
             if (auth()->user()->role == 'admin') {
-                return redirect()->route('staff');
+                return redirect()->route('dashboard');
             }
 
             elseif (auth()->user()->role == 'user') {
