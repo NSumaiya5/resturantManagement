@@ -37,11 +37,16 @@
 
 
 <div>
+    {{-- @dd($fromDate) --}}
 
+    @if (isset($fromDate)&& $fromDate !="1970-01-01")
+    <div class="container">
+        <h2>Reservation report from: {{ date('M-d, Y', strtotime($fromDate)) }} to {{ date('M-d, Y', strtotime($toDate)) }} </h2>
+        <h3>Number of records: {{ count($reservationViews) }}</h3>
+    </div>
+    @endif
 
-
-
-                            <table class="table fs-6 mt-5">
+  <table class="table fs-6 mt-5">
   <thead >
 
 

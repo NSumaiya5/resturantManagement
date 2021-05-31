@@ -84,6 +84,8 @@ Route::get('/goUserLogin',[ViewUserController::class,'goUserLogin'])->name('goUs
 Route::get('/view/tableReservation/{id}',[ViewReservationController::class,'tableReservation'])->name('tableReservation');
 Route::post('/reservation/{id}',[ViewReservationController::class,'reservation'])->name('reservation');
 
+Route::get('/searchTable',[TableReservationController::class,'searchTable'])->name('searchTable');
+
 // Cart
 Route::get('/add-to-cart/{id}',[CartController::class,'addToCart'])->name('addToCart');
 Route::get('carts',[CartController::class,'index'])->name('carts');

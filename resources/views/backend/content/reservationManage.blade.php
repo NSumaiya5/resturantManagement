@@ -47,7 +47,7 @@
                 {{-- <td>{{$request->time_slot_name->name}}</td> </td> --}}
                 {{-- {{-- <td>{{$request->reservation_time_from}} </td> --}}
                 <td>{{$request->reservation_date}}</td>
-                <td>{{$request->time_slot_name->name}}({{$request->time_slot_name->reservation_time_from}}-{{$request->time_slot_name->reservation_time_to}})</td> --}}
+                <td>{{$request->time_slot_name->name}}({{$request->time_slot_name->reservation_time_from}}-{{$request->time_slot_name->reservation_time_to}})</td>
                 {{-- @dd($request->time_slot_name);
                 {{-- <td>{{$request->created_at->format('Y-m-d H:i:s')}}</td> --}}
 

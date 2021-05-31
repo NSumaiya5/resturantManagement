@@ -104,6 +104,9 @@ class AdminOrderController extends Controller
             // dd($toDate);
 
             $orderViews = Order::whereBetween('created_at',[$fromDate,$toDate])->get();
+
+            return view('backend.content.orderReport',compact('orderViews','orderList','total','tax','grand_total','fromDate','toDate'));
+
         }
            // $showOrder = OrderDetail :: where('user_id',auth()->user()->id)->get();
            return view('backend.content.orderReport',compact('orderViews','orderList','total','tax','grand_total'));

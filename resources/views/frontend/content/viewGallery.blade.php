@@ -11,7 +11,7 @@
 
                 <h2 style="color: #3A4256;" >Gallery </h2>
 
-
+            </div>
 
             <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-3 mt-5">
 
@@ -34,11 +34,4 @@
         </div>
     </div>
 
-{{--
-    <script type="text/javascript">
-        // js
-        function cart(){
-            alert("Are you sure?");
-        }
-    </script> --}}
 @endsection

@@ -80,6 +80,8 @@ public function reservationReport()
             // dd($toDate);
 
             $reservationViews = Reservation::whereBetween('reservation_date',[$fromDate,$toDate])->get();
+
+            return view('backend.content.reservationReport',compact('reservationViews','fromDate','toDate'));
         }
 
     return view('backend.content.reservationReport',compact('reservationViews'));
@@ -87,3 +89,5 @@ public function reservationReport()
 }
 
 }
+
+

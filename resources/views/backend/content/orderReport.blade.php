@@ -31,6 +31,13 @@
                 </form>
                 <div id="printArea">
 
+                    @if (isset($fromDate)&& $fromDate !="1970-01-01")
+                    <div class="container">
+                        <h2>Reservation report from: {{ date('M-d, Y', strtotime($fromDate)) }} to {{ date('M-d, Y', strtotime($toDate)) }} </h2>
+                        <h3>Number of records: {{ count($orderList ) }}</h3>
+                    </div>
+                    @endif
+
 
         <table class="table table-bordered table-striped table-success mt-5">
             <thead>
