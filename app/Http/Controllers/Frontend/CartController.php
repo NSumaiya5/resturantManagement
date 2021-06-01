@@ -46,7 +46,7 @@ class CartController extends Controller
 
         $checkAlreadyExistItem = Cart::where('food_items_id',$id)->where('user_id',$user_id)->first();
 
-
+// dd($checkAlreadyExistItem);
 
 
         if(!$checkAlreadyExistItem){

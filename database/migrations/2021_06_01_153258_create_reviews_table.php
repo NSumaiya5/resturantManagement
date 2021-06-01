@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreatePayments extends Migration
+class CreateReviewsTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,14 +13,14 @@ class CreatePayments extends Migration
      */
     public function up()
     {
-        Schema::create('payments', function (Blueprint $table) {
+        Schema::create('reviews', function (Blueprint $table) {
             $table->id();
-            $table->integer('reservation_id');
-            $table->integer('reservation_amount');
-            $table->integer('payment_method');
-            $table->integer('transaction_id');
-
+            $table->integer('food_items_id');
+            $table->integer('user_id');
+            $table->integer('rate');
+            $table->text('message')->nullable();
             $table->timestamps();
+
         });
     }
 
@@ -31,6 +31,6 @@ class CreatePayments extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('payments');
+        Schema::dropIfExists('reviews');
     }
 }

@@ -47,7 +47,7 @@
     <div class="card bg-info text-white shadow" style="width: 20rem;height:10rem;">
         <div class="card-body">
             <h5 class="text-center"> <small>Total Sale</small> </h5>
-            <h1 class="text-center"> BDT</h1>
+            <h1 class="text-center">{{$totalSale}} BDT</h1>
         </div>
     </div>
 </div>
@@ -56,7 +56,7 @@
     <div class="card bg-secondary text-white shadow" style="width: 20rem;height:10rem;">
         <div class="card-body">
             <h5 class="text-center"> <small>Todays's Sale</small> </h5>
-            <h1 class="text-center"> BDT</h1>
+            <h1 class="text-center">{{$todaySale}} BDT</h1>
         </div>
     </div>
 </div>

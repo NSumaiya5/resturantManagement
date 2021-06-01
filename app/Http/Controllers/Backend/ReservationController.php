@@ -28,7 +28,7 @@ class ReservationController extends Controller
     public function reservationConfirm($id, $status)
     {
         $reservation = Reservation::find($id);
-        $table = Table::find($reservation->tables_id);
+        // $table = Table::find($reservation->tables_id);
         $customer = User::where('id', $reservation->user_id)->first();
 
         // dd($status);
@@ -37,9 +37,9 @@ class ReservationController extends Controller
             $reservation->update([
                 'status' => $status
             ]);
-            $table->update([
-                'table_status' => 'Available'
-            ]);
+            // $table->update([
+            //     'table_status' => 'Available'
+            // ]);
 
 
             Mail::to($customer->email)->send(new ReservationCancel($reservation));
@@ -51,9 +51,9 @@ class ReservationController extends Controller
 
                 'status' => $status
             ]);
-            $table->update([
-                'table_status' => 'Reserved'
-            ]);
+            // $table->update([
+            //     'table_status' => 'Reserved'
+            // ]);
 
             Mail::to($customer->email)->send(new ReservationConfrim($reservation));
 

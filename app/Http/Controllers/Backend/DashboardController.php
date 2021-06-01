@@ -20,7 +20,27 @@ class DashboardController extends Controller
         $totalReservation=$reservation->count();
         $staff=Staff::all();
         $totalStaff=$staff->count();
-        return view('backend.content.dashboard',compact('totalOrder','totalFoodItem','totalReservation','totalStaff'));
+        $sale = Order::where('status','confirm')->get();
+
+
+        // dd($sale);
+        $totalSale=0;
+        foreach($sale as $data)
+        {
+
+            $totalSale +=(double)$data->payment_amount;
+            // dd($totalSale);
+        }
+
+        $total_sale = Order::whereDate('created_at', now()->today())
+                        ->where('status','confirm')
+                        ->get();
+        $todaySale = 0;
+        foreach ($total_sale as $data) {
+            $todaySale  +=(double)$data->payment_amount;
+        }
+
+        return view('backend.content.dashboard',compact('totalOrder','totalFoodItem','totalReservation','totalStaff','totalSale','todaySale'));
     }
 
 }

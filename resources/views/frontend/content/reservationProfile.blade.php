@@ -53,7 +53,7 @@
                             @foreach ($reservationViews as $key => $data)
 
                                 <td>{{ $key + 1 }}</td>
-                                <td><img src="{{ url('/files/photo/' . $data->table->file) }}"
+                                <td><img src="{{ url('/files/photo/' .$data->table->file) }}"
                                         style="width:70px; height:60px;"></td>
                                 <td>{{ $data->reservation_date }} </td>
                                 {{-- @dd($data); --}}

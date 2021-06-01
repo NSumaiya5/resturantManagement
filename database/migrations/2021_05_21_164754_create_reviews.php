@@ -15,6 +15,7 @@ class CreateReviews extends Migration
     {
         Schema::create('reviews', function (Blueprint $table) {
             $table->id();
+            $table->food_items_id();
             $table->integer('user_id');
             $table->integer('rate');
             $table->text('message')->nullable();

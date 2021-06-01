@@ -93,7 +93,7 @@ class ViewUserController extends Controller
     {
 
 
-        $orderViews = Order::where('user_id', auth()->user()->id)->get();
+        $orderViews = Order::where('user_id', auth()->user()->id)->orderBy('id','desc')->paginate(3);
 
         return view('frontend.content.userProfile', compact('orderViews'));
     }
@@ -103,7 +103,7 @@ class ViewUserController extends Controller
 
     public function reservationProfile($id)
     {
-        $reservationViews = Reservation::where('user_id', auth()->user()->id)->paginate(3);
+        $reservationViews = Reservation::where('user_id', auth()->user()->id)->orderBy('id','desc')->paginate(3);
         $now = Carbon::now();
         // dd($reservationViews);
         return view('frontend.content.reservationProfile', compact('reservationViews','now'));

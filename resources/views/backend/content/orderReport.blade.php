@@ -59,7 +59,7 @@
 
                 @if ($orderViews ->count() > 0)
 
-
+{{-- @dd($orderList); --}}
 
             @foreach($orderList  as $key=> $order)
 
@@ -69,8 +69,8 @@
       <tr>
         <th scope="row">{{$key+1}}</th>
         <td>{{$order->created_at->format('d-m-Y')}} </td>
-        <td>{{auth()->user()->name}} </td>
-        <td>{{auth()->user()->email}} </td>
+        <td>{{$order->orderForDetails->user->name}} </td>
+        <td>{{$order->orderForDetails->user->email}} </td>
         <td>{{ $order->food->name }}</td>
         <td>{{ $order->quantity }}</td>
         <td>{{ $grand_total}}/=</td>

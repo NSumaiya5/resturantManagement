@@ -37,6 +37,7 @@ class OrderController extends Controller
              't_phone'=>$request->contact,
              'payment_amount'=>$request->payment_amount,
              'payment_method'=>$request->payment_method,
+             'address'=>$request->address,
 
 
         ];
@@ -45,12 +46,14 @@ class OrderController extends Controller
 
 
         $carts = Cart::where('user_id',auth()->user()->id)->get();
+        // dd($carts);
 
-        DB::beginTransaction();
-        try{
+        // DB::beginTransaction();
+        // try{
 
          $order = Order::create($orderData);
-
+        //  dd($order);
+// dd($orderData);
 
             foreach($carts as $cart){
 
@@ -66,18 +69,20 @@ class OrderController extends Controller
                 //   'payment_method'=>$order->payment_method,
                 ]);
 
+
             }
+
 
             $carts->each(function($item) {
                 $item->delete();
             });
             DB::commit();
 
-        }catch(Throwable $e){
-            DB::rollback();
-            return redirect()->back()->with('message','Fill up all information');
+        // }catch(Throwable $e){
+        //     DB::rollback();
+        //     return redirect()->back()->with('message','Fill up all information');
 
-        }
+        // }
 
         return redirect()->back()->with('message','Order request create Successfully');
 

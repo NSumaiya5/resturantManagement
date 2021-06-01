@@ -24,7 +24,7 @@
                             <p class="text-dark">Phone:{{auth()->user()->phone}} </p>
                             <p class="text-dark">address:{{auth()->user()->address}} </p>
                           <hr/>
-
+                          </div>
                             <table class="table fs-6 ">
                                 <thead >
 
@@ -59,15 +59,20 @@
 
 
                               <td>
-                                <a href="{{route('customerOrderView',$order->id)}}"><i class="fas fa-eye"></i>
+                                <a href="{{route('customerOrderView',$order->id)}}"><i class="fas fa-eye"></i></a>
 
                                 </td>
+
+                                {{-- <td><a href="{{route('writeReview')}}"><i class="fas fa-star-half-alt"></i></a></td> --}}
 
                                 </tr>
                                   @endforeach
                                   </tbody>
 
                                   </table>
+                                  {{-- {{ $orderViews->links() }} --}}
+                                </div>
+
                                   <div class="mt-5">
                                   <a href="{{route('profile',auth()->user()->id)}}"type="button"  class="btn btn-success mx-3">Back</a>
 

@@ -21,9 +21,11 @@
                 <input type="hidden" value="{{$tables->id}}" name="tables_id">
 
                 <label for="">User Name:{{auth()->user()->name}}</label>
-                <label class="ms-5" for="">Table Number: {{$tables->id}}</label>
-                <label class="ms-5 " for="">Table Capacity: {{$tables->capacity}}</label>
 
+                <label class="mt-2 mb-2 fs-4" for="">Table Number: {{$tables->id}}</label>
+
+                <label class="fs-4"  for="">Table Capacity: {{$tables->capacity}}</label>
+                </div>
 
 
                 <div class="form-group">

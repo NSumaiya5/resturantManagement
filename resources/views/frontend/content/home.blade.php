@@ -179,8 +179,7 @@
 
 
 
-
-                                    <marquee class=" mt-1 fs-4" direction="left" height="500px" width="1245px"
+                                    {{-- <marquee class=" mt-1 fs-4" direction="left" height="500px" width="1245px"
                                         style="background-color:rgb(241, 233, 233); color:red;">
                                         @foreach ($review as $data)
 
@@ -189,24 +188,78 @@
 
 
                                         @endforeach
-                                    </marquee>
+                                    </marquee> --}}
+                                    <div class="col mt-5">
+
+
+                                        @foreach ($review as $data)
+
+
+                                            <div class="card shadow-sm h-100" style="height:250px;width:270px;">
+
+                                                <div class="card-body">
+                                                    {{-- @dd($review) --}}
+                                                    <div class="mb-5"><img src="{{ url('/files/photo/' . $data->food_item->file) }}"
+                                                            style="width:200px; height:200px;margin-left:250px"></div>
+
+                                                    <p class="card-text">Name:{{ $data->reviewUser->name }}</p>
+                                                    <p class="card-text">Email:{{ $data->reviewUser->email }}</p>
+
+                                                    <p class="card-text">
+                                                        <span class="review-stars" style="color: #dd7140;;">
+
+                                                            @if ($data->rate === 1)
+                                                                <i class="fa fa-star" aria-hidden="true"></i>
+                                                                <i class="fa fa-star-o" aria-hidden="true"></i>
+                                                                <i class="fa fa-star-o" aria-hidden="true"></i>
+                                                                <i class="fa fa-star-o" aria-hidden="true"></i>
+                                                                <i class="fa fa-star-o" aria-hidden="true"></i>
+                                                            @elseif($data->rate === 2)
+                                                                <i class="fa fa-star" aria-hidden="true"></i>
+                                                                <i class="fa fa-star" aria-hidden="true"></i>
+                                                                <i class="fa fa-star-o" aria-hidden="true"></i>
+                                                                <i class="fa fa-star-o" aria-hidden="true"></i>
+                                                                <i class="fa fa-star-o" aria-hidden="true"></i>
+                                                            @elseif($data->rate === 3)
+                                                                <i class="fa fa-star" aria-hidden="true"></i>
+                                                                <i class="fa fa-star" aria-hidden="true"></i>
+                                                                <i class="fa fa-star" aria-hidden="true"></i>
+                                                                <i class="fa fa-star-o" aria-hidden="true"></i>
+                                                                <i class="fa fa-star-o" aria-hidden="true"></i>
+                                                            @elseif($data->rate=== 4)
+                                                                <i class="fa fa-star" aria-hidden="true"></i>
+                                                                <i class="fa fa-star" aria-hidden="true"></i>
+                                                                <i class="fa fa-star" aria-hidden="true"></i>
+                                                                <i class="fa fa-star" aria-hidden="true"></i>
+                                                                <i class="fa fa-star-o" aria-hidden="true"></i>
+                                                            @elseif($data->rate >= 5)
+                                                                <i class="fa fa-star" aria-hidden="true"></i>
+                                                                <i class="fa fa-star" aria-hidden="true"></i>
+                                                                <i class="fa fa-star" aria-hidden="true"></i>
+                                                                <i class="fa fa-star" aria-hidden="true"></i>
+                                                                <i class="fa fa-star" aria-hidden="true"></i>
+                                                            @endif
+                                                        </span>
+                                                    </p>
 
 
 
-                                                <p class="card-text">Opinion:{{ $data->message }}</p> --}}
+                                                    {{-- <p class="card-text">Opinion:{{ $data->message }}</p> --}}
+                                                </div>
+
+                                            </div>
+                                        @endforeach
+
+                                    </div>
                                 </div>
-                            </div>
-                        </div>
-                        {{-- @endforeach --}}
-                    </div>
 
 
 
-                    {{-- @dd($review) --}}
+                                {{-- @dd($review) --}}
 
 
 
-                    {{-- <div>
+                                {{-- <div>
                                     <div id="carouselExampleIndicators" class="carousel slide" data-bs-ride="carousel">
                                         <div class="carousel-indicators">
                                             <button type="button" data-bs-target="#carouselExampleIndicators"
@@ -221,7 +274,7 @@
                                             @foreach ($review as $data)
                                                 <div class="carousel-item active">
                                                     {{-- <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/b/b6/Image_created_with_a_mobile_phone.png/1200px-Image_created_with_a_mobile_phone.png" alt="..."> --}}
-                    {{-- <div class="carousel-caption d-none d-md-block">
+                                {{-- <div class="carousel-caption d-none d-md-block">
                                                         <p class="card-text">Name:{{ $data->reviewUser->name }}</p>
                                                         <p class="card-text">Email:{{ $data->reviewUser->email }}</p>
                                                         <p class="card-text">Opinion:{{ $data->message }}</p>
@@ -246,13 +299,13 @@
 
 
 
-                </div>
-            </div>
+                            </div>
+                        </div>
 
-        </div>
-
-
+                    </div>
 
 
 
-    @endsection
+
+
+                @endsection

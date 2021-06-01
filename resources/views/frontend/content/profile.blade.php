@@ -251,9 +251,7 @@
 <li>
 <a href="{{route('reservationProfile',auth()->user()->id)}}"><span class="fas fa-hotel mr-3"></span> Reservation</a>
 </li>
-<li>
-<a href="{{route('writeReview')}}"><span class="fa fa-comments mr-3"></span> Review</a>
-</li>
+
 
 <li>
     <a href="{{route('userLogout')}}"><span class="fas fa-sign-out-alt mr-3 "></span>Logout</a>

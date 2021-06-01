@@ -32,14 +32,17 @@
 
             {{-- @dd($reservations) --}}
 
+
 @foreach( $reservations as $key=>$request)
+
 {{-- @dd($request) --}}
             <tr>
                 <td>{{$key+1}}</td>
-                <td>{{$request->table->id}}</td>
+                <td>{{$request->tables_id}}</td>
+                {{-- @dd($reservations->table) --}}
                 <td>{{$request->table->capacity}}</td>
                 {{-- <td>{{$request->table->price}}</td> --}}
-               {{-- @dd($request); --}}
+               {{-- @dd($request->capacity); --}}
                 <td>{{$request->user->name}}</td>
                 <td>{{$request->user->email}}</td>
                 <td>{{$request->user->phone}}</td>

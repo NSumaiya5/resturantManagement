@@ -15,4 +15,8 @@ public function reviewUser(){
 
     return $this->belongsTo(User::class,'user_id','id');
 }
+public function food_item(){
+
+    return $this->belongsTo(FoodItem::class,'food_items_id','id');
+}
 }

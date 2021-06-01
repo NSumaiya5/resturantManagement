@@ -118,7 +118,7 @@ Route::get('/reservationProfile/cancel/{id}',[viewUserController::class,'reserva
 
 
 // write Review
-Route::get('/writeReview',[ReviewController::class,'writeReview'])->name('writeReview');
+Route::get('/writeReview/{id}',[ReviewController::class,'writeReview'])->name('writeReview');
 
 // submitReview
 Route::post('/submitReview',[ReviewController::class,'submitReview'])->name('submitReview');

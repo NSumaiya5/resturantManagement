@@ -16,12 +16,14 @@
         <th scope="col">#</th>
         <th scope="col">Picture</th>
         <th scope="col">Capacity</th>
-        <th scope="col">Status</th>
+        {{-- <th scope="col">Status</th> --}}
 
 
         {{-- <th scope="col">TimeSlot</th> --}}
         <th scope="col">View</th>
         <th scope="col">Action</th>
+        <th scope="col">Delete</th>
+
 
 
 
@@ -29,27 +31,16 @@
       </tr>
     </thead>
     <tbody>
-     @foreach($tables as $request)
+     @foreach($tables as $key=>$request)
      {{-- @dd($request->timeSlot->name); --}}
 
 {{-- @dd($request) --}}
         <tr>
-            <th scope="row">1</th>
+            <th scope="row">{{$key+1}}</th>
             <td><img src="{{url('/files/photo/'.$request->file)}}" style="width:70px; height:60px;" ></td>
             <td>{{$request->capacity}}</td>
-            <td>{{$request->table_status}}</td>
+            {{-- <td>{{$request->table_status}}</td> --}}
              <td>{{$request->status}}</td>
-
-
-
-
-
-            {{-- <>
-                <button type="button" class="btn btn-info text-white">Edit</button>
-                <a class="btn btn-danger" href="{{route('tableDelete', $request->id)}}"> Delete</a>
-
-            </> --}}
-            {{-- <td>{{ $request->timeSlot->name}}({{ $request->timeSlot->reservation_time_from}}-{{ $request->timeSlot->reservation_time_to }})</td> --}}
 
             <td>
                 <div class="dropdown">
@@ -68,15 +59,14 @@
                             @endif
                         </li>
 
-                        <li class="bg-info"><a class="btn" href="">Edit</span></a></li>
-                        <li class="bg-danger"><a class="btn btn-danger" href={{ route('tableDelete', $request['id']) }}>Delete</a></li>
-
-
 
                     </ul>
                 </div>
 
+            </td>
 
+            <td>
+                <a href={{ route('tableDelete', $request['id'])}}><i class="fas fa-trash-alt"></i></a>
             </td>
         </tr>
         @endforeach
