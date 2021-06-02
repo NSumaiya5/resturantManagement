@@ -21,10 +21,10 @@
       </tr>
     </thead>
     <tbody>
-     @foreach($gallerys as $request)
+     @foreach($gallerys  as $key=> $request)
 
         <tr>
-            <th scope="row">1</th>
+            <th scope="row">{{$key+1}}</th>
             <td><img src="{{url('/files/photo/'.$request->file)}}" style="width:70px; height:60px;" ></td>
             <td>{{$request->name}}</td>
             <td>
@@ -52,7 +52,7 @@
         <div class="modal-body">
             <div class="form-group">
                 <label for="exampleInputName">Name</label>
-                <input name="name" type="text" class="form-control" id="exampleInputName" placeholder="Enter Picture Name">
+                <input name="name" type="text" class="form-control" id="exampleInputName" required placeholder="Enter Picture Name">
 
             </div>
 
@@ -60,7 +60,7 @@
 
             <div class="form-group">
                 <label for="exampleInputRePicture">Upload Picture</label>
-                <input name="picture" type="file" class="form-control" id="exampleInputRePicture" placeholder="">
+                <input name="picture" type="file" required class="form-control" id="exampleInputRePicture" placeholder="">
 
             </div>
 

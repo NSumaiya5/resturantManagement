@@ -41,7 +41,7 @@ class manageFoodController extends Controller
             'file' => $file_name,
             'name'=>$request->name,
             'description' => $request->description,
-            'price'=>$request->price]);
+            'price'=>(double)$request->price]);
 
 
 

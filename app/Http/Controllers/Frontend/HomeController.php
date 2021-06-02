@@ -13,7 +13,7 @@ class HomeController extends Controller
 {
     public function home()
     {
-        $gallerys=Gallery::take(6)->get();
+        $gallerys=Gallery::take(8)->get();
 
         $foodItems=FoodItem::where('status','=','Published')->take(6)->get();
 

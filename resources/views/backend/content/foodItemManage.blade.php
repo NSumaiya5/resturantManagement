@@ -94,12 +94,12 @@
         <div class="modal-body">
             <div class="form-group">
                 <label for="exampleInputName">Food Name</label>
-                <input name="name" type="text" class="form-control" id="exampleInputName" placeholder="Enter Food  Name">
+                <input name="name" type="text" class="form-control" id="exampleInputName" required placeholder="Enter Food  Name">
 
             </div>
             <div class="form-group">
                 <label for="exampleInputName">Description</label>
-                <input name="description" type="text" class="form-control" id="exampleInputName" placeholder="Enter description">
+                <input name="description" type="text" class="form-control" id="exampleInputName" required placeholder="Enter description">
 
 
 
@@ -108,7 +108,7 @@
                 </select>
             <div class="form-group">
                 <label for="exampleInputEmail1">Price</label>
-                <input name="price" type="string" class="form-control" id="exampleInputEmail1" placeholder="Enter Price">
+                <input name="price" type="string" class="form-control" id="exampleInputEmail1" required placeholder="Enter Price">
 
             </div>
 
@@ -116,7 +116,7 @@
 
             <div class="form-group">
                 <label for="exampleInputRePicture">Upload Picture</label>
-                <input name="picture" type="file" class="form-control" id="exampleInputRePicture" placeholder="">
+                <input name="picture" type="file" class="form-control" id="exampleInputRePicture" required placeholder="">
 
             </div>
 
