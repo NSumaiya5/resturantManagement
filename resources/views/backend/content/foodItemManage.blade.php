@@ -5,7 +5,7 @@
 
  <!-- Button trigger modal -->
  <button type="button" class="btn btn-primary mt-5 mx-3" data-bs-toggle="modal" data-bs-target="#staticBackdrop">
-    Add New Food</button>
+    Add New Food-Item</button>
 
 @if (session()->has('error-message'))
     <div class="alert alert-danger">

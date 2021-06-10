@@ -37,27 +37,27 @@
                 <td><img src="{{url('/files/photo/'.$data->file)}}"alt="foodItem image" style="width:150px; height:140px;" ></td>
                 <td>{{$data->name}}</td>
                 <td>{{$data->description}}</td>
-                <td>{{$data->price}}</td>
+                <td>{{$data->price}} /=</td>
 
-                <td><div class="d-flex justify-content-between align-items-center">
-                    <div class="btn-group">
+                <td><div class="d-flex justify-content-center">
+                    <div class="btn-group ">
 
                         @if (auth()->user())
-                        <a class="btn btn-success" href="{{route('addToCart',$data->id)}}">Add To Cart</a>
+                        <a class="btn btn-success " href="{{route('addToCart',$data->id)}}">Add To Cart</a>
                         @else
-                        <a class="btn btn-success" href="{{route('login.registration.from')}}">Add To Cart</a>
+                        <a class="btn btn-success " href="{{route('login.registration.from')}}">Add To Cart</a>
 
                         @endif
                     </td>
 
 
                     <td><div class="d-flex justify-content-between align-items-center">
-                        <div class="btn-group">
+                        <div class="btn-group ms-5">
 
                             @if (auth()->user())
-                            <a href="{{route('writeReview',$data->id)}}"><i class="fas fa-star"></i></a>
+                            <a href="{{route('writeReview',$data->id)}}"><i style="color: #dd7140;" class="fas fa-star"></i></a>
                             @else
-                            <a  href="{{route('login.registration.from')}}"><i class="fas fa-star"></i></a>
+                            <a  href="{{route('login.registration.from')}}"><i  style="color: #dd7140;" class="fas fa-star"></i></a>
 
                             @endif
                         </td>

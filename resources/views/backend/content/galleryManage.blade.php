@@ -5,7 +5,7 @@
 
  <!-- Button trigger modal -->
  <button type="button" class="btn btn-primary mt-5 mx-3" data-bs-toggle="modal" data-bs-target="#staticBackdrop">
-    Add New Image</button>
+    Add Gallery Info</button>
 
 
 
@@ -15,7 +15,7 @@
       <tr>
         <th scope="col">#</th>
         <th scope="col">Picture</th>
-        <th scope="col">Food Name</th>
+        <th scope="col">Name</th>
         <th scope="col">Delete</th>
 
       </tr>
@@ -41,7 +41,7 @@
     <div class="modal-dialog">
       <div class="modal-content">
         <div class="modal-header">
-          <h5 class="modal-title" id="staticBackdropLabel">Add Picture</h5>
+          <h5 class="modal-title" id="staticBackdropLabel">Add </h5>
           <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
         </div>
 

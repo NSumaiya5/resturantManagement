@@ -59,8 +59,9 @@
                         <a class="btn btn-warning" href="{{route('orderPaid',['id'=>$request->id,'status'=>'paid'])}}">paid</a>
 
                         @elseif ( $request->status == 'pending')
-                        <a class="btn" href="{{route('orderPaid',['id'=>$request->id,'status'=>'unpaid'])}}">cancle</a>
                         <a class="btn" href="{{route('orderPaid',['id'=>$request->id,'status'=>'paid'])}}">paid</a>
+
+                        <a class="btn" href="{{route('orderPaid',['id'=>$request->id,'status'=>'unpaid'])}}">cancle</a>
                         @endif
                  </li>
                         </ul>

@@ -1,7 +1,5 @@
 @extends('frontend.main')
 
-
-
 @section('content')
 
 <div>

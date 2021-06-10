@@ -31,7 +31,7 @@
                            </select>
                         </div>
                         <div class="col-md-1 mt-4 d-flex justify-content-center">
-                            <button type="submit" class="btn btn-primary">Search</button>
+                            <button type="submit" class="btn btn-success">Search</button>
                         </div>
                     </div>
 
@@ -41,11 +41,6 @@
         </form>
 
     </div>
-    {{-- @if (isset($searchDate))
-        <input  type="hidden" value="{{$searchDate}}" name="searchDate">
-        <input  type="hidden" value="{{$searchTime}}" name="time_slot_id">
-
-        @endif --}}
 
 
         {{-- @dd($tables) --}}
@@ -57,7 +52,7 @@
                             alt="gallery image">
                         <div class="card-body">
                             <p class="card-text">Capacity : {{ $data->capacity }}</p>
-                            <p class="card-text">Status:{{ $data->table_status }}</p>
+                            <p class="card-text">Table Number: {{ $data->id }}</p>
                             <div class="btn-group d-flex justify-content-between align-items-center">
                                 @if (auth()->user())
                                     <a class="btn btn-success"

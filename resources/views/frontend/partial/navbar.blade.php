@@ -1,4 +1,4 @@
-   <nav class="navbar navbar-expand-lg p-0 bg-dark mb-5">
+   <nav class="navbar navbar-expand-lg p-0 mb-5" style=" background-color: rgb(5, 5, 3);">
         <div class="container-fluid">
             <img style="height:30px;weight:33px;" class="ms-3" src="{{asset('/style/image/logo2.jpg')}}" alt="" class="img-fluid " alt=""/>
           <a class="navbar-brand fs-6" style="color:  white;" href="#"> FRESHFOOD</a>
@@ -20,8 +20,8 @@
                     <a class="nav-link  ms-3" style="color:  white;"  href="{{route('showTableReservation')}}">Reservation</a>
                   </li>
                   <li class="nav-item dropdown">
-                      <a class="nav-link dropdown-toggle  ms-3" style="color:  white;" data-bs-toggle="dropdown" role="button" aria-expanded="false">About Us</a>
-                      <ul class="dropdown-menu">
+                      <a class="dropdown-toggle text-decoration-none ms-3" style="color: white;" data-bs-toggle="dropdown" role="button" aria-expanded="false">About Us</a>
+                      <ul class="dropdown-menu"style= "background-color: rgb(5, 5, 3);">
                         <li><a class="dropdown-item" href="{{route('aboutUs')}}" style="color:  white;">History</a></li>
                         {{-- <li><a class="dropdown-item" href="{{route('writeReview')}}">Review</a></li> --}}
                         <li><a class="dropdown-item" href={{route('viewStaff')}} style="color:  white;">Our Community</a></li>
@@ -49,14 +49,14 @@
 
                     @auth
                     <li class="nav-item">
-                        <div class="nav-link   text-dark">
+                        <div class="nav-link" style="color:  white;">
 
                             <a class="btn btn-success btn-sm"href="{{route('profile',auth()->user()->id)}}">Profile</a>
 
                             <a class="btn btn-success btn-sm"href="{{route('userLogout')}}">Logout</a>
                         </div>
                       @else
-                      <a class="nav-link text-dark " href="{{route('login.registration.from')}}">Login</a>
+                      <a class="nav-link   "style="color:  white;" href="{{route('login.registration.from')}}">Login</a>
                     </li>
                   @endauth
 

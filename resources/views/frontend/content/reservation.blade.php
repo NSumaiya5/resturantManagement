@@ -19,13 +19,16 @@
                  @csrf
                 <div class="mb-3 ">
                 <input type="hidden" value="{{$tables->id}}" name="tables_id">
+              <div class="row">
+                  <div class="col-md-8">
+                <p>User Name:{{auth()->user()->name}}</p>
+                  </div>
 
-                <label for="">User Name:{{auth()->user()->name}}</label>
-
-                <label class="mt-2 mb-2 fs-4" for="">Table Number: {{$tables->id}}</label>
-
-                <label class="fs-4"  for="">Table Capacity: {{$tables->capacity}}</label>
+                  <div class="col-md-4" >
+                <p class=" fs-6" for="">Table Number: {{$tables->id}}</p>
+                <p class="fs-6"  for="">Table Capacity: {{$tables->capacity}}</p>
                 </div>
+            </div>
 
 
                 <div class="form-group">
@@ -33,7 +36,7 @@
                     <input required name="date" value="{{date('Y-m-d')}}" min="{{date('Y-m-d')}}"type="date" class="form-control">
                 </div>
 
-                <div >
+                <div class="mt-4">
                     {{-- @dd($tables); --}}
 
                   <span>Time Slot</span>
@@ -53,25 +56,13 @@
               </div>
 
 
-                {{-- <td>{{ $tables->timeSlot->name}}({{ $request->timeSlot->reservation_time_from}}-{{ $request->timeSlot->reservation_time_to }})</td> --}}
-
-
-                {{-- <div class="form-group">
-                    <label for="">From Time:</label>
-                    <input required name="from_time" type="time" class="form-control">
-                </div>
-
-                <div class="form-group">
-                    <label for="">To Time:</label>
-                    <input required name="to_time" type="time" class="form-control">
-                </div> --}}
-                <div class="form-group mt-5">
+                <div class="form-group mt-4">
                     <label for="">message:</label>
                     <textarea  name="message" id="" class="form-control"></textarea>
                 </div>
 
-                <div class="form-group mt-5">
-                    <button type="submit" class="btn btn-primary">Submit</button>
+                <div class="form-group mt-5 d-flex justify-content-center">
+                    <button type="submit" class="btn btn-success btn-lg ">Submit</button>
                 </div>
                 {{-- @dd($tables); --}}
 

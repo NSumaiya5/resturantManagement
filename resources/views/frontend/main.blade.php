@@ -11,7 +11,6 @@
     <link rel="canonical" href="https://getbootstrap.com/docs/5.0/examples/album/">
     {{-- css --}}
   <link rel="stylesheet" href="style/css/btn.css">
-  <link rel="stylesheet" href="style/css/footer.css">
   <link rel="stylesheet" href="style/css/writeReview.css">
 
 
@@ -77,16 +76,15 @@
     @include('frontend.partial.footer')
 </div>
 
+<div>
 <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" ></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" ></script>
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" ></script>
-
 <script src="https://getbootstrap.com/docs/5.0/dist/js/bootstrap.bundle.min.js" ></script>
-
-
-
 <script src="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
 <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 <script src="hhttps://use.fontawesome.com/a6f0361695.js"></script>
+</div>
+
 </body>
 </html>
