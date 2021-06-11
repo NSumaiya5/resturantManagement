@@ -10,7 +10,7 @@ class ViewGalleryController extends Controller
 {
     public function viewGallery()
     {
-        $gallerys=Gallery::all();
+        $gallerys=Gallery::paginate(12);
 
         return view('frontend.content.viewGallery',compact('gallerys'));
     }

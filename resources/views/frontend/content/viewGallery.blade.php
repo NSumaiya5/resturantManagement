@@ -23,7 +23,15 @@
                     </div>
                 @endforeach
             </div>
+
         </div>
+        {{-- @dd($gallerys) --}}
+       <div class="d-flex justify-content-center mt-5 color-green"> {{$gallerys->links()}} </div>
+
+
     </div>
+
+
+
 
 @endsection
