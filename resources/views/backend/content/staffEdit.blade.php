@@ -3,12 +3,13 @@
 @section('content')
 
 
-        <form method="post" action={{route('staffUpdate',$staff->id)}} enctype="multipart/form-data">
+        <form method="post" action={{route('staffUpdate',$staff->id)}} enctype="multipart/form-data" class="container mt-5 w-50 p-5 border shadow p-3 mb-5 bg-white rounded-3">
 
 
 @csrf
         <div class="modal-body">
-            <div class="form-group">
+            <div class="col-md-12  ">
+            <div class="form-group ">
                 <label for="exampleInputName">Name</label>
                 <input name="name" required type="text" value="{{$staff->name}}"
                 class="form-control" id="exampleInputName" placeholder="Enter Staff Name" >
@@ -21,17 +22,14 @@
 
             </div> --}}
 
-          <div class="form-group">
-            <label for="exampleInputName">Working Area</label>
-            <select class="form-select mb-3" type="text" value="{{$staff->workingArea}}" name="workingArea">
-                <option selected>Select workArea type </option>
-                <option >Kitchen Area</option>
-                <option >Serve Area</option>
-                <option >Accounts</option>
-                <option >Security </option>
-                {{-- @foreach ($designations as $request)
-                    <option value="{{ $request->id }}">{{ $request->designation}}</option>
-                @endforeach --}}
+            <div class="form-group">
+                <label for="exampleInputName"> Staff Working position</label>
+                <select class="form-select mb-3" type="text" name="workingArea">
+                    <option>Select Staff Working position</option>
+                    <option >Chefs</option>
+                    <option >Server</option>
+                    <option >Genarel Manager</option>
+
             </select>
         </div>
 
@@ -54,16 +52,13 @@
         </div>
 
 
-        <div class="modal-footer">
-          {{-- <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button> --}}
+        <div class="modal-footer mt-3" style="margin-left:600px;">
           <button type="submit" class="btn btn-primary" style="margin-right: 385px;">Update</button>
         </div>
 
+    </div>
     </form>
 
-      </div>
-    </div>
-  </div>
 
 
 

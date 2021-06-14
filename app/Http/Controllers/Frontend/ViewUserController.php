@@ -30,7 +30,10 @@ class ViewUserController extends Controller
         $request->validate([
             'name' => 'required',
             'email' => 'email|required|unique:users',
-            'password' => 'required|min:6'
+            'password' => 'required|min:6',
+            'phone' => 'required|min:11|numeric|unique:users',
+            'address' => 'required',
+
         ]);
         //  dd($request->all());
         User::create([
@@ -50,6 +53,7 @@ class ViewUserController extends Controller
         $request->validate([
             'email' => 'required|email',
             'password' => 'required|min:6'
+
         ]);
 
         //authenticate

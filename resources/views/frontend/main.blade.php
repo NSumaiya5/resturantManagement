@@ -11,6 +11,9 @@
     <link rel="canonical" href="https://getbootstrap.com/docs/5.0/examples/album/">
     {{-- css --}}
   <link rel="stylesheet" href="style/css/btn.css">
+  {{-- <link rel="stylesheet" href="style/css/slider.css"> --}}
+
+
   <link rel="stylesheet" href="style/css/writeReview.css">
 
 

@@ -16,7 +16,8 @@ class DashboardController extends Controller
         $totalOrder=$order->count();
         $foodItem=FoodItem::all();
         $totalFoodItem=$foodItem->count();
-        $reservation=Reservation::all();
+        $reservation=Reservation::where('status','confirm')
+        ->get();
         $totalReservation=$reservation->count();
         $staff=Staff::all();
         $totalStaff=$staff->count();

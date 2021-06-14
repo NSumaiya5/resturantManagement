@@ -27,6 +27,7 @@ class AppServiceProvider extends ServiceProvider
     {
 
     Paginator::useBootstrap();
+    
     $count=0;
     $foodItemCount = Cart::all();
     // dd($foodItemCount);

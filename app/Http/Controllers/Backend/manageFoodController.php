@@ -11,7 +11,7 @@ class manageFoodController extends Controller
 {
     public function foodItemManage()
     {
-        $foodItems=FoodItem::all();
+        $foodItems=FoodItem::paginate(6);
         return view('backend.content.foodItemManage',compact('foodItems'));
     }
 

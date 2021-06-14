@@ -11,7 +11,7 @@ class StaffManageController extends Controller
 {
     public function staffManage()
     {
-        $staffs=Staff::all();
+        $staffs=Staff::paginate(6);
         return view('backend.content.staffManage',compact('staffs'));
     }
 
@@ -37,6 +37,15 @@ class StaffManageController extends Controller
             $file->storeAs('photo',$file_name);
         }
     }
+
+
+    $request->validate([
+        'name' => 'required',
+        'workingArea' => 'required',
+        'email' => 'email|required|unique:staff',
+        'contact' => 'required|min:11|numeric|unique:staff',
+        'address' => 'required',
+    ]);
         Staff::create([
             'file' => $file_name,
             'name'=>$request->name,
@@ -47,6 +56,9 @@ class StaffManageController extends Controller
 
             return redirect()->back();
     }
+
+
+
     public function staffDelete($id)
     {
      // dd($id);

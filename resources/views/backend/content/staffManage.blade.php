@@ -16,7 +16,7 @@
         <th scope="col">#</th>
         <th scope="col">Picture</th>
         <th scope="col">Name</th>
-        <th scope="col">Working Area</th>
+        <th scope="col">Staff Working position</th>
         <th scope="col">Email</th>
         <th scope="col">Contact No.</th>
         <th scope="col">Address</th>
@@ -51,8 +51,8 @@
                     <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
 
 
-                        <li class="bg-info"><a class="btn"  href="{{route('staffEdit', $request->id)}}">Edit</span></a></li>
-                        <li class="bg-danger"><a class="btn btn-danger" href={{ route('staffDelete', $request['id']) }}>Delete</a></li>
+                        <li class="bg-primary text-center"><a class="btn"  href="{{route('staffEdit', $request->id)}}">Edit</span></a></li>
+                        <li class="bg-light text-center"><a class="btn" href={{ route('staffDelete', $request['id']) }}>Delete</a></li>
 
 
 
@@ -64,6 +64,9 @@
         </tr>
         @endforeach
         </tbody>
+        </table>
+        <div class="d-flex justify-content-center mt-5 color-green"> {{$staffs->links()}} </div>
+
     {{-- <tbody>
       <tr>
         <th scope="row">1</th>
@@ -118,13 +121,12 @@
             </div> --}}
 
           <div class="form-group">
-            <label for="exampleInputName">Working Area</label>
+            <label for="exampleInputName"> Staff Working position</label>
             <select class="form-select mb-3" type="text" name="workingArea">
-                <option selected>Select workArea type </option>
-                <option >Kitchen Area</option>
-                <option >Serve Area</option>
-                <option >Accounts</option>
-                <option >Security </option>
+                <option>Select Staff Working position</option>
+                <option >Chefs</option>
+                <option >Server</option>
+                <option >Genarel Manager</option>
                 {{-- @foreach ($designations as $request)
                     <option value="{{ $request->id }}">{{ $request->designation}}</option>
                 @endforeach --}}

@@ -11,6 +11,7 @@ class TimeSlotController extends Controller
     public function timeSlot()
     {
         $timeSlot=TimeSlot::all();
+
         return view('backend.content.adminTimeslotManage',compact('timeSlot'));
     }
 
@@ -19,6 +20,10 @@ class TimeSlotController extends Controller
     //  dd($request->all());
     // step:1 check req has file
 
+    [
+        'reservation_time_from'=>'required|date_format:H:i A',
+        'reservation_time_to' =>'required|date_format:H:i A',
+    ];
 
     TimeSlot::create([
 

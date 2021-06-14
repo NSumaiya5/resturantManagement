@@ -3,7 +3,7 @@
 @section('content')
 
 
-    <form method="post" action={{route('foodItemEditUpdate',$foodItem['id'])}} enctype="multipart/form-data">
+    <form method="post" action={{route('foodItemEditUpdate',$foodItem['id'])}} enctype="multipart/form-data" class="container mt-5 w-50 p-5 border shadow p-3 mb-5 bg-white rounded-3">
 {{-- @dd($foodItem); --}}
 
 @csrf
@@ -27,15 +27,14 @@
                     </select>
                 <div class="form-group">
                     <label for="exampleInputEmail1">Price</label>
-                    <input name="price" type="string" value="{{$foodItem->price}}"  class="form-control" id="exampleInputEmail1" placeholder="Enter Price">
+                    <input name="price" type="string" value="{{$foodItem->price}}"   class="form-control" id="exampleInputEmail1" placeholder="Enter Price">
 
                 </div>
 
 
 
         <div class="modal-footer">
-          {{-- <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button> --}}
-          <button type="submit" class="btn btn-primary" style="margin-right: 385px;">Update</button>
+          <button type="submit" class="btn btn-primary "style="margin-right:150px;" >Update</button>
         </div>
 
 

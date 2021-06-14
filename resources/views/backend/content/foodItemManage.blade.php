@@ -33,7 +33,7 @@
             <td><img src="{{url('/files/photo/'.$request->file)}}" style="width:70px; height:60px;" ></td>
             <td>{{$request->name}}</td>
             <td>{{$request->description}}</td>
-            <td>{{$request->price}}</td>
+            <td>{{$request->price}} /=</td>
 {{--
             <td>
                 <button type="button" class="btn btn-info text-white">Edit</button>
@@ -41,7 +41,7 @@
 
             </td> --}}
             <td>
-                <div class="dropdown">
+                <div class="dropdown text-center " style="border-style: solid;">
                     <button class="btn btn-sm btn-light dropdown-toggle" type="button" id="dropdownMenuButton1"
                         data-bs-toggle="dropdown" aria-expanded="false">
                         Action
@@ -57,8 +57,8 @@
                             @endif
                         </li>
 
-                        <li class="bg-info"><a class="btn" href="{{route('foodItemEdit', $request['id'])}}">Edit</span></a></li>
-                        <li class="bg-danger"><a class="btn btn-danger" href={{route('foodItemDelete', $request['id'])}}>Delete</a></li>
+                        <li class="bg-primary text-center "><a class="btn" href="{{route('foodItemEdit', $request['id'])}}">Edit</span></a></li>
+                        <li class="bg-light text-center"><a class="btn " href={{route('foodItemDelete', $request['id'])}}>Delete</a></li>
 
 
 
@@ -71,6 +71,9 @@
         </tr>
         @endforeach
         </tbody>
+</table>
+<div class="d-flex justify-content-center mt-5 color-green"> {{$foodItems->links()}} </div>
+
 
 
 

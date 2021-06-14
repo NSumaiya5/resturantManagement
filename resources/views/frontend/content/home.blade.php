@@ -187,6 +187,7 @@
                             <div class="row">
 
 
+
                                 @foreach ($review as $data)
                                     <div class=" mt-2 mb-2 col-md-4 d-flex">
 
@@ -245,6 +246,7 @@
                                     </div>
 
                                 @endforeach
+
                             </div>
             </section>
 <hr/>
