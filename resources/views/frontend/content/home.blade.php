@@ -194,7 +194,7 @@
                                         <div class="card  " style="max-width:700px;">
                                             <div class="row">
                                                 <div class="col-md-6">
-                                                    <img style="height:250px;width:230px;"
+                                                    <img style="height:250px;width:200px;"
                                                         src="{{ url('/files/photo/' . $data->food_item->file) }}"
                                                         alt="review image">
                                                 </div>
@@ -247,7 +247,14 @@
 
                                 @endforeach
 
+                                <div class="text-center mt-5 fs-4">
+                                    <a class="fas fa-arrow-circle-right text-decoration-none" style="color:  #dd7140;"
+                                        href="{{ route('allReviewView') }}">see more</a>
+                                </div>
+
                             </div>
+                            {{-- <div class="d-flex justify-content-center mt-5 color-green"> {{$review->links()}} </div> --}}
+
             </section>
 <hr/>
         @endsection

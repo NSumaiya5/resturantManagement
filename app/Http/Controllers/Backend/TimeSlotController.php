@@ -21,15 +21,16 @@ class TimeSlotController extends Controller
     // step:1 check req has file
 
     [
-        'reservation_time_from'=>'required|date_format:H:i A',
-        'reservation_time_to' =>'required|date_format:H:i A',
+        'reservation_time_from'=>'required|date_format:h:i:s',
+        'reservation_time_to' =>'required|date_format:h:i:s',
     ];
 
     TimeSlot::create([
 
             'name'=>$request->name,
-            'reservation_time_from'=>$request->from_time,
-            'reservation_time_to'=>$request->to_time,
+            // 'reservation_time_from'=>$request->from_time,
+            'reservation_time_from'=> \Carbon\Carbon::parse( $request->from_time )->format('h:i A'),
+            'reservation_time_to'=>\Carbon\Carbon::parse( $request->to_time )->format('h:i A'),
 
 
             ]);

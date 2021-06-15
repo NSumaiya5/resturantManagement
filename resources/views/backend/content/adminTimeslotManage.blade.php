@@ -22,7 +22,7 @@
                 <tr>
                     <th scope="row">{{ $key + 1 }}</th>
                     <td>{{ $request->name }}</td>
-                    <td>{{ $request->reservation_time_from }}</td>
+                    <td>{{ $request->reservation_time_from}}</td>
                     <td>{{ $request->reservation_time_to }}</td>
                      <td>
                         <a href={{ route('timeSlotDelete', $request['id']) }}><i class="fas fa-trash-alt"></i></a>

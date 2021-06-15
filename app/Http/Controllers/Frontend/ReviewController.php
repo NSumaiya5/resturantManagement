@@ -8,7 +8,9 @@ use App\Models\Review;
 use Illuminate\Http\Request;
 
 class ReviewController extends Controller
+// Write review section
   {
+
         public function writeReview($id)
 
         {
@@ -36,6 +38,20 @@ class ReviewController extends Controller
 
 
         }
+
+        public function  allReviewView()
+
+        {
+            $all_review =Review::paginate(9);
+            // dd($food_review);
+
+
+            return view('frontend.content.ReviewView',compact('all_review'));
+        }
+
+
+
+
 
 
 

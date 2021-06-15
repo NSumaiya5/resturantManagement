@@ -123,6 +123,10 @@ Route::get('/writeReview/{id}',[ReviewController::class,'writeReview'])->name('w
 // submitReview
 Route::post('/submitReview',[ReviewController::class,'submitReview'])->name('submitReview');
 
+// see all reviews
+
+Route::get('/allReviewView',[ReviewController::class,'allReviewView'])->name('allReviewView');
+
 // aboutUs
 Route::get('/aboutUs',[AboutUsController::class,'aboutUs'])->name('aboutUs');
 

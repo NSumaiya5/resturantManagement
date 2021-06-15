@@ -19,7 +19,7 @@ class HomeController extends Controller
 
          $staffs=Staff::take(3)->get();
 
-         $review=Review::all();
+         $review=Review::take(3)->get();
 
         // $slider=Gallery::take(6)->get();
 

@@ -48,7 +48,7 @@
                 <th scope="col">User Email</th>
                 <th scope="col">Food Item Name</th>
                 <th scope="col">Quantity</th>
-                <th scope="col">Grand Total</th>
+                <th scope="col">Subtotal</th>
                 <th scope="col">Status</th>
 
 
@@ -73,7 +73,7 @@
         <td>{{$order->orderForDetails->user->email}} </td>
         <td>{{ $order->food->name }}</td>
         <td>{{ $order->quantity }}</td>
-        <td>{{ $grand_total}}/=</td>
+        <td>{{ $order->sub_total}}/=</td>
         <td>{{ $order->orderForDetails->status}}</td>
       </tr>
 

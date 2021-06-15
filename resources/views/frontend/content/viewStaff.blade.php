@@ -14,18 +14,19 @@
 
 
             <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-3">
-
+{{-- @dd($staffs); --}}
 
 @foreach($staffs as $data)
 
-                <div class="col">
-                    <div class="card shadow-sm h-100"style="height:250px;width:270px;">
-                        <img style="height:250px;width:269px;"src="{{url('/files/photo/'.$data->file)}}"alt="Staff image">
+                <div class="col mb-5">
+                    <div class="card shadow-sm h-100 "style="height:250px;width:310px;">
+                        <img style="height:250px;width:309px;"src="{{url('/files/photo/'.$data->file)}}"alt="Staff image">
                         <div class="card-body" >
                             <p class="card-text">{{$data->name}}</p>
+                            <p class="card-text">{{$data->workingArea}}</p>
                             <p class="card-text">{{$data->address}}</p>
                             <p class="card-text">{{$data->email}}</p>
-
+                            <p class="card-text">{{$data->contact}}</p>
                         </div>
                     </div>
                 </div>
