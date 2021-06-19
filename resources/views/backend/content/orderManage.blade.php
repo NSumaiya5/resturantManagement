@@ -9,10 +9,10 @@
     @endif --}}
 
 
-    <table class="table fs-6">
+    <table class="table table-bordered mt-5 text-center">
         <thead >
         <tr >
-            <th scope="col">#</th>
+            <th scope="col">Serial</th>
             <th scope="col">User Email</th>
             {{-- <th scope="col">Address</th> --}}
             <th scope="col">Paid Amount</th>

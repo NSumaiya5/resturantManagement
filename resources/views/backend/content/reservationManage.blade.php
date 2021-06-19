@@ -9,7 +9,7 @@
     @endif --}}
 
 
-    <table class="table table-bordered mt-5 bg-red">
+    <table class="table table-bordered mt-5 ">
         <thead>
         <tr class="text-center">
             <th scope="col">serial</th>

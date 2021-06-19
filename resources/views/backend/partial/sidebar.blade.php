@@ -18,13 +18,11 @@
 </ul>
   </nav>
 
-<nav id="sidebarMenu" class="col-md-3 col-lg-2 w-20  d-md-block bg-dark sidebar collapse"style="height:800px" >
+<nav id="sidebarMenu" class="col-md-3 col-lg-2 w-20 text-center  d-md-block bg-dark sidebar collapse"style="height:800px" >
     <div class="position-sticky pt-4 ">
       <ul class="nav flex-column">
-        <li class="nav-item">
 
-        </li>
-        <li class="nav-item">
+        <li class="nav-item mt-5">
               <a class="nav-link active" aria-current="page"href="{{route('dashboard')}}">
             Dashboard
           </a>
