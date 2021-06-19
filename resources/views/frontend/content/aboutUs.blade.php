@@ -56,7 +56,7 @@
     <div class="container">
       <div class="row">
         <div class="col-md-12 ms-5">
-
+{{--
               <video class="img-fluid ms-5"style="height:500px;"width="5050px"  autoplay muted loop>
 
                 <source
@@ -65,9 +65,22 @@
 
                 type="video/mp4">
 
-                Your browser does not support the video type.
 
-              </video>
+              </video> --}}
+
+
+                <video width="700px" style="margin-left: 260px;"  controls>
+                    {{-- <td>
+                        <video width="200px" controls>
+                             <source src="{{ url('/files/topic/' . $data->file) }}" type="video/mp4"/>
+                        <source src="{{ url('/files/topic/' . $data->file) }}"/>
+                        </video>
+                    </td> --}}
+
+                     <source  src="{{ url('/style/image/video2.mp4')}}" type="video/mp4"/>
+
+                </video>
+
             </div>
           </div>
         </div>

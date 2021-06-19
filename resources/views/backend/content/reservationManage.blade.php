@@ -9,21 +9,21 @@
     @endif --}}
 
 
-    <table class="table">
+    <table class="table table-bordered mt-5 bg-red">
         <thead>
-        <tr>
+        <tr class="text-center">
             <th scope="col">serial</th>
-            <th scope="col">Table_number</th>
+            <th scope="col">Table_no</th>
             <th scope="col">Capacity</th>
             <th scope="col">User_name</th>
-            <th scope="col">User Email</th>
+            <th scope="col">User <br/> Email</th>
             <th scope="col">User Contact No</th>
-            <th scope="col"> Date</th>
+            <th scope="col">Reservation Date</th>
             <th scope="col">Time_Slot</th>
 
             <th scope="col"> message</th>
             {{-- <th scope="col">Total</th> --}}
-            <th scope="col" class="text-center">Status</th>
+            <th scope="col">Status</th>
 
             <th scope="col">Action</th>
         </tr>
@@ -36,7 +36,7 @@
 @foreach( $reservations as $key=>$request)
 
 {{-- @dd($request) --}}
-            <tr>
+            <tr class="text-center">
                 <td>{{$key+1}}</td>
                 <td>{{$request->tables_id}}</td>
                 {{-- @dd($reservations->table) --}}
@@ -71,11 +71,15 @@
                     @if ( $request->status == 'pending')
 
                     <a class="btn" href="{{route('reservationConfirm',['id'=>$request->id,'status'=>'cancel'])}}">cancel</a>
-                    <a class="btn" href="{{route('reservationConfirm',['id'=>$request->id,'status'=>'confirm'])}}">confirm</a>
-                    @else
-                    <a class="btn" href="{{route('reservationConfirm',['id'=>$request->id,'status'=>'cancel'])}}">cancel</a>
+<br/>
                     <a class="btn" href="{{route('reservationConfirm',['id'=>$request->id,'status'=>'confirm'])}}">confirm</a>
 
+                    @else
+                    <div class="text-center">
+                    <a class="btn mb-3" href="{{route('reservationConfirm',['id'=>$request->id,'status'=>'cancel'])}}">cancel</a>
+                    <br/>
+                    <a class="btn" href="{{route('reservationConfirm',['id'=>$request->id,'status'=>'confirm'])}}">confirm</a>
+                    </div>
           @endif
 
              </li>

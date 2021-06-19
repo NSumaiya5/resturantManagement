@@ -16,6 +16,7 @@ class ViewReservationController extends Controller
     {
         $tables = Table::find($id);
         $time_slot = TimeSlot::all();
+
         //    dd($time_slot);
 
         // dd($tables);
@@ -24,11 +25,18 @@ class ViewReservationController extends Controller
 
     public function reservation(Request $request, $id)
     {
-        // dd($request->all());
         // $tables = Table::find($request->tables_id);
 
 
+$now =Carbon::now()->addHours(6)->format('h:i A');
+$time_check =TimeSlot::find($request->time_id);
 
+if($time_check->reservation_time_from <$now ){
+    // dd('error');
+    return redirect()->back()->with('status', 'Reservation Time Invalid');
+
+
+}
 
 
         // $reservation_date =Carbon::parse($request->input('reservation_date'))->format('Y-m-d');
@@ -48,12 +56,13 @@ class ViewReservationController extends Controller
             if ($tables == $request->tables_id && $time_slot_id_z == $request->time_id &&  $reservation_date == $request->date ) {
                 return redirect()->back()->with('status', 'This time is already taken by another and its ' . $status);
             }
+
         }
 
 
 
         // @dd('stop');
-
+        // dd($request->all());
 
         Reservation::create([
 

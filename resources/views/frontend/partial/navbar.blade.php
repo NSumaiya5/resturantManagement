@@ -21,8 +21,8 @@
                   </li>
                   <li class="nav-item dropdown">
                       <a class="dropdown-toggle text-decoration-none ms-3" style="color: white;" data-bs-toggle="dropdown" role="button" aria-expanded="false">About Us</a>
-                      <ul class="dropdown-menu"style= "background-color: rgb(5, 5, 3);">
-                        <li><a class="dropdown-item" href="{{route('aboutUs')}}" style="color:  white;">History</a></li>
+                      <ul class="dropdown-menu"style= "background-color: rgb(10, 11, 5);">
+                        <li><a class="dropdown-item " href="{{route('aboutUs')}}" style="color:  white;">History</a></li>
                         {{-- <li><a class="dropdown-item" href="{{route('writeReview')}}">Review</a></li> --}}
                         <li><a class="dropdown-item" href={{route('viewStaff')}} style="color:  white;">Our Community</a></li>
                       </ul>

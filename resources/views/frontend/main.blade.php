@@ -44,7 +44,7 @@
 
 
     @stack('css')
-
+{{--
     <style>
         .bd-placeholder-img {
             font-size: 1.125rem;
@@ -58,7 +58,7 @@
                 font-size: 3.5rem;
             }
         }
-    </style>
+    </style> --}}
 
 
 </head>
@@ -78,7 +78,22 @@
 <div>
     @include('frontend.partial.footer')
 </div>
+<script type="text/javascript">
+    function printDiv() {
+        var printContents = document.getElementById("printArea").innerHTML;
+        var originalContents = document.body.innerHTML;
 
+        document.body.innerHTML = printContents;
+
+        window.print();
+
+        document.body.innerHTML = originalContents;
+    }
+
+</script>
+
+
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/css/bootstrap.min.css" rel="stylesheet">
 <div>
 <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" ></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" ></script>

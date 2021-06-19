@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+{{-- <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -9,12 +9,15 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"  />
 
 </head>
-<body>
+<body> --}}
+    @extends('frontend.main')
+
+@section('content')
 
 
                       <div class="row container text-center ms-5 ">
 
-                        <div class="col-md-11 ms-5 ">
+                        <div class="col-md-12 ms-5 ">
 
                           {{-- @dd($showOrder); --}}
                           <h1 class="text-center fs-1 mt-5">order info</h1>
@@ -25,7 +28,7 @@
                             <p class="text-dark">address:{{auth()->user()->address}} </p>
                           <hr/>
                           </div>
-                            <table class="table fs-6 ">
+                            <table class="table fs-6 mb-5">
                                 <thead >
 
 
@@ -70,22 +73,16 @@
                                   </tbody>
 
                                   </table>
-                                  {{-- {{ $orderViews->links() }} --}}
+                                 <div class="d-flex justify-content-center mt-5 color-green">  {{ $orderViews->links() }} </div>
                                 </div>
-
+{{--
                                   <div class="mt-5">
                                   <a href="{{route('profile',auth()->user()->id)}}"type="button"  class="btn btn-success mx-3">Back</a>
 
-                                  </div>
-
-
-
-
-
-
-    </div>
-
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-p34f1UUtsS3wqzfto5wAAmdvj+osOnFyQFpp4Ua3gs/ZVWx6oOypYoCJhGGScy+8" crossorigin="anonymous"></script>
+                                  </div> --}}
+                              </div>
+{{--
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-p34f1UUtsS3wqzfto5wAAmdvj+osOnFyQFpp4Ua3gs/ZVWx6oOypYoCJhGGScy+8" crossorigin="anonymous"></script> --}}
 
     {{-- <script type="text/javascript">
         function printDiv() {
@@ -100,5 +97,6 @@
         }
 
     </script> --}}
-</body>
-</html>
+{{-- </body>
+</html> --}}
+@endsection

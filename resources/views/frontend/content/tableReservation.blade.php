@@ -8,6 +8,17 @@
         </div>
 
 <div class="mt-5 mb-5">
+
+    @if(session()->has('message'))
+    <div class="alert alert-success">
+        {{ session()->get('message') }}
+    </div>
+@endif
+@if(session()->has('status'))
+<div class="alert alert-danger">
+{{ session()->get('status') }}
+</div>
+@endif
         <form action={{route("searchTable")}} method="GET">
 
             {{-- @csrf --}}
@@ -17,7 +28,8 @@
                     <div class=" row">
                         <div class="col-md-6">
                             <label for="from">Date:</label>
-                            <input id="from" type="date" class="form-control" name="from_date">
+                            <input required name="from_date" value="{{date('Y-m-d')}}" min="{{date('Y-m-d')}}"type="date" class="form-control">
+
                         </div>
 
                         <div class="col-md-5">

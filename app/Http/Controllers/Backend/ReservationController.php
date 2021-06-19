@@ -17,6 +17,8 @@ class ReservationController extends Controller
     public function showReservation()
     {
         $reservations = Reservation::all();
+        // $reservations = Reservation::where('status', '!=', 'cancle')->get();
+
         // $time_slot =TimeSlot::all();
 
         // dd($reservations);

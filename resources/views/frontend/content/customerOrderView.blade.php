@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+{{-- <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -7,26 +7,30 @@
     <title>Fresh Food</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/css/bootstrap.min.css" rel="stylesheet">
 </head>
-<body>
+<body> --}}
+    @extends('frontend.main')
 
+    @section('content')
 
-        <div class="row container text-center ms-5 ">
-
-            <div class="col-md-11 ms-5 ">
-                <div id="printArea">
+        <div class="container text-center">
               {{-- @dd($showOrder); --}}
+              <div id="printArea">
               <h1 class="text-center fs-1 mt-5">Order Details</h1>
-              <div class="mt-4 mb-5">
-                <p class="text-dark">Name:{{auth()->user()->name}} </p>
-                <p class="text-dark">email:{{auth()->user()->email}} </p>
-                <p class="text-dark">Phone:{{auth()->user()->phone}} </p>
-                <p class="text-dark">address:{{auth()->user()->address}} </p>
-                <p class="text-dark">Status :{{ $orderViews->status}}</p>
-                <p class="text-dark">Payment :{{ $orderViews->payment_method}}</p>
-                <p class="text-dark">Payment :{{ $orderViews->paid_status}}</p>
+              <div class="row">
 
+              <div class=" card col-md-4 mt-4 mb-5 fs-5 text-center">
 
-        <table class="table table-bordered table-striped table-success">
+                <p class="text-dark mt-2 "><i class="fas fa-user">Name:</i>{{auth()->user()->name}} </p>
+                <p class="text-dark"><i class="fas fa-envelope-open"> Email:</i>{{auth()->user()->email}} </p>
+                <p class="text-dark"><i class="fas fa-phone-alt"> Phone :</i>{{auth()->user()->phone}} </p>
+                <p class="text-dark"><i class="fas fa-address-card">Address:</i>{{auth()->user()->address}} </p>
+                <p class="text-dark"><i class="fas fa-money-bill">Payment:</i>{{ $orderViews->payment_method}}</p>
+                <p class="text-dark"><b>Status :</b>{{ $orderViews->status}}</p>
+
+                {{-- <p class="text-dark">Payment :{{ $orderViews->paid_status}}</p> --}}
+            </div>
+            <div class="col-md-8">
+        <table class="table table-bordered table-success ">
             <thead>
               <tr>
                 <th scope="col">Serial</th>
@@ -37,15 +41,12 @@
                 <th scope="col">Subtotal</th>
                 <th scope="col">Tax</th>
                 <th scope="col">Grand Total</th>
-
               </tr>
             </thead>
-
-
             @foreach($orderList  as $key=> $order)
     <tbody>
       <tr>
-        <th scope="row">{{$key+1}}</th>
+        <th>{{$key+1}}</th>
         <td ><img src="{{url('/files/photo/'.$order->food->file)}}" style="width:80px; height:80px;" ></td>
         <td>{{ $order->food->name }}</td>
         <td>{{ $order->quantity }}</td>
@@ -59,17 +60,18 @@
     </tbody>
 </table>
 </div>
+</div>
 
  </div>
- <div class="">
-    <button type="button" onclick="printDiv()" class="btn btn-success mx-3">Print</button>
-    <a href="{{route('userProfile',auth()->user()->id)}}"type="button"  class="btn btn-success mx-3">Back</a>
+ <div class="mb-5">
+    <button type="button" onclick="printDiv()" class="btn btn-success btn-lg">Print</button>
+    {{-- <a href="{{route('userProfile',auth()->user()->id)}}"type="button"  class="btn btn-success mx-3">Back</a> --}}
 
 </div>
 
             </div>
 
-            <script type="text/javascript">
+            {{-- <script type="text/javascript">
                 function printDiv() {
                     var printContents = document.getElementById("printArea").innerHTML;
                     var originalContents = document.body.innerHTML;
@@ -83,9 +85,11 @@
 
             </script>
 
-        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-wEmeIV1mKuiNpC+IOBjI7aAzPcEZeedi5yW5f2yOq55WWLwNGmvvx4Um1vskeMj0" crossorigin="anonymous">
+
+         <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/css/bootstrap.min.css" rel="stylesheet">
 </body>
 
 
 
-</html>
+</html>  --}}
+@endsection

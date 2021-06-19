@@ -97,7 +97,7 @@ class ViewUserController extends Controller
     {
 
 
-        $orderViews = Order::where('user_id', auth()->user()->id)->orderBy('id','desc')->paginate(3);
+        $orderViews = Order::where('user_id', auth()->user()->id)->orderBy('id','desc')->paginate(6);
 
         return view('frontend.content.userProfile', compact('orderViews'));
     }

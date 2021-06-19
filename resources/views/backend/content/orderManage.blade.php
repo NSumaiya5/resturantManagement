@@ -24,9 +24,6 @@
             <th scope="col">Status</th>
             <th scope="col">View</th>
 
-
-
-
         </thead>
         <tbody>
 {{-- @dd($orders); --}}
@@ -46,6 +43,7 @@
 
               <td>
                     <div class="dropdown ">
+                        {{-- @if ( $request->status == 'paid')
                         <button class="btn btn-sm btn-light dropdown-toggle" type="button" id="dropdownMenuButton1"
                             data-bs-toggle="dropdown" aria-expanded="false">
                             Action
@@ -53,70 +51,34 @@
                         <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
 
                      <li>
-                        {{-- @if ($request->status == 'unpaid') --}}
-                        {{-- <a  class="btn btn-success m-2"href="">Unpaid</a> --}}
                         @if ( $request->status == 'paid')
                         <a class="btn btn-warning" href="{{route('orderPaid',['id'=>$request->id,'status'=>'paid'])}}">paid</a>
+                     </li>
+                        </ul> --}}
+                        @if ( $request->status == 'pending')
+                        <button class="btn btn-sm btn-light dropdown-toggle" type="button" id="dropdownMenuButton1"
+                            data-bs-toggle="dropdown" aria-expanded="false">
+                            Action
+                        </button>
 
-                        @elseif ( $request->status == 'pending')
+                        <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
+
+                     <li>
+
                         <a class="btn" href="{{route('orderPaid',['id'=>$request->id,'status'=>'paid'])}}">paid</a>
 
                         <a class="btn" href="{{route('orderPaid',['id'=>$request->id,'status'=>'unpaid'])}}">cancle</a>
-                        @endif
-                 </li>
+                     </li>
                         </ul>
+                        @else
+                        <a href="" class="btn btn-outline-primary">Order Confirmed</a>
+                @endif
                     </div>
             </td>
 
-{{--
-              <td>
-                <div class="dropdown">
-                    <button class="btn btn-sm btn-light dropdown-toggle" type="button" id="dropdownMenuButton1"
-                        data-bs-toggle="dropdown" aria-expanded="false">
-                        Action
-                    </button>
-                    <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
-
-                         <li class="bg-info"><a class="btn" href="{{route('orderAccept',['id'=>$request->id,'status'=>'confirm'])}} ">Confirm</span></a></li>
-                        <li class="bg-danger"><a class="btn btn-danger" href="{{route('orderAccept',['id'=>$request->id,'status'=>'decline'])}} ">Cancel</a></li>
-                        </td> --}}
 
               <td>{{$request->status}}</td>
 
-              {{-- <td>{{$request->orderTODetails->food->name}}</td>
-              <td>{{$request->orderTODetails->quantity}}</td>
-              <td>{{$request->orderTODetails->sub_total}}</td>
-              <td>{{$request->orderTODetails->tax}}</td> --}}
-
-
-
-              {{-- <td>
-                <div class="dropdown">
-                    <button class="btn btn-sm btn-light dropdown-toggle" type="button" id="dropdownMenuButton1"
-                        data-bs-toggle="dropdown" aria-expanded="false">
-                        Action
-                    </button>
-                    <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
-
-
-
-
-
-                     <li>
-                            @if ($request->status == 'confirm')
-                            <a  class="btn btn-success m-2"href="">Order Confirmed</a>
-                            @elseif ( $request->status == 'decline')
-                            <a  class="btn btn-warning m-2"href="">Order Declined</a>
-
-                            @else
-                            <a class="btn" href="{{route('orderAccept',['id'=>$request->id,'status'=>'confirm'])}}">Confirm</a>
-                            <a class="btn" href="{{route('orderAccept',['id'=>$request->id,'status'=>'decline'])}}">Cancel</a>
-
-                            @endif
-                     </li>
-                    </ul>
-                </div>
-                    </td> --}}
 
                      <td>
                          <a href="{{route('adminOrderView',$request->id)}}"><i class="fas fa-eye"></i>
@@ -130,11 +92,6 @@
         </tr>
 
 
-
-
-                {{-- <td>{{$request->total}}</td> --}}
-                {{-- <td>fsadfasfsdf</td>
-                <td><a href="">view</a></td> --}}
 
 
 @endforeach

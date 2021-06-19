@@ -12,7 +12,9 @@ use Illuminate\Http\Request;
 class DashboardController extends Controller
 {
     public function dashboard(){
-        $order=Order::all();
+        $order=Order::where('status','confirm')
+        ->get();
+
         $totalOrder=$order->count();
         $foodItem=FoodItem::all();
         $totalFoodItem=$foodItem->count();

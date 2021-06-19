@@ -4,13 +4,32 @@
 
 
     <!-- Button trigger modal -->
-    <button type="button" class="btn btn-primary mt-5 mx-3" data-bs-toggle="modal" data-bs-target="#staticBackdrop">
+
+
+    <button type="button" class="btn btn-primary mt-5 mb-5 mx-3" data-bs-toggle="modal" data-bs-target="#staticBackdrop">
         Add Time</button>
+
+
+
+        @if (session()->has('error-message'))
+        <div class="alert alert-danger d-flex justify-content-between">
+            {{ session()->get('error-message') }}
+            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+        </div>
+    @endif
+
+    @if ($errors->any())
+        @foreach ($errors->all() as $error)
+            <div class="alert alert-danger d-flex justify-content-between">{{ $error }}
+                <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+            </div>
+        @endforeach
+    @endif
 
     <table class="table my-3 " style="margin-right: 200px;">
         <thead>
             <tr>
-                <th scope="col">#</th>
+                <th scope="col">serial</th>
                 <th scope="col">Name</th>
                 <th scope="col">Reservation Time From</th>
                 <th scope="col">Reservation Time To</th>

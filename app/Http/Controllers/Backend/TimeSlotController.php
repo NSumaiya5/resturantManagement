@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Backend;
 use App\Http\Controllers\Controller;
 use App\Models\TimeSlot;
 use Illuminate\Http\Request;
+use Throwable;
 
 class TimeSlotController extends Controller
 {
@@ -31,11 +32,7 @@ class TimeSlotController extends Controller
             // 'reservation_time_from'=>$request->from_time,
             'reservation_time_from'=> \Carbon\Carbon::parse( $request->from_time )->format('h:i A'),
             'reservation_time_to'=>\Carbon\Carbon::parse( $request->to_time )->format('h:i A'),
-
-
             ]);
-
-
 
             return redirect()->back();
     }
@@ -45,12 +42,23 @@ class TimeSlotController extends Controller
     //  dd($id);
 
         $timeSlotDelete = TimeSlot::find($id);
+       //then delete it
 
 
-        //then delete it
-        $timeSlotDelete->delete();
+        try {
+            $timeSlotDelete->delete();
 
-        return redirect()->route('timeSlot');
+
+
+            return redirect()->route('timeSlot')->with('error-message', 'Task deleted successfully.');
+        }
+
+ catch (Throwable $e) {
+            if ($e->getCode() == '23000') {
+                return redirect()->back()->with('error-message', 'This slot already taken ');
+            }
+            return back();
+        }
     }
  }
 
