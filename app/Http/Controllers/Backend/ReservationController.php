@@ -71,17 +71,23 @@ public function reservationReport()
 
 {
 
-    $reservationViews = Reservation::all();
+    $reservationViews = Reservation::where('status', 'confirm')->get();
+
 
 
 
         if (isset($_GET['from_date'])) {
+
             $fromDate = date('Y-m-d', strtotime($_GET['from_date']));
             $toDate = date('Y-m-d', strtotime($_GET['to_date']));
 
+            if ($fromDate > $toDate){
+                return redirect()->back()->with('error-message','Invalid date selection.');
+            }
+
             // dd($toDate);
 
-            $reservationViews = Reservation::whereBetween('reservation_date',[$fromDate,$toDate])->get();
+            $reservationViews = Reservation::whereBetween('reservation_date',[$fromDate,$toDate])->where('status', 'confirm')->get();
 
             return view('backend.content.reservationReport',compact('reservationViews','fromDate','toDate'));
         }

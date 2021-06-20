@@ -2,6 +2,7 @@
 
 @section('content')
 
+<div class="container">
 <div>
     <h3 class="text-center mt-5">Food Cart</h3>
 </div>
@@ -33,7 +34,7 @@
             <td><img src="{{url('/files/photo/'.$cart->foodItem->file)}}" style="width:100px;height:100px"></td>
             <td>{{$cart->foodItem->name}}</td>
             <td>{{$cart->foodItem->description}}</td>
-            <td>{{$cart->foodItem->price}}</td>
+            <td>{{$cart->foodItem->price}} /=</td>
             <td>
                 <form action="{{route('updateCart',$cart->id)}}" method="post">
                     @csrf
@@ -52,7 +53,7 @@
                 {{-- <li class="bg-danger"><a class="btn btn-danger" href={{ route('foodItemRemove', $cart['id']) }}>Delete</a></li> --}}
 
    {{-- </td>  --}}
-            <td> {{$cart->foodItem->price * $cart->quantity}}</td>
+            <td> {{$cart->foodItem->price * $cart->quantity}} /=</td>
           </tr>
 
         </tbody>
@@ -62,19 +63,19 @@
 
 
 <div class="d-flex justify-content-center mt-5">
-    <div class="">
+    <div class="fs-5">
         <div class="mt-2">
           <label>Subtotal</label>
-          <span class="ml-4">: {{$sub_total}}</span>
+          <span class="ml-4">: {{$sub_total}} /=</span>
         </div>
         <div class="border-bottom">
           <label>Tax (5%)</label>
-          <span class="ml-5">: {{$tax}}</span>
+          <span class="ml-5">: {{$tax}} /=</span>
         </div>
 
         <div class="totals-item totals-item-total">
           <label>Grand Total:</label>
-          <span class="" id="cart-total"> {{$grandtotal}}</span>
+          <span class="" id="cart-total"> {{$grandtotal}} /=</span>
         </div>
 
         <div class="mb-5">
@@ -82,5 +83,5 @@
         </div>
     </div>
 </div>
-
+</div>
 @endsection

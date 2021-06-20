@@ -93,17 +93,21 @@ class AdminOrderController extends Controller
     {
            $orderViews = Order::all();
             $orderList = OrderDetail::all();
-            $total = $orderList->sum('sub_total');
-             $tax = $total * (5 / 100);
+           $total = $orderList->sum('sub_total');
+           $tax = $total * (5 / 100);
            $grand_total = $total + $tax;
 
            if (isset($_GET['from_date'])) {
             $fromDate = date('Y-m-d', strtotime($_GET['from_date']));
             $toDate = date('Y-m-d', strtotime($_GET['to_date']));
 
+            if ($fromDate > $toDate){
+                return redirect()->back()->with('error-message','Invalid date selection.');
+            }
+
             // dd($toDate);
 
-            $orderViews = Order::whereBetween('created_at',[$fromDate,$toDate])->get();
+            $orderList = OrderDetail::whereBetween('created_at',[$fromDate,$toDate])->get();
 
             return view('backend.content.orderReport',compact('orderViews','orderList','total','tax','grand_total','fromDate','toDate'));
 

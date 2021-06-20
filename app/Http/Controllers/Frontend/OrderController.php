@@ -31,10 +31,20 @@ class OrderController extends Controller
 
     public function orderConfirm(Request $request)
     {
+
+        $request->validate([
+
+            't_id' => 'required|size:10|unique:orders',
+            't_phone' => 'required|digits:11|numeric:orders',
+            'address' => 'required',
+        ]);
+
+
+
         $orderData = [
             'user_id'=>auth()->user()->id,
             't_id'=>$request->t_id,
-             't_phone'=>$request->contact,
+             't_phone'=>$request->t_phone,
              'payment_amount'=>$request->payment_amount,
              'payment_method'=>$request->payment_method,
              'address'=>$request->address,

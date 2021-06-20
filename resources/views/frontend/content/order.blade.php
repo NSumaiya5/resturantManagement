@@ -2,13 +2,13 @@
  @section('content')
 
 
-    <div class="row" >
-        <div class="col-md-5 order-md-2 mb-3 mt-5">
+    <div class="row " >
+        <div class="col-md-5 order-md-2 mb-3 mt-5 ">
             <h4 class="text-center">
                 <span>Your Food Item</span>
             </h4>
 
-            <table class="mt-5 table table-bordered table-striped table-success ">
+            <table class="mt-5 table table-bordered table-striped table-success text-center ">
                 <thead>
                     <tr>
                         <th scope="col">Serial</th>
@@ -28,8 +28,7 @@
                                     style="width:80px; height:80px;"></td>
                             <td>{{ $cart->foodItem->name }}</td>
                             <td>{{ $cart->quantity }}</td>
-                            <td>{{ $cart->foodItem->price }}</td>
-                        </tr>
+                            <td>{{ $cart->foodItem->price }} /=</td>
                 @endforeach
                 <hr />
                 </tr>
@@ -40,16 +39,16 @@
             <div class="text-center mt-5 fs-5">
                 <div class="mt-2 ">
                     <label>Subtotal</label>
-                    <span class="ml-4">: {{ $sub_total }}</span>
+                    <span class="ml-4">: {{ $sub_total }} /=</span>
                 </div>
                 <div class="border-bottom">
                     <label>Tax (5%)</label>
-                    <span class="ml-5">: {{ $tax }}</span>
+                    <span class="ml-5">: {{ $tax }} /=</span>
                 </div>
 
                 <div class="totals-item totals-item-total">
                     <label>Grand Total:</label>
-                    <span class="" id="cart-total"> {{ $grandtotal }}</span>
+                    <span class="" id="cart-total"> {{ $grandtotal }} /=</span>
                 </div>
 
 
@@ -76,13 +75,21 @@
                 </div>
             @endif
 
+            @if ($errors->any())
+            @foreach ($errors->all() as $error)
+                <div class="alert alert-danger d-flex justify-content-between">{{ $error }}
+                    <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                </div>
+            @endforeach
+        @endif
+
             <form action={{ route('orderConfirm') }} method="post"
                 class="needs-validation container  w-75 p-5 border shadow p-3 mb-5 bg-white rounded-3"  >
                 @csrf
                 <div class="row">
                 <div class="text-center fs-5">
                     <p><b>Bkash Number: 01632193844</b></p>
-                    <p><b>Nagad Number: 01632193784</b></p>
+                    <p><b>Rocket Number: 01632193784</b></p>
 
                 </div>
                 <hr/>
@@ -96,7 +103,7 @@
                         </div>
                     </div>
 
-                </div>
+
 
 
                 <div class="mb-3">
@@ -116,7 +123,7 @@
 
                     </div>
 
-
+                </div>
                     <div class="row d-flex my-2 ml-2">
                         <div class="col-md-6">
                             <input type="checkbox" name="payment_method" value="bkash">
@@ -158,7 +165,7 @@
                                 <div class="col-md-8 ms-5 mt-3 text-center">
                                     <div class="form-group card-label ms-5 ">
                                         <label for="expiry_month"><b>Phone</b></label>
-                                        <input class="form-control " placeholder="Enter Your Payment Number" name="contact" id="expiry_month" value=""
+                                        <input class="form-control " placeholder="Enter Your Payment Number" name="t_phone" id="expiry_month" value=""
                                             type="tel" required>
                                     </div>
                                 </div>
@@ -186,9 +193,6 @@
 
 
         </form>
-
-
-
     </div>
 
     </div>

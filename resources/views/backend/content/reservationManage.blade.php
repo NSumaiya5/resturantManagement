@@ -88,9 +88,6 @@
         </td>
 
 
-                {{-- <td>{{$request->total}}</td> --}}
-                {{-- <td>fsadfasfsdf</td>
-                <td><a href="">view</a></td> --}}
 
             </tr>
             @endforeach

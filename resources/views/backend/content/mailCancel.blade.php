@@ -8,7 +8,12 @@
     <title>Document</title>
 </head>
 <body>
-<h1 style="background-color: #ff0000">Order Cancel</h1>
+    <p class="">Dear sir/maam,</p>
+    <p>Sorry,Your Order is <span class="color-red">Cancel</span> . If you have any inquiry Please contact with us.
+    </p>
+    <h4>Contact info</h4>
+    <p>Email: freshFood@gmail.com </p>
+    <p>Phone Number: 01723456745 </p>
 
 </html>
 

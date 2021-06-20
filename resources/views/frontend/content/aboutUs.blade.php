@@ -36,7 +36,7 @@
             <h1 class="text-center"><ion-icon class="logo-icon" name="fast-food"></ion-icon> Fresh Food <ion-icon class="logo-icon" name="beer"></ion-icon></h1>
             <p class="text-center">Taste the best in town <i class="fas fa-utensils"></i></p>
             <hr/>
-            <p class="text-justify fs-6">Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.</p>
+            <p class=" fs-6" style="text-align: justify;">Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.</p>
           </div>
         </div>
 
@@ -49,33 +49,16 @@
     <section >
  <div class="container"style="">
       <h1 class="text-center " >O<span style="color: #dd7140;margin-top:30px;">U</span>R HI<span style="color: #dd7140;margin-top:30px;">STO</span>RY</h1>
-      <p class="mt-5 text-justify">Lorem ipsum dolor sit amet consectetur adipisicing elit. Molestiae provident perferendis pariatur optio eaque quia vero dicta ut nihil laudantium nulla tempora maiores, odit voluptatem ipsa officia assumenda porro veritatis sed fugiat corrupti? Hic voluptas accusantium officia voluptatem cumque ducimus molestias facilis quasi saepe magni, laudantium quam doloremque, exercitationem nesciunt. Lorem ipsum dolor sit amet consectetur adipisicing elit. Molestiae provident perferendis pariatur optio eaque quia vero dicta ut nihil laudantium nulla tempora maiores, odit voluptatem ipsa officia assumenda porro veritatis sed fugiat corrupti? Hic voluptas accusantium officia voluptatem cumque ducimus molestias facilis quasi saepe magni, laudantium quam doloremque, exercitationem nesciunt!</p>
+      <p class="mt-5 " style="text-align: justify;">Lorem ipsum dolor sit amet consectetur adipisicing elit. Molestiae provident perferendis pariatur optio eaque quia vero dicta ut nihil laudantium nulla tempora maiores, odit voluptatem ipsa officia assumenda porro veritatis sed fugiat corrupti? Hic voluptas accusantium officia voluptatem cumque ducimus molestias facilis quasi saepe magni, laudantium quam doloremque, exercitationem nesciunt. Lorem ipsum dolor sit amet consectetur adipisicing elit. Molestiae provident perferendis pariatur optio eaque quia vero dicta ut nihil laudantium nulla tempora maiores, odit voluptatem ipsa officia assumenda porro veritatis sed fugiat corrupti? Hic voluptas accusantium officia voluptatem cumque ducimus molestias facilis quasi saepe magni, laudantium quam doloremque, exercitationem nesciunt!</p>
     </div>
     </section>
 
     <div class="container">
       <div class="row">
         <div class="col-md-12 ms-5">
-{{--
-              <video class="img-fluid ms-5"style="height:500px;"width="5050px"  autoplay muted loop>
-
-                <source
-
-                src="https://assets.mixkit.co/videos/preview/mixkit-customers-in-a-minimalist-style-restaurant-4385-large.mp4"
-
-                type="video/mp4">
 
 
-              </video> --}}
-
-
-                <video width="700px" style="margin-left: 260px;"  controls>
-                    {{-- <td>
-                        <video width="200px" controls>
-                             <source src="{{ url('/files/topic/' . $data->file) }}" type="video/mp4"/>
-                        <source src="{{ url('/files/topic/' . $data->file) }}"/>
-                        </video>
-                    </td> --}}
+                <video width="700px" style="margin-left: 190px;"  controls>
 
                      <source  src="{{ url('/style/image/video2.mp4')}}" type="video/mp4"/>
 
@@ -88,8 +71,8 @@
         <section >
             <div class="container"style="">
 
-                 <p class="mt-5 text-justify ">Lorem ipsum dolor sit amet consectetur adipisicing elit. Molestiae provident perferendis pariatur optio eaque quia vero dicta ut nihil laudantium nulla tempora maiores, odit voluptatem ipsa officia assumenda porro veritatis sed fugiat corrupti? Hic voluptas accusantium officia voluptatem cumque ducimus molestias facilis quasi saepe magni, laudantium quam doloremque, exercitationem nesciunt. Lorem ipsum dolor sit amet consectetur adipisicing elit. Molestiae provident perferendis pariatur optio eaque quia vero dicta ut nihil laudantium nulla tempora maiores, odit voluptatem ipsa officia assumenda porro veritatis sed fugiat corrupti? Hic voluptas accusantium officia voluptatem cumque ducimus molestias facilis quasi saepe magni, laudantium quam doloremque, exercitationem nesciunt!</p>
-                <p class="mb-5"> Lorem ipsum dolor sit amet consectetur adipisicing elit. Id incidunt totam provident iure nam nesciunt, laborum non possimus eaque voluptate sint aliquam sunt asperiores ipsa necessitatibus facere? Omnis reprehenderit minus voluptatum vitae, deserunt odit obcaecati dignissimos aut nisi praesentium explicabo saepe provident dicta voluptas aliquam incidunt animi, earum cupiditate et aliquid hic ex quos ab. Blanditiis facilis animi incidunt ipsa doloremque beatae? Asperiores molestiae laudantium ipsa repellat! Labore fuga cupiditate repellendus ducimus inventore, sit ut placeat eveniet, ipsa, aspernatur cumque. Laboriosam, totam. Incidunt hic suscipit ratione, in repellendus vel dolores molestias sint enim minima animi labore aliquam voluptatibus consectetur ut!</p>
+                 <p class="mt-5  "style="text-align: justify;">Lorem ipsum dolor sit amet consectetur adipisicing elit. Molestiae provident perferendis pariatur optio eaque quia vero dicta ut nihil laudantium nulla tempora maiores, odit voluptatem ipsa officia assumenda porro veritatis sed fugiat corrupti? Hic voluptas accusantium officia voluptatem cumque ducimus molestias facilis quasi saepe magni, laudantium quam doloremque, exercitationem nesciunt. Lorem ipsum dolor sit amet consectetur adipisicing elit. Molestiae provident perferendis pariatur optio eaque quia vero dicta ut nihil laudantium nulla tempora maiores, odit voluptatem ipsa officia assumenda porro veritatis sed fugiat corrupti? Hic voluptas accusantium officia voluptatem cumque ducimus molestias facilis quasi saepe magni, laudantium quam doloremque, exercitationem nesciunt!</p>
+                <p class="mb-5" style="text-align: justify;"> Lorem ipsum dolor sit amet consectetur adipisicing elit. Id incidunt totam provident iure nam nesciunt, laborum non possimus eaque voluptate sint aliquam sunt asperiores ipsa necessitatibus facere? Omnis reprehenderit minus voluptatum vitae, deserunt odit obcaecati dignissimos aut nisi praesentium explicabo saepe provident dicta voluptas aliquam incidunt animi, earum cupiditate et aliquid hic ex quos ab. Blanditiis facilis animi incidunt ipsa doloremque beatae? Asperiores molestiae laudantium ipsa repellat! Labore fuga cupiditate repellendus ducimus inventore, sit ut placeat eveniet, ipsa, aspernatur cumque. Laboriosam, totam. Incidunt hic suscipit ratione, in repellendus vel dolores molestias sint enim minima animi labore aliquam voluptatibus consectetur ut!</p>
                 </div>
                </section>
 

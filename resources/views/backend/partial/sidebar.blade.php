@@ -18,53 +18,52 @@
 </ul>
   </nav>
 
-<nav id="sidebarMenu" class="col-md-3 col-lg-2 w-20 text-center  d-md-block bg-dark sidebar collapse"style="height:800px" >
-    <div class="position-sticky pt-4 ">
+<nav id="sidebarMenu" class="col-md-3 col-lg-2 w-18   d-md-block bg-dark sidebar collapse"style="height:800px" >
+    <div class="position-sticky pt-3 ">
       <ul class="nav flex-column">
 
         <li class="nav-item mt-5">
               <a class="nav-link active" aria-current="page"href="{{route('dashboard')}}">
-            Dashboard
+             <i class="fas fa-chart-line"> Dashboard</i>
           </a>
         </li>
 
         <li class="nav-item">
             <a class="nav-link" href="{{route('gallery')}}">
-              <span ></span>
-               Manage Gallery
+                <i class="fas fa-image"> Manage Gallery</i>
             </a>
           </li>
+
         <li class="nav-item">
           <a class="nav-link" href={{route('staff')}}>
-            <span ></span>
-          Manage Staff
+            <i class="fas fa-user-clock"> Manage Staff</i>
           </a>
         </li>
+
+
         <li class="nav-item">
           <a class="nav-link" href={{route('foodItem')}}>
-            <span ></span>
-            Food Item
+            <i class="fas fa-hamburger"> Manage Food Item</i>
           </a>
         </li>
 
         <li class="nav-item">
             <a class="nav-link" href={{route('timeSlot')}}>
-              <span ></span>
-              Manage Timeslot
+                <i class="fas fa-clock"> Manage Timeslot</i>
             </a>
           </li>
         <li class="nav-item">
             <a class="nav-link" href={{route('table')}}>
-              <span ></span>
-              Manage Table
+                <i class="fas fa-table"> Manage Table</i>
+
             </a>
           </li>
 
 
           <li class="nav-item">
             <a class="nav-link" href="{{route('showReservation')}}">
-              <span ></span>
-              Manage Reservation
+                <i class="fas fa-calendar-week"> Manage Reservation</i>
+
             </a>
           </li>
 
@@ -72,8 +71,7 @@
 
           <li class="nav-item">
             <a class="nav-link" href="{{route('adminOrder')}}">
-              <span ></span>
-              Manage Order
+                <i class="far fa-credit-card"> Manage Order</i>
             </a>
           </li>
 
@@ -90,7 +88,7 @@
             </a>
           </li> --}}
           <li class="nav-item dropdown">
-            <a class="nav-link dropdown-toggle text-blue " data-bs-toggle="dropdown" href="#" role="button" aria-expanded="false">Report</a>
+            <a class="nav-link dropdown-toggle text-blue " data-bs-toggle="dropdown" href="#" role="button" aria-expanded="false">  <i class="fas fa-chart-bar"> Report</i></a>
             <ul class="dropdown-menu">
               <li><a class="nav-link" href="{{route('reservationReport')}}">Reservation Report</li>
               <li><a class="nav-link" href="{{route('orderReport')}}">Order Report</a></li>
