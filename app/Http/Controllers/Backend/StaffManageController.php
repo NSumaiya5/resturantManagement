@@ -5,13 +5,13 @@ namespace App\Http\Controllers\Backend;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Models\Staff;
-
+use App\Models\User;
 
 class StaffManageController extends Controller
 {
     public function staffManage()
     {
-        $staffs=Staff::paginate(6);
+        $staffs=Staff::paginate(4);
         return view('backend.content.staffManage',compact('staffs'));
     }
 
@@ -43,7 +43,7 @@ class StaffManageController extends Controller
         'name' => 'required',
         'workingArea' => 'required',
         'email' => 'email|required|unique:staff',
-        'contact' => 'required|min:11|numeric|unique:staff',
+        'contact' => 'required|min:11|max:11|unique:staff',
         'address' => 'required',
     ]);
         Staff::create([
@@ -54,7 +54,7 @@ class StaffManageController extends Controller
             'contact'=>$request->contact,
             'address'=>$request->address]);
 
-            return redirect()->back();
+            return redirect()->back()->with('error-message','Invalid selection.');
     }
 
 
@@ -82,20 +82,99 @@ class StaffManageController extends Controller
     public function staffUpdate(Request $request,$id)
     {
      // dd($request->all());
-     $staff = Staff::find($id);
 
 
-     $staff->update([
-           'name'=>$request->input('name'),
-           'workingArea'=>$request->input('workingArea'),
-           'email'=>$request->input('email'),
-           'contact'=>$request->input('contact'),
-           'address'=>$request->input('address'),
+    //  $request->validate([
+    //     'name' => 'required',
+    //     'workingArea' => 'required',
+    //     'email' => 'email|required:staff',
+    //     'contact' => 'required|min:11|numeric:staff',
+    //     'address' => 'required',
+    // ]);
+
+
+        $staff = Staff::find($id);
+
+
+        // dd($staff);
+
+        if ($staff->email  == $request->email && $staff->contact == $request->contact)  {
+            $staff->update([
+                'name'=>$request->input('name'),
+                'workingArea'=>$request->input('workingArea'),
+                'address'=>$request->input('address'),
+            ]);
+}
+
+
+
+elseif($staff->email  == $request->email){
+
+    $request->validate([
+
+        'contact' => 'required|min:11|max:11|unique:staff',
+    ]);
+
+    // dd('ok');
+
+    $staff->update([
+        'name'=>$request->input('name'),
+        'workingArea'=>$request->input('workingArea'),
+        'contact'=>$request->input('contact'),
+        'address'=>$request->input('address'),
+    ]);
+
+}
+
+elseif($staff->contact == $request->contact){
+
+    $request->validate([
+
+        'contact' => 'required|min:11|max:11|unique:staff',
+    ]);
+
+    $staff->update([
+        'name'=>$request->input('name'),
+        'workingArea'=>$request->input('workingArea'),
+        'email'=>$request->input('email'),
+        'address'=>$request->input('address'),
+    ]);
+
+}
 
 
 
 
-     ]);
+
+else{
+            $request->validate([
+                'email'=>'email|unique:staff',
+                'contact' => 'required|min:11|max:11|unique:staff',
+            ]);
+
+                $staff->update([
+                    'name'=>$request->input('name'),
+                    'workingArea'=>$request->input('workingArea'),
+                    'email'=>$request->input('email'),
+                    'contact'=>$request->input('contact'),
+                    'address'=>$request->input('address'),
+            ]);
+
+        }
+
+
+
+    //  $staff->update([
+    //        'name'=>$request->input('name'),
+    //        'workingArea'=>$request->input('workingArea'),
+    //        'email'=>$request->input('email'),
+    //        'contact'=>$request->input('contact'),
+    //        'address'=>$request->input('address'),
+
+
+
+
+
 
      return redirect()->route('staff')->with('success','Details Updated Successfully');
     }

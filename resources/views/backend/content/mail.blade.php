@@ -14,6 +14,7 @@
     <h4>Contact info</h4>
     <p>Email: freshFood@gmail.com </p>
     <p>Phone Number: 01723456745 </p>
+</body>
 
 </html>
 

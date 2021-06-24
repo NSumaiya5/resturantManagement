@@ -150,8 +150,8 @@
                                         <img style="height:250px;width:279px;"
                                             src="{{ url('/files/photo/' . $data->file) }}" alt="Staff image">
                                         <div class="card-body">
-                                            <p class="card-text">Staff Name: {{ $data->name }}</p>
-                                            <p class="card-text">Staff Email: {{ $data->email }}</p>
+                                            <p class="card-text">Name: {{ $data->name }}</p>
+                                            <p class="card-text">Email: {{ $data->email }}</p>
                                         </div>
                                     </div>
                                 </div>

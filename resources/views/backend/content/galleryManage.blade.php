@@ -24,7 +24,7 @@
      @foreach($gallerys  as $key=> $request)
 
         <tr>
-            <th scope="row">{{$key+1}}</th>
+            <th scope="row">{{$gallerys->firstItem()+$key}}</th>
             <td><img src="{{url('/files/photo/'.$request->file)}}" style="width:70px; height:60px;" ></td>
             <td>{{$request->name}}</td>
             <td>
@@ -33,6 +33,9 @@
         </tr>
         @endforeach
         </tbody>
+        <table>
+        <div class="d-flex justify-content-center mt-5 color-green"> {{$gallerys->links()}} </div>
+
 
 
 
@@ -74,6 +77,7 @@
 
       </div>
     </div>
+
   </div>
 
 

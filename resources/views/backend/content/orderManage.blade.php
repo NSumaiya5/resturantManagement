@@ -13,6 +13,7 @@
         <thead >
         <tr >
             <th scope="col">Serial</th>
+            <th scope="col">Date</th>
             <th scope="col">User Email</th>
             {{-- <th scope="col">Address</th> --}}
             <th scope="col">Paid Amount</th>
@@ -31,7 +32,8 @@
 
 {{-- @dd($request); --}}
             <tr>
-              <td>{{$key+1}}</td>
+              <td>{{$orders->firstItem()+$key }}</td>
+              <td>{{ $request->created_at->format('d-m-Y') }} </td>
               <td>{{$request->user->email}}</td>
               <td>{{$request->payment_amount}}</td>
               <td>{{$request->payment_method}}</td>
@@ -43,18 +45,7 @@
 
               <td>
                     <div class="dropdown ">
-                        {{-- @if ( $request->status == 'paid')
-                        <button class="btn btn-sm btn-light dropdown-toggle" type="button" id="dropdownMenuButton1"
-                            data-bs-toggle="dropdown" aria-expanded="false">
-                            Action
-                        </button>
-                        <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
 
-                     <li>
-                        @if ( $request->status == 'paid')
-                        <a class="btn btn-warning" href="{{route('orderPaid',['id'=>$request->id,'status'=>'paid'])}}">paid</a>
-                     </li>
-                        </ul> --}}
                         @if ( $request->status == 'pending')
                         <button class="btn btn-sm btn-light dropdown-toggle" type="button" id="dropdownMenuButton1"
                             data-bs-toggle="dropdown" aria-expanded="false">
@@ -65,9 +56,9 @@
 
                      <li>
 
-                        <a class="btn" href="{{route('orderPaid',['id'=>$request->id,'status'=>'paid'])}}">paid</a>
+                        <a class="btn" href="{{route('orderPaid',['id'=>$request->id,'status'=>'paid'])}}">Paid</a>
 
-                        <a class="btn" href="{{route('orderPaid',['id'=>$request->id,'status'=>'unpaid'])}}">cancle</a>
+                        <a class="btn" href="{{route('orderPaid',['id'=>$request->id,'status'=>'unpaid'])}}">Cancel</a>
                      </li>
                         </ul>
                         @else
@@ -90,14 +81,13 @@
                      </td>
 
         </tr>
-
-
-
-
 @endforeach
 
         </tbody>
 
     </table>
+
+    <div class="d-flex justify-content-center mt-5 color-green"> {{$orders->links()}} </div>
+
 
 @endsection

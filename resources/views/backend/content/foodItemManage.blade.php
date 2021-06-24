@@ -13,8 +13,15 @@
     </div>
 @endif
 
-{{-- Employee Details table --}}
-<table class="table my-3 " style="margin-right: 200px;">
+@if ($errors->any())
+            @foreach ($errors->all() as $error)
+                <div class="alert alert-danger d-flex justify-content-between">{{ $error }}
+                    <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                </div>
+            @endforeach
+        @endif
+{{-- staff Details table --}}
+<table class="table my-3 text-center" style="margin-right: 200px;">
     <thead>
       <tr>
         <th scope="col">#</th>
@@ -29,7 +36,7 @@
      @foreach($foodItems as $key=> $request)
 
         <tr>
-            <th scope="row">{{$key+1}}</th>
+            <th scope="row">{{$foodItems->firstItem()+$key}}</th>
             <td><img src="{{url('/files/photo/'.$request->file)}}" style="width:70px; height:60px;" ></td>
             <td>{{$request->name}}</td>
             <td>{{$request->description}}</td>
@@ -41,7 +48,7 @@
 
             </td> --}}
             <td>
-                <div class="dropdown text-center " style="border-style: solid;">
+                <div class="dropdown text-center " >
                     <button class="btn btn-sm btn-light dropdown-toggle" type="button" id="dropdownMenuButton1"
                         data-bs-toggle="dropdown" aria-expanded="false">
                         Action
@@ -58,7 +65,7 @@
                         </li>
 
                         <li class="bg-primary text-center "><a class="btn" href="{{route('foodItemEdit', $request['id'])}}">Edit</span></a></li>
-                        <li class="bg-light text-center"><a class="btn " href={{route('foodItemDelete', $request['id'])}}>Delete</a></li>
+                        <li class="bg-info text-center"><a class="btn " href={{route('foodItemDelete', $request['id'])}}>Delete</a></li>
 
 
 

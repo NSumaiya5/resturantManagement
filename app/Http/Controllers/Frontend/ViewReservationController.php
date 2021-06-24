@@ -16,11 +16,11 @@ class ViewReservationController extends Controller
     {
         $tables = Table::find($id);
         $time_slot = TimeSlot::all();
-
+$now = Carbon::now()->addHours(6)->format('Y-m-d');
         //    dd($time_slot);
 
         // dd($tables);
-        return view('frontend.content.reservation', compact('tables', 'time_slot'));
+        return view('frontend.content.reservation', compact('tables', 'time_slot','now'));
     }
 
     public function reservation(Request $request, $id)
@@ -31,12 +31,14 @@ class ViewReservationController extends Controller
 $now =Carbon::now()->addHours(6)->format('h:i A');
 $time_check =TimeSlot::find($request->time_id);
 
-if($time_check->reservation_time_from <$now ){
-    // dd('error');
-    return redirect()->back()->with('status', 'Reservation Time Invalid');
+// dd($request->date >= Carbon::now()->addHours(6)->format('Y-m-d'));
+// dd($time_check->reservation_time_from,$now);
 
 
-}
+if(strtotime($time_check -> reservation_time_from) < strtotime($now) && $request->date == Carbon::now()->addHours(6)->format('Y-m-d'))
+    {
+        return redirect()->back()->with('status', 'Reservation Time Invalid');
+    }
 
 
         // $reservation_date =Carbon::parse($request->input('reservation_date'))->format('Y-m-d');

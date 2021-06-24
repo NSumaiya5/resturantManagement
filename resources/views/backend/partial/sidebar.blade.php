@@ -90,8 +90,8 @@
           <li class="nav-item dropdown">
             <a class="nav-link dropdown-toggle text-blue " data-bs-toggle="dropdown" href="#" role="button" aria-expanded="false">  <i class="fas fa-chart-bar"> Report</i></a>
             <ul class="dropdown-menu">
-              <li><a class="nav-link" href="{{route('reservationReport')}}">Reservation Report</li>
-              <li><a class="nav-link" href="{{route('orderReport')}}">Order Report</a></li>
+              <li><a class="nav-link" href="{{route('reservationReport')}}"><b>Reservation Report</b></a></li>
+              <li><a class="nav-link" href="{{route('orderReport')}}"><b>Order Report</b></a></li>
 
             </ul>
           </li>

@@ -31,7 +31,7 @@ class ViewUserController extends Controller
             'name' => 'required',
             'email' => 'email|required|unique:users',
             'password' => 'required|min:6',
-            'phone' => 'required|min:11|numeric|unique:users',
+            'phone' => 'required|digits:11|numeric|unique:users',
             'address' => 'required',
 
         ]);
@@ -52,7 +52,8 @@ class ViewUserController extends Controller
         //validate input
         $request->validate([
             'email' => 'required|email',
-            'password' => 'required|min:6'
+            'password' => 'required|min:6',
+
 
         ]);
 

@@ -33,7 +33,7 @@
 
                 <div class="form-group">
                     <label for="">Date:</label>
-                    <input required name="date" value="{{date('Y-m-d')}}" min="{{date('Y-m-d')}}"type="date" class="form-control">
+                    <input required name="date" value="{{$now}}" min="{{$now}}"type="date" class="form-control">
                 </div>
 
                 <div class="mt-4">

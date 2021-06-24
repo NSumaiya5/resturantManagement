@@ -37,7 +37,7 @@
 
 {{-- @dd($request) --}}
             <tr class="text-center">
-                <td>{{$key+1}}</td>
+                <td>{{$reservations->firstItem()+$key}}</td>
                 <td>{{$request->tables_id}}</td>
                 {{-- @dd($reservations->table) --}}
                 <td>{{$request->table->capacity}}</td>
@@ -58,7 +58,9 @@
 
                <td  class="text-center">{{$request->status}}</td>
 
-               <td>
+            <td>
+
+
                 <div class="dropdown ">
                     <button class="btn btn-sm btn-light dropdown-toggle" type="button" id="dropdownMenuButton1"
                         data-bs-toggle="dropdown" aria-expanded="false">
@@ -70,22 +72,41 @@
 
                     @if ( $request->status == 'pending')
 
-                    <a class="btn" href="{{route('reservationConfirm',['id'=>$request->id,'status'=>'cancel'])}}">cancel</a>
-<br/>
-                    <a class="btn" href="{{route('reservationConfirm',['id'=>$request->id,'status'=>'confirm'])}}">confirm</a>
 
-                    @else
+
                     <div class="text-center">
-                    <a class="btn mb-3" href="{{route('reservationConfirm',['id'=>$request->id,'status'=>'cancel'])}}">cancel</a>
+                    <a class="btn btn-primary " href="{{route('reservationConfirm',['id'=>$request->id,'status'=>'cancel'])}}">Cancel</a>
+<br/>
+                    <a class="btn btn-info mt-2" href="{{route('reservationConfirm',['id'=>$request->id,'status'=>'confirm'])}}">Confirm</a>
+                    </div>
+                    @else
+                    {{-- <div class="text-center">
+                    <a class="btn " href="{{route('reservationConfirm',['id'=>$request->id,'status'=>'cancel'])}}">cancel</a>
                     <br/>
                     <a class="btn" href="{{route('reservationConfirm',['id'=>$request->id,'status'=>'confirm'])}}">confirm</a>
-                    </div>
-          @endif
+                    </div> --}}
+                    <a href="{{route('reservationConfirm',['id'=>$request->id,'status'=>'cancel'])}}" class="btn btn-outline-primary">Cancel</a>
+                    @endif
+
+          {{-- @endif
+          <a class="btn" href="{{route('orderPaid',['id'=>$request->id,'status'=>'paid'])}}">Paid</a>
+
+          <a class="btn" href="{{route('orderPaid',['id'=>$request->id,'status'=>'unpaid'])}}">Cancel</a>
+       </li>
+          </ul>
+          @else
+          <a href="" class="btn btn-outline-primary">Order Confirmed</a>
+  @endif --}}
+
+
+
+
+
 
              </li>
                     </ul>
                 </div>
-        </td>
+            </td>
 
 
 
@@ -95,5 +116,7 @@
         </tbody>
 
     </table>
+    <div class="d-flex justify-content-center mt-5 color-green"> {{$reservations->links()}} </div>
+
 
 @endsection

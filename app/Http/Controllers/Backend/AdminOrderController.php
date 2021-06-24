@@ -16,7 +16,7 @@ class AdminOrderController extends Controller
     public function adminOrder(Request $request)
     {
         //   dd($request->all());
-        $orders = Order::where('status', '!=', 'cancle')->get();
+        $orders = Order::where('status', '!=', 'cancel')->orderBy('id','desc')->paginate(4);
 
         // dd($orders);
 
@@ -64,13 +64,19 @@ class AdminOrderController extends Controller
     {
 
         $orders = Order::find($id);
+        // $reservationViews = Reservation::where('user_id', auth()->user()->id)->orderBy('id','desc')->paginate(3);
+
         $customer = User::where('id', $orders->user_id)->first();
+
+        // $customer = User::where('id', $orders->user_id)
+
+        // dd($customer);
         // dd($status);
 
 
         if($status == 'unpaid'){
             $orders->update([
-                'status' => 'cancle',
+                'status' => 'cancel',
                 'paid_status' => $status
             ]);
             Mail::to($customer->email)->send(new OrderCancle($orders));

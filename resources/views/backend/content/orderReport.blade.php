@@ -84,14 +84,14 @@
 
 
                                     <tr>
-                                        <th scope="row">{{ $key + 1 }}</th>
+                                        <th>{{ $key + 1 }}</th>
                                         <td>{{ $order->created_at->format('d-m-Y') }} </td>
                                         <td>{{ $order->orderForDetails->user->name }} </td>
                                         <td>{{ $order->orderForDetails->user->email }} </td>
                                         <td>{{ $order->food->name }}</td>
                                         <td>{{ $order->quantity }}</td>
                                         <td>{{ $order->sub_total }}/=</td>
-                                        <td>{{ $order->orderForDetails->status}}</td>
+                                        {{-- <td>{{ $order->orderForDetails->status}}</td> --}}
                                     </tr>
 
                                 @endif

@@ -13,7 +13,7 @@ class GalleryController extends Controller
 
     public function galleryManage()
     {
-        $gallerys=Gallery::all();
+        $gallerys=Gallery::orderBy('id','desc')->paginate(4);
         return view('backend.content.galleryManage',compact('gallerys'));
     }
 

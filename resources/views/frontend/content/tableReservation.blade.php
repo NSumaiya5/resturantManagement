@@ -54,7 +54,12 @@
 
     </div>
 
-
+    @if (count($tables) > 0 )
+    <div>
+        {{-- @dd($searchTime); --}}
+        <p > Number of records: {{ count($tables) }}</p>
+        <h3></h3>
+    </div>
         {{-- @dd($tables) --}}
         <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-3 mt-5 mb-5">
             @foreach ($tables as $data)
@@ -78,7 +83,9 @@
                 </div>
 
   @endforeach
-
+  @else
+  <h1>No table found</h1>
+@endif
 </div>
 
 </div>

@@ -33,6 +33,8 @@
                                             <p class="card-text">Name:{{ $data->reviewUser->name }}</p>
                                             <p class=""> Email:{{ $data->reviewUser->email }}</p>
                                             <p class=""> Food-Name: {{ $data->food_item->name }}</p>
+                                            <p class=""> Comment: {{ $data->message }}</p>
+
                                             <p class="card-text">
                                                 <span class="review-stars" style="color: #dd7140;;">
 

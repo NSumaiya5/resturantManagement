@@ -17,17 +17,11 @@
         <th scope="col">Picture</th>
         <th scope="col">Capacity</th>
         {{-- <th scope="col">Status</th> --}}
-
-
         {{-- <th scope="col">TimeSlot</th> --}}
+        <th scope="col">Table Number</th>
         <th scope="col">View</th>
         <th scope="col">Action</th>
         <th scope="col">Delete</th>
-
-
-
-
-
       </tr>
     </thead>
     <tbody>
@@ -36,9 +30,11 @@
 
 {{-- @dd($request) --}}
         <tr>
-            <th scope="row">{{$key+1}}</th>
+            <th scope="row">{{$tables->firstItem()+$key }}</th>
             <td><img src="{{url('/files/photo/'.$request->file)}}" style="width:70px; height:60px;" ></td>
             <td>{{$request->capacity}}</td>
+            <td>{{$request->id}}</td>
+
             {{-- <td>{{$request->table_status}}</td> --}}
              <td>{{$request->status}}</td>
 
@@ -58,22 +54,19 @@
                                 <a class="btn" href="">None</a>
                             @endif
                         </li>
-
-
                     </ul>
                 </div>
-
             </td>
-
             <td>
                 <a href={{ route('tableDelete', $request['id'])}}><i class="fas fa-trash-alt"></i></a>
             </td>
         </tr>
         @endforeach
-<tr>
-</tr>
 
         </tbody>
+</table>
+<div class="d-flex justify-content-center mt-5 color-green"> {{$tables->links()}} </div>
+
 
 
 

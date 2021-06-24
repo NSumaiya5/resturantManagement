@@ -2,6 +2,13 @@
 
 @section('content')
 
+@if ($errors->any())
+@foreach ($errors->all() as $error)
+    <div class="alert alert-danger d-flex justify-content-between">{{ $error }}
+        <button type="button" class="btn-close " data-bs-dismiss="alert" aria-label="Close"></button>
+    </div>
+@endforeach
+@endif
 
         <form method="post" action={{route('staffUpdate',$staff->id)}} enctype="multipart/form-data" class="container mt-5 w-50 p-5 border shadow p-3 mb-5 bg-white rounded-3">
 
@@ -16,11 +23,6 @@
 
             </div>
 
-            {{-- <div class="form-group">
-                <label for="exampleInputName">Working Area</label>
-                <input name="workingArea" required type="text" class="form-control" id="exampleInputName" placeholder="Enter Working Area">
-
-            </div> --}}
 
             <div class="form-group">
                 <label for="exampleInputName"> Staff Working position</label>

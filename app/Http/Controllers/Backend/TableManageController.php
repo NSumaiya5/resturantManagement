@@ -13,7 +13,8 @@ class TableManageController extends Controller
     public function  tableManage()
     {
 
-        $tables=Table::all();
+        $tables=Table::paginate(4);
+
         $time_slot =TimeSlot::all();
 
         return view('backend.content.tableManage',compact('tables','time_slot'));
