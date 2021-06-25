@@ -54,11 +54,12 @@
 
                         <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
 
-                     <li>
+                     <li class="text-center">
 
-                        <a class="btn" href="{{route('orderPaid',['id'=>$request->id,'status'=>'paid'])}}">Paid</a>
-
-                        <a class="btn" href="{{route('orderPaid',['id'=>$request->id,'status'=>'unpaid'])}}">Cancel</a>
+                        <a class="btn btn-primary" href="{{route('orderPaid',['id'=>$request->id,'status'=>'paid'])}}">Paid</a>
+                        <br/>
+                        <br/>
+                        <a class="btn btn-info" href="{{route('orderPaid',['id'=>$request->id,'status'=>'unpaid'])}}">Cancel</a>
                      </li>
                         </ul>
                         @else

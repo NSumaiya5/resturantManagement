@@ -14,7 +14,7 @@
             <th scope="col">Serial</th>
             <th scope="col">Image</th>
             <th scope="col">Title</th>
-            <th scope="col">Description</th>
+            <th scope="col" style="width:200px">Description</th>
             <th scope="col">Price</th>
             <th scope="col">Quantity</th>
             <th scope="col">Remove</th>
@@ -33,7 +33,7 @@
             <th scope="row">{{$key+1}}</th>
             <td><img src="{{url('/files/photo/'.$cart->foodItem->file)}}" style="width:100px;height:100px"></td>
             <td>{{$cart->foodItem->name}}</td>
-            <td>{{$cart->foodItem->description}}</td>
+            <td style="width:200px">{{$cart->foodItem->description}}</td>
             <td>{{$cart->foodItem->price}} /=</td>
             <td>
                 <form action="{{route('updateCart',$cart->id)}}" method="post">

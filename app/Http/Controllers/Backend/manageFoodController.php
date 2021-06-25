@@ -5,7 +5,7 @@ namespace App\Http\Controllers\Backend;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
  use App\Models\FoodItem;
-
+use Throwable;
 
 class manageFoodController extends Controller
 {
@@ -55,7 +55,21 @@ class manageFoodController extends Controller
 
 
        //then delete it
-       $foodItems->delete();
+
+       try{
+        $foodItems->delete();
+
+        return redirect()->back()->with('error-message', 'Food-Item deleted Successfully');
+
+    }
+    catch(Throwable $e){
+        if($e->getCode() == '23000')
+        {
+        return redirect()->back()->with('error-message', 'This item already have order;');
+        }
+        return back();
+    }
+
 
        return redirect()->back();
    }

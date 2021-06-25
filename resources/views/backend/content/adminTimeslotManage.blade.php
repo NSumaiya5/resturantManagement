@@ -37,6 +37,7 @@
             </tr>
         </thead>
         <tbody>
+            {{-- @dd($timeSlot) --}}
             @foreach ($timeSlot as $key => $request)
                 <tr>
                     <th scope="row">{{ $key + 1 }}</th>

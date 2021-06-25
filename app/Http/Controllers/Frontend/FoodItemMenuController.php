@@ -11,7 +11,7 @@ class FoodItemMenuController extends Controller
 
     public function foodItemMenu()
     {
-        $foodItems=FoodItem::where('status','=','Published')->paginate(10);
+        $foodItems=FoodItem::where('status','=','Published')->paginate(5);
 
 
         return view('frontend.content.foodItemMenu',compact('foodItems'));

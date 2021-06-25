@@ -116,7 +116,7 @@
                 </div>
 
                 <div class="mb-3">
-                    <label for="address"><b>Address</b></label>
+                    <label for="address"><b>Address (If you are in "Fresh Food" then Simply put n/a) </b></label>
                     <input type="text" name="address" value="" class="form-control"
                         id="address" placeholder="Enter Your Address For delivery" required>
                     <div class="invalid-feedback">

@@ -13,10 +13,10 @@
             <div class="text-center">
 
                 <h2 style="color: #dd7140;">Order Now </h2>
-                <h5 style="color: #3A4256;" class="mb-5">Fell the test</h5>
+                <h5 style="color: #3A4256;" class="mb-5">Feel the taste</h5>
 
 
-                <table class="table my-3" style="margin-right: 200px;">
+                <table class="table table-bordered " style="margin-right: 200px;">
                     <thead>
                         <tr>
                             <th scope="col">serial</th>
@@ -32,7 +32,7 @@
                         @foreach ($foodItems as $key => $data)
 
                             <tr>
-                                <th scope="row">{{ $key + 1 }}</th>
+                                <th>{{$foodItems->firstItem()+$key}}</th>
                                 <td><img src="{{ url('/files/photo/' . $data->file) }}" alt="foodItem image"
                                         style="width:150px; height:140px;"></td>
                                 <td>{{ $data->name }}</td>
@@ -73,5 +73,5 @@
                         @endforeach
                     </tbody>
                 </table>
-                {{-- <div class="d-flex justify-content-center mt-5 color-green"> {{ $foodItems->links() }} </div> --}}
+                <div class="d-flex justify-content-center mt-5 color-green"> {{ $foodItems->links() }} </div>
             @endsection

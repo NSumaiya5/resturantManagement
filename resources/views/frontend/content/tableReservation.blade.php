@@ -35,8 +35,9 @@
                         <div class="col-md-5">
                             <label for="to">Time Slot:</label>
 
-                            <select class="form-select form-select-mds " name="time_id" aria-label="form-select-sm example">
+                            <select class="form-select form-select-mds " required name="time_id" aria-label="form-select-sm example">
                                <option value="" >Select Time-Slot</option>
+                               {{-- @dd($time_slot) --}}
                                 @foreach ($time_slot as $data)
                                <option value="{{$data->id}}" >{{$data->name}}({{$data->reservation_time_from}}-{{$data->reservation_time_to}})</option>
                                @endforeach
@@ -69,7 +70,7 @@
                             alt="gallery image">
                         <div class="card-body">
                             <p class="card-text">Capacity : {{ $data->capacity }}</p>
-                            <p class="card-text">Table Number: {{ $data->id }}</p>
+                            <p class="card-text">Table Number: {{$data->id}}</p>
                             <div class="btn-group d-flex justify-content-between align-items-center">
                                 @if (auth()->user())
                                     <a class="btn btn-success"

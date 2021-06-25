@@ -19,7 +19,8 @@
               <div class="row">
 
               <div class=" card col-md-4 mt-4 mb-5 fs-5 text-center">
-
+                <p class="text-dark"><b>Order id:{{ $orderViews->id}}</b></p>
+                <p class="text-dark"> <b>Order Date:</span> {{$orderViews->created_at->format('Y-m-d ')}}</b></p>
                 <p class="text-dark mt-2 "><i class="fas fa-user">Name:</i>{{auth()->user()->name}} </p>
                 <p class="text-dark"><i class="fas fa-envelope-open"> Email:</i>{{auth()->user()->email}} </p>
                 <p class="text-dark"><i class="fas fa-phone-alt"> Phone :</i>{{auth()->user()->phone}} </p>

@@ -3,7 +3,7 @@
 
     <div class="row container">
 
-            <div class=" mt-3 mb-5 d-flex justify-content-center" style="margin-left:250px;">
+            <div class=" mt-3 mb-5 d-flex justify-content-center" style="margin-left:150px;">
                 <div class="card shadow-sm h-100" style="height:500px;width:500px;">
                     <img style="height:400px;width:499.9px;" src="{{ url('/files/photo/' . $viewFood->file) }}"
                         alt="foodItem image">

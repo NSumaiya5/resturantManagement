@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+{{-- <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -13,8 +13,12 @@
 
 
 
-<body>
+<body> --}}
 
+
+    @extends('backend.main')
+
+@section('content')
 
     <div class="page-content container">
         <div class="page-header text-blue-d2">
@@ -26,7 +30,7 @@
                     <div class="row">
                         <div class="col-12">
                             <div class="text-center text-150">
-                                <i class="fa fa-book fa-2x text-success-m2 mr-1"></i>
+                                <i class="fas fa-utensils fa-2x text-success-m2 mr-1"></i>
                                 <span class="text-default-d3 fs-1"> Fresh Food</span>
                             </div>
                         </div>
@@ -56,7 +60,6 @@
                             <hr class="d-sm-none" />
                             <div class="text-grey-m2">
                                 <div class="mt-1 mb-2 text-secondary-m1 text-600 text-125">
-                                    Invoice
                                 </div>
                                 {{-- <div class="my-2"><i class="fa fa-circle text-blue-m2 text-xs mr-1"></i> <span class="text-600 text-90">Order ID:</span> #{{$orders->user->id}}</div> --}}
 
@@ -72,7 +75,7 @@
                     </div>
 
                     <div class="mt-4 mb-5">
-                        <div class="row text-600 text-white bgc-default-tp1 py-25 bg-info">
+                        <div class="row  text-600 text-white bgc-default-tp1 py-25 bg-primary">
                             <div class="d-none d-sm-block col-1 text-dark">Serial</div>
                             <div class="col-9 col-sm-5 text-dark">Food Item Name</div>
                             <div class="d-none d-sm-block col-4 col-sm-2 text-dark">Qty</div>
@@ -90,8 +93,8 @@
                                     <div class="d-none d-sm-block col-1">{{ $key+1 }}</div>
                                     <div class="col-9 col-sm-5">{{ $order->food->name }}</div>
                                     <div class="d-none d-sm-block col-2">{{ $order->quantity }}</div>
-                                    <div class="d-none d-sm-block col-2 text-95">{{ $order->food->price }}</div>
-                                    <div class="col-2 text-secondary-d2">{{ $order->sub_total }}</div>
+                                    <div class="d-none d-sm-block col-2 text-95">{{ $order->food->price }} /=</div>
+                                    <div class="col-2 text-secondary-d2">{{ $order->sub_total }} /=</div>
                                 </div>
                                 <hr />
 
@@ -112,7 +115,7 @@
                                         Total
                                     </div>
                                     <div class="col-5">
-                                        <span class="text-120 text-secondary-d1">{{$total}}</span>
+                                        <span class="text-120 text-secondary-d1">{{$total}} /=</span>
                                     </div>
                                 </div>
 
@@ -121,7 +124,7 @@
                                         Tax (5%)
                                     </div>
                                     <div class="col-5">
-                                        <span class="text-110 text-secondary-d1">{{$tax}}</span>
+                                        <span class="text-110 text-secondary-d1">{{$tax}} /=</span>
                                     </div>
                                 </div>
                                 <hr />
@@ -132,7 +135,7 @@
                                      Total
                                     </div>
                                     <div class="col-5">
-                                        <span class="text-110 text-secondary-d1">{{$grand_total}}</span>
+                                        <span class="text-110 text-secondary-d1">{{$grand_total}} /=</span>
                                     </div>
                                 </div>
                             </div>
@@ -148,7 +151,8 @@
             </div>
         </div>
     </div>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/js/bootstrap.bundle.min.js" integrity="sha384-JEW9xMcG8R+pH31jmWH6WWP0WintQrMb4s7ZOdauHnUtxwoG2vI5DkLtS3qm9Ekf" crossorigin="anonymous"></script>
+    {{-- <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/js/bootstrap.bundle.min.js" integrity="sha384-JEW9xMcG8R+pH31jmWH6WWP0WintQrMb4s7ZOdauHnUtxwoG2vI5DkLtS3qm9Ekf" crossorigin="anonymous"></script>
 
     </body>
-</html>
+</html> --}}
+@endsection

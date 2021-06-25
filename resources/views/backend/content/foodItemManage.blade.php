@@ -21,13 +21,13 @@
             @endforeach
         @endif
 {{-- staff Details table --}}
-<table class="table my-3 text-center" style="margin-right: 200px;">
+<table class="table mt-5 text-center table-bordered table-striped table-success" style="margin-right: 200px;">
     <thead>
       <tr>
-        <th scope="col">#</th>
+        <th scope="col">Serial</th>
         <th scope="col">Picture</th>
         <th scope="col">Food Name</th>
-        <th scope="col">Description</th>
+        <th scope="col"  style="width:400px">Description</th>
         <th scope="col">Price</th>
         <th scope="col">Action</th>
       </tr>
@@ -36,10 +36,10 @@
      @foreach($foodItems as $key=> $request)
 
         <tr>
-            <th scope="row">{{$foodItems->firstItem()+$key}}</th>
-            <td><img src="{{url('/files/photo/'.$request->file)}}" style="width:70px; height:60px;" ></td>
+            <th>{{$foodItems->firstItem()+$key}}</th>
+            <td><img src="{{url('/files/photo/'.$request->file)}}" style="width:100px; height:80px;" ></td>
             <td>{{$request->name}}</td>
-            <td>{{$request->description}}</td>
+            <td style="width:400px">{{$request->description}}</td>
             <td>{{$request->price}} /=</td>
 {{--
             <td>

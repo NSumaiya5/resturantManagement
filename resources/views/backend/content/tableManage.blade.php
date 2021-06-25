@@ -13,7 +13,7 @@
 <table class="table my-3 " style="margin-right: 200px;">
     <thead>
       <tr>
-        <th scope="col">#</th>
+        <th scope="col">serial</th>
         <th scope="col">Picture</th>
         <th scope="col">Capacity</th>
         {{-- <th scope="col">Status</th> --}}
@@ -75,7 +75,7 @@
     <div class="modal-dialog">
       <div class="modal-content">
         <div class="modal-header">
-          <h5 class="modal-title" id="staticBackdropLabel">Add Food</h5>
+          <h5 class="modal-title" id="staticBackdropLabel">Add New Table</h5>
           <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
         </div>
 

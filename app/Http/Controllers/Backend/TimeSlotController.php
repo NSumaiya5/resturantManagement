@@ -34,6 +34,7 @@ class TimeSlotController extends Controller
             'reservation_time_to'=>\Carbon\Carbon::parse( $request->to_time )->format('h:i A'),
             ]);
 
+            // dd($request);
             return redirect()->back();
     }
 
@@ -50,7 +51,7 @@ class TimeSlotController extends Controller
 
 
 
-            return redirect()->route('timeSlot')->with('error-message', 'Task deleted successfully.');
+            return redirect()->route('timeSlot')->with('error-message', ' deleted successfully.');
         }
 
  catch (Throwable $e) {

@@ -89,7 +89,7 @@
                                         alt="foodItem image">
                                     <div class="card-body">
                                         <p class="card-text">Food-Name: {{ $data->name }}</p>
-                                        <p class="card-text">Food-price: {{ $data->price }}</p>
+                                        <p class="card-text">Food-price: {{ $data->price }}/=</p>
                                         <hr />
 
                                         <div class="d-flex justify-content-between align-items-center">

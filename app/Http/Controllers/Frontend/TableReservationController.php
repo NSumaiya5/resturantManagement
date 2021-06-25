@@ -16,12 +16,13 @@ class TableReservationController extends Controller
         $now =Carbon::now()->addHours(6)->format('h:i A');
 
         $tables=Table::where('status','=','show')->get();
-        $time_slot = TimeSlot::where('reservation_time_from','>', $now)->get();
+        // $time_slot = TimeSlot::where('reservation_time_from','>', $now)->get();
+        $time_slot = TimeSlot::all();
         $now = Carbon::now()->addHours(6)->format('Y-m-d');
 
 
 
-        //   dd($tables);
+        //   dd($time_slot);
         return view('frontend.content.tableReservation',compact('tables','time_slot','now'));
     }
 

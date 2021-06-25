@@ -84,7 +84,7 @@
 
 
                                     <tr>
-                                        <th>{{ $key + 1 }}</th>
+                                        <th scope>{{ $key + 1 }}</th>
                                         <td>{{ $order->created_at->format('d-m-Y') }} </td>
                                         <td>{{ $order->orderForDetails->user->name }} </td>
                                         <td>{{ $order->orderForDetails->user->email }} </td>
