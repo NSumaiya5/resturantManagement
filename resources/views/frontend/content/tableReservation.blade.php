@@ -85,7 +85,7 @@
 
   @endforeach
   @else
-  <h1>No table found</h1>
+  <h1 class="text-center">Please Select Valid Time For Reservation</h1>
 @endif
 </div>
 

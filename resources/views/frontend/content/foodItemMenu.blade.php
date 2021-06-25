@@ -22,7 +22,7 @@
                             <th scope="col">serial</th>
                             <th scope="col">Picture</th>
                             <th scope="col">Food Name</th>
-                            <th scope="col">Description</th>
+                            <th scope="col"style="width:200px">Description</th>
                             <th scope="col">Price</th>
                             <th scope="col">Add To Crat</th>
                             <th scope="col">Review</th>
@@ -36,7 +36,7 @@
                                 <td><img src="{{ url('/files/photo/' . $data->file) }}" alt="foodItem image"
                                         style="width:150px; height:140px;"></td>
                                 <td>{{ $data->name }}</td>
-                                <td>{{ $data->description }}</td>
+                                <td style="width:200px">{{ $data->description }}</td>
                                 <td>{{ $data->price }} /=</td>
 
                                 <td>

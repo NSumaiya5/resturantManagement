@@ -120,7 +120,7 @@
                 </div>
                 <div class="text-center mt-5 fs-4">
                     <a class="fas fa-arrow-circle-right text-decoration-none " style="color: #dd7140;"
-                        href="{{ route('allFoodItemMenu') }}">see more</a>
+                    href="{{route('foodItemMenu')}}">see more</a>
                 </div>
             </div>
             </section>

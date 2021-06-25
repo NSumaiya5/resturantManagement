@@ -49,8 +49,8 @@ $time_check =TimeSlot::find($request->time_id);
 
     if(strtotime($time_check -> reservation_time_from) < strtotime($now) && $searchDate== Carbon::now()->addHours(6)->format('Y-m-d'))
     {
-
-        return redirect()->back()->with('status', 'Reservation Time Invalid');
+ $tables = [];
+        return  view('frontend.content.tableReservation',compact('tables','time_slot','searchDate','searchTime'));
     }
 
 
@@ -60,7 +60,9 @@ $time_check =TimeSlot::find($request->time_id);
         ->select('tables_id')
         // ->where('status','=','show')
         ->where('reservation_date', $searchDate)
+        ->whereIn('status', ['pending','confirm'])
         ->where('time_slots_id', $searchTime);
+
     })
 
     ->get();

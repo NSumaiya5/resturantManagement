@@ -34,7 +34,7 @@ class ReviewController extends Controller
                 'rate'=>$request->input('rate'),
                  'message'=>$request->input('message'),
             ]);
-            return redirect()->back();
+            return redirect()->back()->with('message','Review create Successfully');
 
 
         }
